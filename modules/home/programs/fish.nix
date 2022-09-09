@@ -8,9 +8,6 @@
     interactiveShellInit = ''
       any-nix-shell fish --info-right | source
       zoxide init fish | source
-      if hostname | grep -q nixos
-        starship init fish | source
-      end
     '';
     functions = {
       qcomm = "qfile (which $argv)";
