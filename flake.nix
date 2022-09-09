@@ -51,7 +51,7 @@
         nixosConfigurations.nixos-inspiron = nixpkgs.lib.nixosSystem {
           inherit system pkgs;
           specialArgs = {
-            #inherit hw;
+            inherit hw;
             hostName = "nixos-inspiron";
             userName = "weathercold";
             userDescription = "Weathercold";
