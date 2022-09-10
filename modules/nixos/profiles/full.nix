@@ -161,12 +161,18 @@
       zoxide
       exa
       neofetch
+      (ventoy-bin.override {
+        defaultGuiType = "qt5";
+        withQt5 = true;
+      })
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
       MOZ_ENABLE_WAYLAND = "1";
     };
   };
+
+  virtualisation.waydroid.enable = true;
 
   programs = {
     git = {
