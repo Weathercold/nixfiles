@@ -71,52 +71,12 @@
     useXkbConfig = true; # use xkbOptions in tty.
   };
 
-  services = {
-    xserver = {
-      enable = true;
-      displayManager.sddm.enable = true;
-      desktopManager.plasma5.enable = true;
-
-      layout = "us";
-      xkbOptions = "caps:swapescape"; # Swap caps with escape.
-      libinput = {
-        touchpad = {
-          clickMethod = "clickfinger";
-          naturalScrolling = true;
-          disableWhileTyping = true;
-        };
-      };
-    };
-
-    # Audio
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-    };
-
-    # Music
-    mpd.enable = true;
-
-    # Firmware updates
-    fwupd.enable = true;
-
-    # Needed for storing vscode auth token
-    gnome.gnome-keyring.enable = true;
-  };
-
   security = {
     rtkit.enable = true;
     sudo = {
       wheelNeedsPassword = false;
       execWheelOnly = true;
     };
-  };
-
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
   };
 
   users = {
@@ -133,8 +93,6 @@
     };
   };
 
-  # System packages
-  # $ nix search wget
   environment = {
     systemPackages = with pkgs; [
       # Work
@@ -172,6 +130,41 @@
     };
   };
 
+  services = {
+    xserver = {
+      enable = true;
+      displayManager.sddm.enable = true;
+      desktopManager.plasma5.enable = true;
+
+      layout = "us";
+      xkbOptions = "caps:swapescape"; # Swap caps with escape.
+      libinput = {
+        touchpad = {
+          clickMethod = "clickfinger";
+          naturalScrolling = true;
+          disableWhileTyping = true;
+        };
+      };
+    };
+
+    # Audio
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
+
+    # Music
+    mpd.enable = true;
+
+    # Firmware updates
+    fwupd.enable = true;
+
+    # Needed for storing vscode auth token
+    gnome.gnome-keyring.enable = true;
+  };
+
   virtualisation.waydroid.enable = true;
 
   programs = {
@@ -199,10 +192,15 @@
       noto-fonts-cjk-sans
     ];
     fontconfig.defaultFonts = {
-      monospace = [ "Inconsolata Nerd Font" ];
+      monospace = [ "Inconsolata Nerd Font Mono" "Noto Sans Mono" ];
       sansSerif = [ "Open Sans" "Noto Sans" ];
       serif = [ "Noto Serif" ];
     };
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
   };
 
   system.stateVersion = "22.11";
