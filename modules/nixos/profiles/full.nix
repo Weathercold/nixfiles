@@ -188,7 +188,7 @@
       noto-fonts-cjk-sans
     ];
     fontconfig.defaultFonts = {
-      monospace = [ "Inconsolata" ];
+      monospace = [ "Inconsolata Nerd Font" ];
       sansSerif = [ "Open Sans" "Noto Sans" ];
       serif = [ "Noto Serif" ];
     };
