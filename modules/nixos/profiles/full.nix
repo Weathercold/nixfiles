@@ -183,6 +183,7 @@
   fonts = {
     fonts = with pkgs; [
       inconsolata-nerdfont
+      iosevka-bin
       open-sans
       noto-fonts-cjk-sans
     ];
