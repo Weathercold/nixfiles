@@ -137,13 +137,19 @@
   # $ nix search wget
   environment = {
     systemPackages = with pkgs; [
+      # Work
       helix
       vscode-with-extensions
-      rnix-lsp # Nix LSP Implementation
       jetbrains.idea-community
+      rnix-lsp # Nix LSP Implementation
+
+      # Applications
       firefox-wayland
       thunderbird
       discord-canary
+      libsForQt5.qtstyleplugin-kvantum # For Colloid-kde
+
+      # Utils
       pciutils
       zip
       unzip
@@ -155,7 +161,6 @@
       zoxide
       exa
       neofetch
-      libsForQt5.qtstyleplugin-kvantum # For Colloid-kde
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
