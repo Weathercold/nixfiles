@@ -165,8 +165,6 @@
     gnome.gnome-keyring.enable = true;
   };
 
-  virtualisation.waydroid.enable = true;
-
   programs = {
     git = {
       enable = true;
