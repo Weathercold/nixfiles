@@ -1,6 +1,22 @@
 {
   "nodes": {
-    "dotdropComp": {
+    "colloidFirefoxTheme": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1662020066,
+        "narHash": "sha256-udfb335tBnzinh3m2NZMNvJvhXDey3Txepg02BxEGnE=",
+        "owner": "vinceliuice",
+        "repo": "Colloid-gtk-theme",
+        "rev": "a63df3b4d6344ed6c8351fd3abaed10cf702ad04",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vinceliuice",
+        "repo": "Colloid-gtk-theme",
+        "type": "github"
+      }
+    },
+    "dotdropFishComp": {
       "flake": false,
       "locked": {
         "narHash": "sha256-xHGp1586Tmmkp3rcSgJLzigql9pajD4YWGMzbM9OAeE=",
@@ -37,11 +53,11 @@
     },
     "hw": {
       "locked": {
-        "lastModified": 1662511994,
-        "narHash": "sha256-l5Mxos/KrRBYsH8nBoiFvtvqeKBhyAjnI4jCrofrfwQ=",
+        "lastModified": 1662781557,
+        "narHash": "sha256-pfS82lIXGGGnSOryxLb073baKK+B1gLx4My1wCi2f1I=",
         "owner": "weathercold",
         "repo": "nixos-hardware",
-        "rev": "2433c7285862bd850b07f2aa673c0c951bf6616a",
+        "rev": "bb36cedc0a2a6624264b2ac75d679967717ff7e3",
         "type": "github"
       },
       "original": {
@@ -52,11 +68,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1662019588,
-        "narHash": "sha256-oPEjHKGGVbBXqwwL+UjsveJzghWiWV0n9ogo1X6l4cw=",
+        "lastModified": 1662732537,
+        "narHash": "sha256-iqxa+38SRU+SwNsKDyP8rZt79yPFGSgTe+K4Ujbb/uw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "2da64a81275b68fdad38af669afeda43d401e94b",
+        "rev": "74a1793c659d09d7cf738005308b1f86c90cb59b",
         "type": "github"
       },
       "original": {
@@ -68,11 +84,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1662760109,
-        "narHash": "sha256-a3Sz81FzM2xvk35gjc7vxpTpBpl1725vt1tILlTXhRA=",
+        "lastModified": 1662867858,
+        "narHash": "sha256-AT3b2dyYXt+AMpNMtiDITR4qVg1N3sQACkpmyMivqOU=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "60e87040af5fe9ad024697e3c4ba68a672575dbc",
+        "rev": "70a47c342048050f79f91e39c004c278d82fb2cf",
         "type": "github"
       },
       "original": {
@@ -83,7 +99,8 @@
     },
     "root": {
       "inputs": {
-        "dotdropComp": "dotdropComp",
+        "colloidFirefoxTheme": "colloidFirefoxTheme",
+        "dotdropFishComp": "dotdropFishComp",
         "hm": "hm",
         "hw": "hw",
         "nixpkgs": "nixpkgs",

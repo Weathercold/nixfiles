@@ -1,4 +1,4 @@
-{ dotdropComp, ... }:
+{ dotdropFishComp, ... }:
 {
   programs.fish.shellAliases = {
     dotdrop = "~/src/dotfiles/scripts/dotdrop.sh";
@@ -6,5 +6,5 @@
     sysdrop = "~/src/sysfiles/scripts/dotdrop.sh";
     syssync = "~/src/sysfiles/scripts/dotsync.sh";
   };
-  xdg.configFile."fish/completions/dotdrop.fish".source = dotdropComp;
+  xdg.configFile."fish/completions/dotdrop.fish".source = dotdropFishComp;
 }

@@ -15,8 +15,12 @@
       };
     };
 
-    dotdropComp = {
+    dotdropFishComp = {
       url = "https://raw.githubusercontent.com/deadc0de6/dotdrop/master/completion/dotdrop.fish";
+      flake = false;
+    };
+    colloidFirefoxTheme = {
+      url = "github:vinceliuice/Colloid-gtk-theme";
       flake = false;
     };
   };
@@ -30,7 +34,8 @@
     , utils
     , hm
 
-    , dotdropComp
+    , dotdropFishComp
+    , colloidFirefoxTheme
     , ...
     } @ inputs:
 
@@ -65,7 +70,10 @@
 
         homeConfigurations.weathercold = hm.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = { inherit dotdropComp; };
+          extraSpecialArgs = {
+            inherit dotdropFishComp;
+            firefoxTheme = colloidFirefoxTheme + "/src/other/firefox/chrome/Colloid";
+          };
           modules = [ ./modules/home/profiles/full.nix ];
         };
       };

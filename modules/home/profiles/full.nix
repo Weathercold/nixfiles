@@ -4,6 +4,7 @@
     ../programs/fish.nix
     ../programs/starship.nix
     ../programs/dotdrop.nix
+    ../programs/firefox.nix
   ];
 
   home = {

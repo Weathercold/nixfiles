@@ -102,7 +102,6 @@
       rnix-lsp # Nix LSP Implementation
 
       # Applications
-      firefox-wayland
       thunderbird
       discord-canary
       libsForQt5.qtstyleplugin-kvantum # For Colloid-kde
