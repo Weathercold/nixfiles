@@ -22,6 +22,8 @@
           "services.sync.username" = "weathercold.scr@gmail.com";
           "browser.aboutConfig.showWarning" = false;
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+          "browser.uidensity" = 2;
+          "browser.tabs.inTitlebar" = 1;
         };
       };
   };
