@@ -1,5 +1,6 @@
 { config
 , pkgs
+, userEmail
 , ...
 } @ args:
 
@@ -12,7 +13,7 @@ in
   programs.firefox = {
     package = pkgs.firefox-wayland;
     profiles.${firefoxProfile}.settings = {
-      "services.sync.username" = "weathercold.scr@gmail.com";
+      "services.sync.username" = userEmail;
       "browser.aboutConfig.showWarning" = false;
     };
   };

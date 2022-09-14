@@ -80,7 +80,9 @@
           inherit pkgs;
           extraSpecialArgs = {
             inherit dotdropFishComp Colloid-gtk-theme;
-            firefoxProfile = "weathercold";
+            username = "weathercold";
+            userDirectory = "/home/weathercold";
+            userEmail = "weathercold.scr@gmail.com";
           };
           modules =
             (import ./modules/home/module-list.nix)

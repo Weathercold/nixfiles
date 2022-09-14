@@ -1,8 +1,11 @@
-{ pkgs, ... }:
+{ pkgs
+, username
+, homeDirectory
+, ...
+}:
 {
   home = {
-    username = "weathercold";
-    homeDirectory = "/home/weathercold";
+    inherit username homeDirectory;
     stateVersion = "22.11";
     packages = with pkgs; [
       any-nix-shell
