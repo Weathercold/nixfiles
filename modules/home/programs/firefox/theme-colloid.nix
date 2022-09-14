@@ -14,7 +14,7 @@ let
   });
   firefoxProfile = args.firefoxProfile or config.home.username;
 
-  tme = "/src/other/firefox/chrome/Colloid";
+  tme = Colloid-gtk-theme + "/src/other/firefox/chrome/Colloid";
 in
 
 {
