@@ -6,12 +6,12 @@
 let
   # FIXME: Module optional args are broken
   # https://github.com/vinceliuice/Colloid-gtk-theme
-  Colloid-gtk-theme = args.Colloid-gtk-theme or pkgs.fetchFromGitHub {
+  Colloid-gtk-theme = args.Colloid-gtk-theme or (pkgs.fetchFromGitHub {
     owner = "vinceliuice";
     repo = "Colloid-gtk-theme";
     rev = "a63df3b4d6";
     sha256 = "Jw3rZltDs0vbOzFAKyyoF/PucYCr6FYJfAzJHRQtHTc=";
-  };
+  });
   firefoxProfile = args.firefoxProfile or config.home.username;
 
   tme = "/src/other/firefox/chrome/Colloid";

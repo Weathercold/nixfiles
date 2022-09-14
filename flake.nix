@@ -81,7 +81,7 @@
           extraSpecialArgs = {
             inherit dotdropFishComp Colloid-gtk-theme;
             username = "weathercold";
-            userDirectory = "/home/weathercold";
+            homeDirectory = "/home/weathercold";
             userEmail = "weathercold.scr@gmail.com";
           };
           modules =
