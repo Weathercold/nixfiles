@@ -79,7 +79,7 @@
         homeConfigurations.weathercold = hm.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {
-            #inherit dotdropFishComp Colloid-gtk-theme;
+            inherit dotdropFishComp Colloid-gtk-theme;
             firefoxProfile = "weathercold";
           };
           modules =
