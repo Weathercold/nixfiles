@@ -111,6 +111,7 @@
       zip
       unzip
       wget
+      jq
       nixos-option
       comma
       xorg.xeyes

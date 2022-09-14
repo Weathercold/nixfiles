@@ -1,12 +1,5 @@
 { pkgs, ... }:
 {
-  imports = [
-    ../programs/fish.nix
-    ../programs/starship.nix
-    ../programs/dotdrop.nix
-    ../programs/firefox.nix
-  ];
-
   home = {
     username = "weathercold";
     homeDirectory = "/home/weathercold";
@@ -21,7 +14,11 @@
 
   programs = {
     home-manager.enable = true;
-
+    fish.enable = true;
+    starship.enable = true;
+    dotdrop.enable = true;
+    firefox.enable = true;
+    bat.enable = true;
     fzf.enable = true;
   };
 }
