@@ -86,7 +86,7 @@
         description = userDescription;
         hashedPassword = userPassword;
         isNormalUser = true;
-        extraGroups = [ "wheel" "networkmanager" ];
+        extraGroups = [ "wheel" "audio" "networkmanager" ];
       };
 
       root.hashedPassword = userPassword;
