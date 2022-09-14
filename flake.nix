@@ -8,7 +8,7 @@
     nur.url = "github:nix-community/NUR";
 
     # Utils
-    hw.url = "github:weathercold/nixos-hardware";
+    hw.url = "github:NixOS/nixos-hardware";
     # TODO: Actually use
     utils.url = "github:numtide/flake-utils";
     hm = {
