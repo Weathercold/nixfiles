@@ -15,7 +15,6 @@
       ani = "ani-cli";
       c = "clear";
       cat = "bat";
-      ls = "exa";
       nf = "neofetch";
       nvl = "~/src/lightnovel.sh/lightnovel.sh";
       zz = "z -";

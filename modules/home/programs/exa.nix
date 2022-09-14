@@ -1,0 +1,3 @@
+{
+  programs.exa.enableAliases = true;
+}

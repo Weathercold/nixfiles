@@ -117,7 +117,6 @@
       xorg.xeyes
       gh
       zoxide
-      exa
       neofetch
       (ventoy-bin.override {
         defaultGuiType = "qt5";

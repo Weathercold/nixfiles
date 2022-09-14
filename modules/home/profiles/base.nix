@@ -22,6 +22,7 @@
     dotdrop.enable = true;
     firefox.enable = true;
     bat.enable = true;
+    exa.enable = true;
     fzf.enable = true;
   };
 }
