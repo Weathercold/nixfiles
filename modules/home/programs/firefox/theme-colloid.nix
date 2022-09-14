@@ -10,7 +10,7 @@ let
     owner = "vinceliuice";
     repo = "Colloid-gtk-theme";
     rev = "a63df3b4d6";
-    sha256 = "";
+    sha256 = "Jw3rZltDs0vbOzFAKyyoF/PucYCr6FYJfAzJHRQtHTc=";
   };
   firefoxProfile = args.firefoxProfile or config.home.username;
 
