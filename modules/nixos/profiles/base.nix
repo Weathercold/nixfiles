@@ -1,6 +1,6 @@
 { pkgs
 , hostName
-, userName
+, username
 , userDescription
 , userPassword
 , ...
@@ -82,7 +82,7 @@
   users = {
     mutableUsers = false;
     users = rec {
-      ${userName} = {
+      ${username} = {
         description = userDescription;
         hashedPassword = userPassword;
         isNormalUser = true;
