@@ -28,7 +28,7 @@
     "/" = {
       device = "/dev/disk/by-label/nixos";
       fsType = "btrfs";
-      options = [ "subvol=root" "noatime" "compress-force=zstd" "autodefrag" ];
+      options = [ "subvol=root" "noatime" "compress-force=zstd" ];
     };
     "/boot" = {
       device = "/dev/disk/by-label/esp";
@@ -38,12 +38,12 @@
     "/home" = {
       device = "/dev/disk/by-label/data";
       fsType = "btrfs";
-      options = [ "subvol=home" "noatime" "compress-force=zstd" "autodefrag" ];
+      options = [ "subvol=home" "noatime" "compress-force=zstd" ];
     };
     "/nix" = {
       device = "/dev/disk/by-label/nixos";
       fsType = "btrfs";
-      options = [ "subvol=nix" "noatime" "compress-force=zstd" "autodefrag" ];
+      options = [ "subvol=nix" "noatime" "compress-force=zstd" ];
     };
     "/swap" = {
       device = "/dev/disk/by-label/nixos";
