@@ -6,6 +6,7 @@
     '';
 
     directory = {
+      read_only = " ";
       truncation_symbol = "…/";
     };
     username.format = "[$user]($style)";
@@ -29,6 +30,7 @@
     };
     nix_shell = {
       format = '' [$symbol$state( \($name\))]($style)'';
+      symbol = " ";
     };
   };
 }
