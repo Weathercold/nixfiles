@@ -25,4 +25,6 @@
     exa.enable = true;
     fzf.enable = true;
   };
+
+  xdg.configFile.nixpkgs.source = ../../..;
 }
