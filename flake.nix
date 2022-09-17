@@ -66,6 +66,7 @@
             hostName = "nixos-inspiron";
             username = "weathercold";
             userDescription = "Weathercold";
+            userEmail = "weathercold.scr@gmail.com";
             userPassword = "$6$ESJQyaoFNr5kAoux$Jpvf3Qk/EfRJVvDK3lMND5X9eiMGNUt8TP7BoYPf5YYK/TpTeuyh.FqwheVvfaYlHwek1YFBP6qFAcgz1a14j/";
           };
           modules =
@@ -81,8 +82,8 @@
           extraSpecialArgs = {
             inherit dotdropFishComp Colloid-gtk-theme;
             username = "weathercold";
-            homeDirectory = "/home/weathercold";
             userEmail = "weathercold.scr@gmail.com";
+            homeDirectory = "/home/weathercold";
           };
           modules =
             (import ./modules/home/module-list.nix)

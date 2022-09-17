@@ -2,6 +2,7 @@
 , hostName
 , username
 , userDescription
+, userEmail
 , userPassword
 , ...
 }:
@@ -194,8 +195,8 @@
       enable = true;
       config = {
         user = {
-          name = "Weathercold";
-          email = "weathercold.scr@gmail.com";
+          name = userDescription;
+          email = userEmail;
         };
       };
     };
