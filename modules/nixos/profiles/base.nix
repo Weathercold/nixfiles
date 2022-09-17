@@ -21,6 +21,8 @@
       efi.canTouchEfiVariables = true;
     };
     kernelPackages = pkgs.linuxPackages_zen;
+    resumeDevice = "/dev/disk/by-label/nixos";
+    kernelParams = [ "resume_offset=4929334" ];
     kernel.sysctl = { "vm.swappiness" = 20; };
   };
 
