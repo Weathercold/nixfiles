@@ -50,6 +50,19 @@
       fsType = "btrfs";
       options = [ "subvol=swap" "noatime" ];
     };
+
+    "/mnt/partagez" = {
+      device = "partagez:";
+      fsType = "rclone";
+      options = [
+        "nofail"
+        "_netdev"
+
+        "vfs-cache-mode=writes"
+        "config=/etc/rclone.conf"
+        "cache-dir=/var/cache/rclone"
+      ];
+    };
   };
   swapDevices = [{ device = "/swap/swapfile"; }];
 
@@ -107,7 +120,7 @@
       discord-canary
       libsForQt5.qtstyleplugin-kvantum # For Colloid-kde
 
-      # Utils
+      # Commands
       pciutils
       zip
       unzip
@@ -115,10 +128,13 @@
       jq
       nixos-option
       comma
-      xorg.xeyes
       gh
       zoxide
       neofetch
+
+      # Utils
+      rclone
+      xorg.xeyes
       (ventoy-bin.override {
         defaultGuiType = "qt5";
         withQt5 = true;
@@ -128,7 +144,12 @@
       NIXOS_OZONE_WL = "1";
       MOZ_ENABLE_WAYLAND = "1";
     };
+    etc."rclone.conf".source = "/root/.config/rclone/rclone.conf";
   };
+
+  systemd.tmpfiles.rules = [
+    "L /sbin/mount.rclone - - - - /run/current-system/sw/bin/rclone"
+  ];
 
   services = {
     xserver = {
