@@ -156,6 +156,8 @@
   ];
 
   services = {
+    btrfs.autoScrub.enable = true;
+
     xserver = {
       enable = true;
       displayManager.sddm.enable = true;
