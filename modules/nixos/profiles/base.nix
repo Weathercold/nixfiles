@@ -107,6 +107,7 @@
   };
 
   environment = {
+    defaultPackages = [ ];
     systemPackages = with pkgs; [
       # Work
       helix
