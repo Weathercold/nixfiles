@@ -1,4 +1,5 @@
-{ pkgs
+{ config
+, pkgs
 , username
 , homeDirectory
 , ...
@@ -26,5 +27,5 @@
     fzf.enable = true;
   };
 
-  xdg.configFile.nixpkgs.source = ../../..;
+  xdg.configFile.nixpkgs.source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/src/nixfiles";
 }
