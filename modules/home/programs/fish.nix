@@ -4,6 +4,7 @@
       set -gx SHELL fish
     '';
     interactiveShellInit = ''
+      set fish_greeting ""
       any-nix-shell fish --info-right | source
       zoxide init fish | source
     '';
