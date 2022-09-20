@@ -49,18 +49,16 @@
 
       let
         system = "x86_64-linux";
-        pkgs = import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-        };
         lib = import ./lib;
       in
 
       {
         formatter.${system} = pkgs.nixpkgs-fmt;
 
+        inherit lib;
+
         nixosConfigurations.nixos-inspiron = nixpkgs.lib.nixosSystem {
-          inherit system pkgs;
+          inherit system;
           specialArgs = {
             inherit hw;
             hostName = "nixos-inspiron";
