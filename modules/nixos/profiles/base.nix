@@ -53,19 +53,6 @@
       fsType = "btrfs";
       options = [ "subvol=swap" "noatime" ];
     };
-
-    "/mnt/partagez" = {
-      device = "partagez:";
-      fsType = "rclone";
-      options = [
-        "nofail"
-        "_netdev"
-
-        "vfs-cache-mode=writes"
-        "config=/etc/rclone.conf"
-        "cache-dir=/var/cache/rclone"
-      ];
-    };
   };
   swapDevices = [{ device = "/swap/swapfile"; }];
 
@@ -137,7 +124,6 @@
       neofetch
 
       # Utils
-      rclone
       xorg.xeyes
       (ventoy-bin.override {
         defaultGuiType = "qt5";
@@ -148,15 +134,15 @@
       NIXOS_OZONE_WL = "1";
       MOZ_ENABLE_WAYLAND = "1";
     };
-    etc."rclone.conf".source = "/root/.config/rclone/rclone.conf";
   };
-
-  systemd.tmpfiles.rules = [
-    "L /sbin/mount.rclone - - - - /run/current-system/sw/bin/rclone"
-  ];
 
   services = {
     btrfs.autoScrub.enable = true;
+
+    rclone = {
+      enable = true;
+      enableFileSystems = true;
+    };
 
     xserver = {
       enable = true;

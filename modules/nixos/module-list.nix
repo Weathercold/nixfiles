@@ -1,3 +1,3 @@
 [
-  # Empty for now.
+  ./services/rclone.nix
 ]
