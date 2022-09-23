@@ -1,5 +1,0 @@
-{
-  imports = [
-    ./partials.nix
-  ];
-}

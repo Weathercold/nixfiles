@@ -49,7 +49,11 @@
 
       let
         system = "x86_64-linux";
-        lib = import ./lib;
+        lib = import ./modules/lib nixpkgs.lib;
+        # Default: Modules that have effet based on options.
+        # All: Default ++ modules that have effet on import.
+        nixosModules = import ./modules/nixos nixpkgs.lib;
+        homeModules = import ./modules/home nixpkgs.lib;
       in
 
       {
@@ -57,10 +61,14 @@
 
         inherit lib;
 
+        # Modules without options.
+        nixosModules = nixosModules.all;
+        homeModules = homeModules.all;
+
         nixosConfigurations.nixos-inspiron = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
-            inherit hw;
+            inherit self hw;
             hostName = "nixos-inspiron";
             username = "weathercold";
             userDescription = "Weathercold";
@@ -68,26 +76,30 @@
             userPassword = "$6$ESJQyaoFNr5kAoux$Jpvf3Qk/EfRJVvDK3lMND5X9eiMGNUt8TP7BoYPf5YYK/TpTeuyh.FqwheVvfaYlHwek1YFBP6qFAcgz1a14j/";
           };
           modules =
-            (import ./modules/nixos/module-list.nix)
+            lib.attrsets.attrValuesRecursive nixosModules.default
             ++ [
-              ./modules/nixos/hardware/inspiron-7405.nix
+              { lib = lib; }
+              nixosModules.all.hardware.inspiron-7405
               ./modules/nixos/profiles/base.nix
             ];
         };
 
-        homeConfigurations.weathercold = hm.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = {
-            inherit dotdropFishComp Colloid-gtk-theme;
-            username = "weathercold";
-            userEmail = "weathercold.scr@gmail.com";
-            homeDirectory = "/home/weathercold";
+        homeConfigurations.weathercold = hm.lib.homeManagerConfiguration
+          {
+            pkgs = nixpkgs.legacyPackages.${system};
+            extraSpecialArgs = {
+              inherit dotdropFishComp Colloid-gtk-theme;
+              username = "weathercold";
+              userEmail = "weathercold.scr@gmail.com";
+              homeDirectory = "/home/weathercold";
+            };
+            modules =
+              lib.attrsets.attrValuesRecursive homeModules.default
+              ++ nixpkgs.lib.attrsets.attrValues homeModules.all.theme-colloid
+              ++ [
+                { lib = lib; }
+                ./modules/home/profiles/base.nix
+              ];
           };
-          modules =
-            (import ./modules/home/module-list.nix)
-            ++ [
-              ./modules/home/profiles/theme-colloid.nix
-            ];
-        };
       };
 }

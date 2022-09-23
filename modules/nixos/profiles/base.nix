@@ -88,7 +88,7 @@
 
   users = {
     mutableUsers = false;
-    users = rec {
+    users = {
       ${username} = {
         description = userDescription;
         hashedPassword = userPassword;
@@ -128,6 +128,7 @@
       neofetch
 
       # Utils
+      libsForQt5.plasma-browser-integration
       xorg.xeyes
       (ventoy-bin.override {
         defaultGuiType = "qt5";
