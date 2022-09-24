@@ -128,7 +128,6 @@
       neofetch
 
       # Utils
-      libsForQt5.plasma-browser-integration
       xorg.xeyes
       (ventoy-bin.override {
         defaultGuiType = "qt5";
