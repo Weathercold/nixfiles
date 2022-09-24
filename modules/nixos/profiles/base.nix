@@ -116,6 +116,7 @@
       pciutils
       rnix-lsp # Nix LSP Implementation
       thunderbird
+      transcrypt
       unzip
       (ventoy-bin.override {
         defaultGuiType = "qt5";
