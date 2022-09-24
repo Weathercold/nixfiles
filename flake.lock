@@ -28,6 +28,22 @@
         "url": "https://raw.githubusercontent.com/deadc0de6/dotdrop/master/completion/dotdrop.fish"
       }
     },
+    "flake-compat": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1650374568,
+        "narHash": "sha256-Z+s0J8/r907g149rllvwhb4pKi8Wam5ij0st8PwAh+E=",
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "rev": "b4a34015c698c7793d592d66adbab377907a2be8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
     "hm": {
       "inputs": {
         "nixpkgs": [
@@ -101,6 +117,7 @@
       "inputs": {
         "Colloid-gtk-theme": "Colloid-gtk-theme",
         "dotdropFishComp": "dotdropFishComp",
+        "flake-compat": "flake-compat",
         "hm": "hm",
         "hw": "hw",
         "nixpkgs": "nixpkgs",

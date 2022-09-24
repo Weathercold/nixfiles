@@ -8,9 +8,13 @@
     nur.url = "github:nix-community/NUR";
 
     # Utils
-    hw.url = "github:NixOS/nixos-hardware";
+    flake-compat = {
+      url = "github:edolstra/flake-compat";
+      flake = false;
+    };
     # TODO: Actually use
     utils.url = "github:numtide/flake-utils";
+    hw.url = "github:NixOS/nixos-hardware";
     hm = {
       url = "github:nix-community/home-manager";
       inputs = {
@@ -43,6 +47,8 @@
 
     , dotdropFishComp
     , Colloid-gtk-theme
+
+    , ...
     } @ inputs:
 
       with builtins;
