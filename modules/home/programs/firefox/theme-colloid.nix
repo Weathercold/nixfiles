@@ -9,8 +9,8 @@ let
   Colloid-gtk-theme = args.Colloid-gtk-theme or (pkgs.fetchFromGitHub {
     owner = "vinceliuice";
     repo = "Colloid-gtk-theme";
-    rev = "a63df3b4d6";
-    sha256 = "Jw3rZltDs0vbOzFAKyyoF/PucYCr6FYJfAzJHRQtHTc=";
+    rev = "e3dd0f55b6";
+    sha256 = "Sv2sekgEKr/tFyVWyFYXkf+uhlK7FqjXbUBut6nEU5c=";
   });
   firefoxProfile = args.firefoxProfile or config.home.username;
 
