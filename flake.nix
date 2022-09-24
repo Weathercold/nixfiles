@@ -48,12 +48,51 @@
       with builtins;
 
       let
-        system = "x86_64-linux";
         lib = import ./modules/lib nixpkgs.lib;
+        inherit (lib.attrsets) attrValuesRecursive;
+        inherit (lib.partials) partialFunc;
         # Default: Modules that have effet based on options.
         # All: Default ++ modules that have effet on import.
         nixosModules = import ./modules/nixos nixpkgs.lib;
         homeModules = import ./modules/home nixpkgs.lib;
+
+        system = "x86_64-linux";
+        hostName = "nixos-inspiron";
+        username = "weathercold";
+        userDescription = "Weathercold";
+        userEmail = "weathercold.scr@gmail.com";
+        userPassword = "$6$ESJQyaoFNr5kAoux$Jpvf3Qk/EfRJVvDK3lMND5X9eiMGNUt8TP7BoYPf5YYK/TpTeuyh.FqwheVvfaYlHwek1YFBP6qFAcgz1a14j/";
+        homeDirectory = "/home/weathercold";
+
+        mkSystem = partialFunc nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            inherit
+              hw
+              hostName
+              username
+              userDescription
+              userEmail
+              userPassword;
+          };
+          modules =
+            attrValuesRecursive nixosModules.default
+            ++ [{ inherit lib; }];
+        };
+        mkHome = partialFunc hm.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.${system};
+          extraSpecialArgs = {
+            inherit
+              dotdropFishComp
+              Colloid-gtk-theme
+              username
+              userEmail
+              homeDirectory;
+          };
+          modules =
+            attrValuesRecursive homeModules.default
+            ++ [{ inherit lib; }];
+        };
       in
 
       {
@@ -65,41 +104,17 @@
         nixosModules = nixosModules.all;
         homeModules = homeModules.all;
 
-        nixosConfigurations.nixos-inspiron = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit self hw;
-            hostName = "nixos-inspiron";
-            username = "weathercold";
-            userDescription = "Weathercold";
-            userEmail = "weathercold.scr@gmail.com";
-            userPassword = "$6$ESJQyaoFNr5kAoux$Jpvf3Qk/EfRJVvDK3lMND5X9eiMGNUt8TP7BoYPf5YYK/TpTeuyh.FqwheVvfaYlHwek1YFBP6qFAcgz1a14j/";
-          };
-          modules =
-            lib.attrsets.attrValuesRecursive nixosModules.default
-            ++ [
-              { lib = lib; }
-              nixosModules.all.hardware.inspiron-7405
-              ./modules/nixos/profiles/base.nix
-            ];
+        nixosConfigurations.nixos-inspiron = mkSystem {
+          modules = [
+            nixosModules.all.hardware.inspiron-7405
+            ./modules/nixos/profiles/base.nix
+          ];
         };
 
-        homeConfigurations.weathercold = hm.lib.homeManagerConfiguration
-          {
-            pkgs = nixpkgs.legacyPackages.${system};
-            extraSpecialArgs = {
-              inherit dotdropFishComp Colloid-gtk-theme;
-              username = "weathercold";
-              userEmail = "weathercold.scr@gmail.com";
-              homeDirectory = "/home/weathercold";
-            };
-            modules =
-              lib.attrsets.attrValuesRecursive homeModules.default
-              ++ nixpkgs.lib.attrsets.attrValues homeModules.all.theme-colloid
-              ++ [
-                { lib = lib; }
-                ./modules/home/profiles/base.nix
-              ];
-          };
+        homeConfigurations.weathercold = mkHome {
+          modules =
+            nixpkgs.lib.attrsets.attrValues homeModules.all.theme-colloid
+            ++ [ ./modules/home/profiles/base.nix ];
+        };
       };
 }
