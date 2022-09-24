@@ -103,36 +103,29 @@
   environment = {
     defaultPackages = [ ];
     systemPackages = with pkgs; [
-      # Work
-      helix
-      vscode-with-extensions
-      jetbrains.idea-community
-      rnix-lsp # Nix LSP Implementation
-
-      # Applications
-      libreoffice-qt
-      thunderbird
-      discord-canary
-      libsForQt5.qtstyleplugin-kvantum # For Colloid-kde
-
-      # Commands
-      pciutils
-      zip
-      unzip
-      wget
-      jq
-      nixos-option
       comma
+      discord-canary
+      helix
       gh
-      zoxide
+      jetbrains.idea-community
+      jq
+      libreoffice-qt
+      libsForQt5.qtstyleplugin-kvantum # For Colloid-kde
       neofetch
-
-      # Utils
-      xorg.xeyes
+      nixos-option
+      pciutils
+      rnix-lsp # Nix LSP Implementation
+      thunderbird
+      unzip
       (ventoy-bin.override {
         defaultGuiType = "qt5";
         withQt5 = true;
       })
+      vscode-with-extensions
+      wget
+      xorg.xeyes
+      zip
+      zoxide
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
