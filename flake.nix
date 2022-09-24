@@ -4,7 +4,7 @@
   inputs = {
     # Repos
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # TODO: Actually use
+    ## TODO: Actually use
     nur.url = "github:nix-community/NUR";
 
     # Utils
@@ -12,14 +12,14 @@
       url = "github:edolstra/flake-compat";
       flake = false;
     };
-    # TODO: Actually use
-    utils.url = "github:numtide/flake-utils";
-    hw.url = "github:NixOS/nixos-hardware";
-    hm = {
+    ## TODO: Actually use
+    flake-utils.url = "github:numtide/flake-utils";
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
+    home-manager = {
       url = "github:nix-community/home-manager";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        utils.follows = "utils";
+        utils.follows = "flake-utils";
       };
     };
 
@@ -29,7 +29,7 @@
       flake = false;
     };
     ## https://github.com/vinceliuice/Colloid-gtk-theme
-    Colloid-gtk-theme = {
+    colloid-gtk-theme = {
       url = "github:vinceliuice/Colloid-gtk-theme";
       flake = false;
     };
@@ -41,12 +41,12 @@
     , nixpkgs
     , nur
 
-    , hw
-    , utils
-    , hm
+    , flake-utils
+    , nixos-hardware
+    , home-manager
 
     , dotdropFishComp
-    , Colloid-gtk-theme
+    , colloid-gtk-theme
 
     , ...
     } @ inputs:
@@ -54,13 +54,18 @@
       with builtins;
 
       let
-        lib = import ./modules/lib nixpkgs.lib;
+        pkgs = nixpkgs;
+        utils = flake-utils;
+        hw = nixos-hardware;
+        hm = home-manager;
+
+        lib = import ./modules/lib pkgs.lib;
         inherit (lib.attrsets) attrValuesRecursive;
         inherit (lib.partials) partialFunc;
         # Default: Modules that have effet based on options.
         # All: Default ++ modules that have effet on import.
-        nixosModules = import ./modules/nixos nixpkgs.lib;
-        homeModules = import ./modules/home nixpkgs.lib;
+        nixosModules = import ./modules/nixos pkgs.lib;
+        homeModules = import ./modules/home pkgs.lib;
 
         system = "x86_64-linux";
         hostName = "nixos-inspiron";
@@ -70,7 +75,7 @@
         userPassword = "$6$ESJQyaoFNr5kAoux$Jpvf3Qk/EfRJVvDK3lMND5X9eiMGNUt8TP7BoYPf5YYK/TpTeuyh.FqwheVvfaYlHwek1YFBP6qFAcgz1a14j/";
         homeDirectory = "/home/weathercold";
 
-        mkSystem = partialFunc nixpkgs.lib.nixosSystem {
+        mkSystem = partialFunc pkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
             inherit
@@ -86,11 +91,11 @@
             ++ [{ inherit lib; }];
         };
         mkHome = partialFunc hm.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.${system};
+          pkgs = pkgs.legacyPackages.${system};
           extraSpecialArgs = {
             inherit
               dotdropFishComp
-              Colloid-gtk-theme
+              colloid-gtk-theme
               username
               userEmail
               homeDirectory;
@@ -119,7 +124,7 @@
 
         homeConfigurations.weathercold = mkHome {
           modules =
-            nixpkgs.lib.attrsets.attrValues homeModules.all.theme-colloid
+            pkgs.lib.attrsets.attrValues homeModules.all.theme-colloid
             ++ [ ./modules/home/profiles/base.nix ];
         };
       };
