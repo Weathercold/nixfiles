@@ -11,7 +11,6 @@
   environment = {
     defaultPackages = [ ];
     systemPackages = with pkgs; [
-      comma
       discord-canary
       helix
       gh
@@ -37,6 +36,7 @@
       zoxide
     ];
     sessionVariables = {
+      NIX_AUTO_RUN = "1";
       NIXOS_OZONE_WL = "1";
       MOZ_ENABLE_WAYLAND = "1";
     };
