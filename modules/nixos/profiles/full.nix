@@ -20,7 +20,6 @@
       libsForQt5.qtstyleplugin-kvantum # For Colloid-kde
       neofetch
       nixos-option
-      pciutils
       rnix-lsp # Nix LSP Implementation
       thunderbird
       transcrypt
