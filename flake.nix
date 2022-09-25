@@ -54,33 +54,35 @@
       with builtins;
 
       let
+        # Aliases
         pkgs = nixpkgs;
         utils = flake-utils;
         hw = nixos-hardware;
         hm = home-manager;
 
+        # Modules
         lib = import ./modules/lib pkgs.lib;
         inherit (lib.attrsets) attrValuesRecursive;
         inherit (lib.partials) partialFunc;
-        # Default: Modules that have effet based on options.
-        # All: Default ++ modules that have effet on import.
+        ## Default: Modules that have effet based on options.
+        ## All: Default ++ modules that have effet on import.
         nixosModules = import ./modules/nixos pkgs.lib;
         homeModules = import ./modules/home pkgs.lib;
 
+        # Configuration
         system = "x86_64-linux";
-        hostName = "nixos-inspiron";
         username = "weathercold";
         userDescription = "Weathercold";
         userEmail = "weathercold.scr@gmail.com";
         userPassword = "$6$ESJQyaoFNr5kAoux$Jpvf3Qk/EfRJVvDK3lMND5X9eiMGNUt8TP7BoYPf5YYK/TpTeuyh.FqwheVvfaYlHwek1YFBP6qFAcgz1a14j/";
         homeDirectory = "/home/weathercold";
 
+        # Functions
         mkSystem = partialFunc pkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
             inherit
               hw
-              hostName
               username
               userDescription
               userEmail
@@ -116,16 +118,39 @@
         homeModules = homeModules.all;
 
         nixosConfigurations.nixos-inspiron = mkSystem {
+          specialArgs = { hostName = "nixos-inspiron"; };
           modules = [
             nixosModules.all.hardware.inspiron-7405
-            ./modules/nixos/profiles/base.nix
+            ./modules/nixos/profiles/full.nix
           ];
         };
 
         homeConfigurations.weathercold = mkHome {
           modules =
             pkgs.lib.attrsets.attrValues homeModules.all.theme-colloid
-            ++ [ ./modules/home/profiles/base.nix ];
+            ++ [ ./modules/home/profiles/full.nix ];
+        };
+
+        homeConfigurations.colloid = mkHome {
+          modules =
+            pkgs.lib.attrsets.attrValues homeModules.all.theme-colloid
+            ++ [
+              ./modules/home/profiles/base.nix
+              ./modules/home/misc/config-only.nix
+              ({ pkgs, ... }: {
+                home.packages = with pkgs; [
+                  colloid-kde
+                  colloid-gtk-theme
+                  colloid-icon-theme
+                ];
+                programs = {
+                  # Configurations for programs are built when you enable them.
+                  # fish.enable = true;
+                  # starship.enable = true;
+                  # firefox.enable = true;
+                };
+              })
+            ];
         };
       };
 }
