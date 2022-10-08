@@ -16,7 +16,7 @@
     flake-utils.url = "github:numtide/flake-utils";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:Weathercold/home-manager";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         utils.follows = "flake-utils";
@@ -62,10 +62,9 @@
 
         # Modules
         lib = import ./modules/lib pkgs.lib;
-        inherit (lib.attrsets) attrValuesRecursive;
         inherit (lib.partials) partialFunc;
-        ## Default: Modules that have effet based on options.
-        ## All: Default ++ modules that have effet on import.
+        ## Internal: Modules that have effet based on options.
+        ## Optional: Modules that have effet on import.
         nixosModules = import ./modules/nixos pkgs.lib;
         homeModules = import ./modules/home pkgs.lib;
 
@@ -89,7 +88,7 @@
               userPassword;
           };
           modules =
-            attrValuesRecursive nixosModules.default
+            nixosModules.internal
             ++ [{ inherit lib; }];
         };
         mkHome = partialFunc hm.lib.homeManagerConfiguration {
@@ -103,54 +102,60 @@
               homeDirectory;
           };
           modules =
-            attrValuesRecursive homeModules.default
+            homeModules.internal
             ++ [{ inherit lib; }];
         };
       in
 
       {
-        formatter.${system} = pkgs.nixpkgs-fmt;
-
         inherit lib;
 
-        # Modules without options.
-        nixosModules = nixosModules.all;
-        homeModules = homeModules.all;
+        nixosModules = nixosModules.regular;
+        homeModules = homeModules.regular;
+
+        formatter.${system} = pkgs.nixpkgs-fmt;
 
         nixosConfigurations.nixos-inspiron = mkSystem {
           specialArgs = { hostName = "nixos-inspiron"; };
           modules = [
-            nixosModules.all.hardware.inspiron-7405
+            nixosModules.regular.hardware.inspiron-7405
             ./modules/nixos/profiles/full.nix
           ];
         };
 
-        homeConfigurations.weathercold = mkHome {
-          modules =
-            pkgs.lib.attrsets.attrValues homeModules.all.theme-colloid
-            ++ [ ./modules/home/profiles/full.nix ];
-        };
-
-        homeConfigurations.colloid = mkHome {
-          modules =
-            pkgs.lib.attrsets.attrValues homeModules.all.theme-colloid
-            ++ [
-              ./modules/home/profiles/base.nix
-              ./modules/home/misc/config-only.nix
-              ({ pkgs, ... }: {
-                home.packages = with pkgs; [
-                  colloid-kde
-                  colloid-gtk-theme
-                  colloid-icon-theme
-                ];
-                programs = {
-                  # Configurations for programs are built when you enable them.
-                  # fish.enable = true;
-                  # starship.enable = true;
-                  # firefox.enable = true;
+        homeConfigurations.weathercold =
+          let tme = "colloid"; in
+          mkHome {
+            modules = [
+              ./modules/home/profiles/full.nix
+              {
+                nixfiles.themes = {
+                  themes = [ tme ];
+                  firefox.profiles = [ "weathercold" ];
                 };
-              })
+                specialization.${tme}.default = true;
+
+                specialization.aaaa.configuration = {
+                  home.file."hello.txt".text = "mhm";
+                };
+              }
             ];
-        };
+          };
+
+        homeConfigurations.colloid =
+          let tme = "colloid"; in
+          mkHome {
+            modules = [
+              ./modules/home/profiles/build-config.nix
+              {
+                nixfiles.themes = {
+                  themes = [ tme ];
+                  # For firefox, put your firefox profile name here.
+                  # firefox.profiles = [ ];
+                };
+                specialization.${tme}.default = true;
+              }
+            ];
+          };
       };
 }

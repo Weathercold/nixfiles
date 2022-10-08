@@ -1,10 +1,11 @@
 { config
+, lib
 , username
 , homeDirectory
 , ...
 }:
 {
-  # nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfreePredicate = lib.const true;
 
   home = {
     inherit username homeDirectory;
@@ -13,5 +14,8 @@
 
   programs.home-manager.enable = true;
 
-  xdg.configFile.nixpkgs.source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/src/nixfiles";
+  xdg = {
+    enable = true;
+    configFile.nixpkgs.source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/src/nixfiles";
+  };
 }

@@ -11,11 +11,11 @@
   environment = {
     defaultPackages = [ ];
     systemPackages = with pkgs; [
-      discord-canary
       helix
       gh
       jetbrains.idea-community
       jq
+      libsForQt5.kmail
       libreoffice-qt
       libsForQt5.qtstyleplugin-kvantum # For Colloid-kde
       neofetch
@@ -32,7 +32,6 @@
       wget
       xorg.xeyes
       zip
-      zoxide
     ];
     sessionVariables = {
       NIX_AUTO_RUN = "1";
@@ -100,19 +99,19 @@
     dconf.enable = true;
   };
 
-  fonts = {
-    fonts = with pkgs; [
-      inconsolata-nerdfont
-      iosevka-bin
-      open-sans
-      noto-fonts-cjk-sans
-    ];
-    fontconfig.defaultFonts = {
-      monospace = [ "Inconsolata Nerd Font Mono" "Noto Sans Mono" ];
-      sansSerif = [ "Open Sans" "Noto Sans" ];
-      serif = [ "Noto Serif" ];
-    };
-  };
+  # fonts = {
+  #   fonts = with pkgs; [
+  #     inconsolata-nerdfont
+  #     iosevka-bin
+  #     open-sans
+  #     noto-fonts-cjk-sans
+  #   ];
+  #   fontconfig.defaultFonts = {
+  #     monospace = [ "Inconsolata Nerd Font Mono" "Noto Sans Mono" ];
+  #     sansSerif = [ "Open Sans" "Noto Sans" ];
+  #     serif = [ "Noto Serif" ];
+  #   };
+  # };
 
   xdg.portal = {
     enable = true;

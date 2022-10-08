@@ -2,22 +2,28 @@
 {
   imports = [ ./base.nix ];
 
-  # nixpkgs.config.allowUnfree = true;
-
   home.packages = with pkgs; [
     any-nix-shell
-    colloid-kde
-    colloid-gtk-theme
-    colloid-icon-theme
+    (discord-canary.override { nss = nss_latest; })
   ];
 
+  nixfiles = {
+    email.enable = true;
+    programs = {
+      firefox = {
+        enable = true;
+        # enableDevEdition = true;
+      };
+      fish.enable = true;
+      starship.enable = true;
+      exa.enable = true;
+      dotdrop.enable = true;
+    };
+  };
+
   programs = {
-    fish.enable = true;
-    starship.enable = true;
-    dotdrop.enable = true;
-    firefox.enable = true;
+    zoxide.enable = true;
     bat.enable = true;
-    exa.enable = true;
     fzf.enable = true;
   };
 }
