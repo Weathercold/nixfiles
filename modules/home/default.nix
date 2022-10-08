@@ -11,7 +11,7 @@ in
     ./programs/bat.nix
     ./programs/dotdrop.nix
     ./programs/exa.nix
-    ./programs/firefox/main.nix
+    ./programs/firefox.nix
     ./programs/fish.nix
     ./programs/starship.nix
 
