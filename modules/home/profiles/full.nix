@@ -10,10 +10,7 @@
   nixfiles = {
     email.enable = true;
     programs = {
-      firefox = {
-        enable = true;
-        # enableDevEdition = true;
-      };
+      firefox.enable = true;
       fish.enable = true;
       starship.enable = true;
       exa.enable = true;
