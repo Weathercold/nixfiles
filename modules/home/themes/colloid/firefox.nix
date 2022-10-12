@@ -15,8 +15,8 @@ let
   colloid-gtk-theme = args.colloid-gtk-theme or (pkgs.fetchFromGitHub {
     owner = "vinceliuice";
     repo = "Colloid-gtk-theme";
-    rev = "ae82a48673f74e11c9a074ced17d7724b394d98a";
-    sha256 = "wM2Uh1e+GVrm52YE5HESSXWkudDdAsagMTrH8tw1lFk=";
+    rev = "824b99b86052427cedd1a63c3413153113efac39";
+    sha256 = "Etie1/3sHZfZFxQ6OYHREyeDs+uZvwPplcd2jMmJQcQ=";
   });
   tme = colloid-gtk-theme + "/src/other/firefox/chrome/Colloid";
 in
