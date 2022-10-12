@@ -39,7 +39,7 @@
     "/boot" = {
       device = "/dev/disk/by-label/esp";
       fsType = "vfat";
-      options = [ "noauto" "noatime" ];
+      options = [ "nofail" "noauto" "noatime" "x-systemd.automount" "x-systemd.idle-timeout=10min" ];
     };
     "/home" = {
       device = "/dev/disk/by-label/data";
