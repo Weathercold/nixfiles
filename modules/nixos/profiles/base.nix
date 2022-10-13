@@ -18,7 +18,6 @@
         enable = true;
         configurationLimit = 10; # Number of NixOS generations in systemd-boot.
       };
-      timeout = null;
       efi.canTouchEfiVariables = true;
     };
     kernelPackages = pkgs.linuxPackages_zen;
