@@ -99,19 +99,19 @@
     dconf.enable = true;
   };
 
-  # fonts = {
-  #   fonts = with pkgs; [
-  #     inconsolata-nerdfont
-  #     iosevka-bin
-  #     open-sans
-  #     noto-fonts-cjk-sans
-  #   ];
-  #   fontconfig.defaultFonts = {
-  #     monospace = [ "Inconsolata Nerd Font Mono" "Noto Sans Mono" ];
-  #     sansSerif = [ "Open Sans" "Noto Sans" ];
-  #     serif = [ "Noto Serif" ];
-  #   };
-  # };
+  /* fonts = {
+    fonts = with pkgs; [
+    inconsolata-nerdfont
+    iosevka-bin
+    open-sans
+    noto-fonts-cjk-sans
+    ];
+    fontconfig.defaultFonts = {
+    monospace = [ "Inconsolata Nerd Font Mono" "Noto Sans Mono" ];
+    sansSerif = [ "Open Sans" "Noto Sans" ];
+    serif = [ "Noto Serif" ];
+    };
+    }; */
 
   xdg.portal = {
     enable = true;
