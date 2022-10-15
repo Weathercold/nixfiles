@@ -12,7 +12,6 @@
       url = "github:edolstra/flake-compat";
       flake = false;
     };
-    ## TODO: Actually use
     flake-utils.url = "github:numtide/flake-utils";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     home-manager = {
@@ -49,113 +48,112 @@
     , colloid-gtk-theme
 
     , ...
-    } @ inputs:
+    }:
+    let
+      # Aliases
+      pkgs = nixpkgs.legacyPackages.${system};
+      utils = flake-utils;
+      hw = nixos-hardware;
+      hm = home-manager;
 
-      with builtins;
+      # Modules
+      callLib = m: import m pkgs.lib;
+      nixosModules = callLib ./modules/nixos;
+      homeModules = callLib ./modules/home;
+      inherit (self.lib.partials) partialFunc;
 
-      let
-        # Aliases
-        pkgs = nixpkgs;
-        utils = flake-utils;
-        hw = nixos-hardware;
-        hm = home-manager;
+      # Configuration
+      system = "x86_64-linux";
+      username = "weathercold";
+      userDescription = "Weathercold";
+      userEmail = "weathercold.scr@gmail.com";
+      userPassword = "$6$ESJQyaoFNr5kAoux$Jpvf3Qk/EfRJVvDK3lMND5X9eiMGNUt8TP7BoYPf5YYK/TpTeuyh.FqwheVvfaYlHwek1YFBP6qFAcgz1a14j/";
+      homeDirectory = "/home/weathercold";
 
-        # Modules
-        lib = import ./modules/lib pkgs.lib;
-        inherit (lib.partials) partialFunc;
-        ## Internal: Modules that have effet based on options.
-        ## Optional: Modules that have effet on import.
-        nixosModules = import ./modules/nixos pkgs.lib;
-        homeModules = import ./modules/home pkgs.lib;
-
-        # Configuration
-        system = "x86_64-linux";
-        username = "weathercold";
-        userDescription = "Weathercold";
-        userEmail = "weathercold.scr@gmail.com";
-        userPassword = "$6$ESJQyaoFNr5kAoux$Jpvf3Qk/EfRJVvDK3lMND5X9eiMGNUt8TP7BoYPf5YYK/TpTeuyh.FqwheVvfaYlHwek1YFBP6qFAcgz1a14j/";
-        homeDirectory = "/home/weathercold";
-
-        # Functions
-        mkSystem = partialFunc pkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit
-              hw
-              username
-              userDescription
-              userEmail
-              userPassword;
-          };
-          modules =
-            nixosModules.internal
-            ++ [{ inherit lib; }];
+      # Functions
+      mkSystem = partialFunc nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+          inherit
+            hw
+            username
+            userDescription
+            userEmail
+            userPassword;
         };
-        mkHome = partialFunc hm.lib.homeManagerConfiguration {
-          pkgs = pkgs.legacyPackages.${system};
-          extraSpecialArgs = {
-            inherit
-              dotdropFishComp
-              colloid-gtk-theme
-              username
-              userEmail
-              homeDirectory;
-          };
-          modules =
-            homeModules.internal
-            ++ [{ inherit lib; }];
+        modules =
+          nixosModules.internal
+          ++ [{ inherit (self) lib; }];
+      };
+      mkHome = partialFunc hm.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = {
+          inherit
+            dotdropFishComp
+            colloid-gtk-theme
+            username
+            userEmail
+            homeDirectory;
         };
-      in
+        modules =
+          homeModules.internal
+          ++ [{ inherit (self) lib; }];
+      };
+    in
 
+    utils.lib.eachDefaultSystem
+      (system:
+      let pkgs = nixpkgs.legacyPackages.${system}; in
       {
-        inherit lib;
+        formatter = pkgs.nixpkgs-fmt;
+      })
+    // {
+      lib = callLib ./modules/lib;
 
-        nixosModules = nixosModules.regular;
-        homeModules = homeModules.regular;
+      nixosModules = nixosModules.regular;
+      homeModules = homeModules.regular;
 
-        formatter.${system} = pkgs.nixpkgs-fmt;
+      nixosConfigurations.nixos-inspiron = mkSystem {
+        specialArgs = { hostName = "nixos-inspiron"; };
+        modules = [
+          self.nixosModules.hardware.inspiron-7405
+          ./modules/nixos/profiles/full.nix
+        ];
+      };
 
-        nixosConfigurations.nixos-inspiron = mkSystem {
-          specialArgs = { hostName = "nixos-inspiron"; };
+      homeConfigurations.weathercold =
+        let tme = "colloid"; in
+        mkHome {
           modules = [
-            nixosModules.regular.hardware.inspiron-7405
-            ./modules/nixos/profiles/full.nix
+            ./modules/home/profiles/full.nix
+            {
+              nixfiles.themes = {
+                themes = [ tme ];
+                firefox.profiles = [ "weathercold" ];
+              };
+              specialization.${tme}.default = true;
+
+              specialization.aaaa.configuration = {
+                home.file."hello.txt".text = "mhm";
+              };
+            }
           ];
         };
 
-        homeConfigurations.weathercold =
-          let tme = "colloid"; in
-          mkHome {
-            modules = [
-              ./modules/home/profiles/full.nix
-              {
-                nixfiles.themes = {
-                  themes = [ tme ];
-                  firefox.profiles = [ "weathercold" ];
-                };
-                specialization.${tme}.default = true;
-
-                specialization.aaaa.configuration = {
-                  home.file."hello.txt".text = "mhm";
-                };
-              }
-            ];
-          };
-
-        homeConfigurations.colloid =
-          let tme = "colloid"; in
-          mkHome {
-            modules = [
-              ./modules/home/profiles/build-config.nix
-              {
-                nixfiles.themes = {
-                  themes = [ tme ];
-                  # For firefox, put your firefox profile name here.
-                  # firefox.profiles = [ ];
-                };
-                specialization.${tme}.default = true;
-              }
-            ];
-          };
-      };
+      homeConfigurations.colloid =
+        let tme = "colloid"; in
+        mkHome {
+          modules = [
+            ./modules/home/profiles/build-config.nix
+            {
+              nixfiles.themes = {
+                themes = [ tme ];
+                # For firefox, put your firefox profile name here.
+                # firefox.profiles = [ ];
+              };
+              specialization.${tme}.default = true;
+            }
+          ];
+        };
+    };
 }

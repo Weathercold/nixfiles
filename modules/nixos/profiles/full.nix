@@ -10,29 +10,33 @@
 
   environment = {
     defaultPackages = [ ];
-    systemPackages = with pkgs; [
-      helix
-      gh
-      jetbrains.idea-community
-      jq
-      libsForQt5.kmail
-      libreoffice-qt
-      libsForQt5.qtstyleplugin-kvantum # For Colloid-kde
-      neofetch
-      nixos-option
-      rnix-lsp # Nix LSP Implementation
-      thunderbird
-      transcrypt
-      unzip
-      (ventoy-bin.override {
-        defaultGuiType = "qt5";
-        withQt5 = true;
-      })
-      vscode-with-extensions
-      wget
-      xorg.xeyes
-      zip
-    ];
+    systemPackages =
+      with pkgs;
+      with libsForQt5;
+      [
+        helix
+        gh
+        jetbrains.idea-community
+        jq
+        kmail
+        libreoffice-qt
+        neofetch
+        nil # Nix LSP Implementation
+        nixos-option
+        nixpkgs-fmt
+        qtstyleplugin-kvantum # For Colloid-kde
+        thunderbird
+        transcrypt
+        unzip
+        (ventoy-bin.override {
+          defaultGuiType = "qt5";
+          withQt5 = true;
+        })
+        vscode
+        wget
+        xorg.xeyes
+        zip
+      ];
     sessionVariables = {
       NIX_AUTO_RUN = "1";
       NIXOS_OZONE_WL = "1";
@@ -107,11 +111,12 @@
     noto-fonts-cjk-sans
     ];
     fontconfig.defaultFonts = {
-    monospace = [ "Inconsolata Nerd Font Mono" "Noto Sans Mono" ];
+      monospace = [ "Inconsolata Nerd Font Mono" "Noto Sans Mono" ];
     sansSerif = [ "Open Sans" "Noto Sans" ];
     serif = [ "Noto Serif" ];
     };
-    }; */
+    };
+  */
 
   xdg.portal = {
     enable = true;
