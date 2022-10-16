@@ -1,8 +1,6 @@
 lib:
 
-let
-  callLib = p: import p { inherit lib; };
-in
+let callLib = p: import p { inherit lib; }; in
 
 rec {
   attrsets = callLib ./attrsets.nix;

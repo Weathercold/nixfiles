@@ -2,9 +2,7 @@
 
 with lib;
 
-let
-  cfg = config.nixfiles.programs.fish;
-in
+let cfg = config.nixfiles.programs.fish; in
 
 {
   options.nixfiles.programs.fish.enable = mkEnableOption "managing fish";

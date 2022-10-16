@@ -2,9 +2,8 @@
 
 with lib;
 
-let
-  cfg = config.nixfiles.programs.bat;
-in
+let cfg = config.nixfiles.programs.bat; in
+
 {
   options.nixfiles.programs.bat.enable = mkEnableOption "managing bat";
 

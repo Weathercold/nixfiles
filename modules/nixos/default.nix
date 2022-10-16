@@ -2,9 +2,7 @@ lib:
 
 with builtins;
 
-let
-  inherit (import ../lib/strings.nix { inherit lib; }) isEncrypted;
-in
+let inherit (import ../lib/strings.nix { inherit lib; }) isEncrypted; in
 
 {
   internal = [

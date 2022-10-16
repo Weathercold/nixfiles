@@ -2,9 +2,7 @@
 
 with lib;
 
-let
-  cfg = config.nixfiles.programs.firefox;
-in
+let cfg = config.nixfiles.programs.firefox; in
 
 {
   options.nixfiles.programs.firefox = {

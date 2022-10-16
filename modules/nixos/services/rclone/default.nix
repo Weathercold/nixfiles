@@ -2,9 +2,7 @@
 
 with lib;
 
-let
-  cfg = config.services.rclone;
-in
+let cfg = config.services.rclone; in
 
 {
   options.services.rclone = {

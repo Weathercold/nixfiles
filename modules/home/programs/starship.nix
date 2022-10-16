@@ -2,9 +2,7 @@
 
 with lib;
 
-let
-  cfg = config.nixfiles.programs.starship;
-in
+let cfg = config.nixfiles.programs.starship; in
 
 {
   options.nixfiles.programs.starship.enable =
