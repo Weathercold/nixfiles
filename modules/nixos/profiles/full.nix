@@ -32,7 +32,7 @@
           defaultGuiType = "qt5";
           withQt5 = true;
         })
-        vscode
+        vscode-insiders
         wget
         xorg.xeyes
         zip

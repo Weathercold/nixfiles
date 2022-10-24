@@ -3,7 +3,8 @@
 
   inputs = {
     # Repos
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "/home/weathercold/src/nixpkgs";
     ## TODO: Actually use
     nur.url = "github:nix-community/NUR";
 
@@ -58,6 +59,7 @@
 
       # Modules
       callLib = m: import m pkgs.lib;
+      overlay = import ./pkgs;
       nixosModules = callLib ./modules/nixos;
       homeModules = callLib ./modules/home;
       inherit (self.lib.partials) partialFunc;
@@ -70,35 +72,44 @@
       userPassword = "$6$ESJQyaoFNr5kAoux$Jpvf3Qk/EfRJVvDK3lMND5X9eiMGNUt8TP7BoYPf5YYK/TpTeuyh.FqwheVvfaYlHwek1YFBP6qFAcgz1a14j/";
       homeDirectory = "/home/weathercold";
 
+      defaultModule = {
+        inherit (self) lib;
+        nixpkgs.overlays = [ self.overlays.default ];
+      };
+
       # Functions
-      mkSystem = partialFunc nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          inherit
-            hw
-            username
-            userDescription
-            userEmail
-            userPassword;
+      mkSystem = partialFunc
+        nixpkgs.lib.nixosSystem
+        {
+          inherit system;
+          specialArgs = {
+            inherit
+              hw
+              username
+              userDescription
+              userEmail
+              userPassword;
+          };
+          modules =
+            nixosModules.internal
+            ++ [ defaultModule ];
         };
-        modules =
-          nixosModules.internal
-          ++ [{ inherit (self) lib; }];
-      };
-      mkHome = partialFunc hm.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = {
-          inherit
-            dotdropFishComp
-            colloid-gtk-theme
-            username
-            userEmail
-            homeDirectory;
+      mkHome = partialFunc
+        hm.lib.homeManagerConfiguration
+        {
+          inherit pkgs;
+          extraSpecialArgs = {
+            inherit
+              dotdropFishComp
+              colloid-gtk-theme
+              username
+              userEmail
+              homeDirectory;
+          };
+          modules =
+            homeModules.internal
+            ++ [ defaultModule ];
         };
-        modules =
-          homeModules.internal
-          ++ [{ inherit (self) lib; }];
-      };
     in
 
     utils.lib.eachDefaultSystem
@@ -108,6 +119,8 @@
         formatter = pkgs.nixpkgs-fmt;
       })
     // {
+      overlays.default = overlay;
+
       lib = callLib ./modules/lib;
 
       nixosModules = nixosModules.regular;
