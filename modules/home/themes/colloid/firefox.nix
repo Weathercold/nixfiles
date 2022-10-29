@@ -12,21 +12,24 @@ let
 
   # FIXME: Module optional args are broken
   # https://github.com/vinceliuice/Colloid-gtk-theme
-  colloid-gtk-theme = args.colloid-gtk-theme or (pkgs.fetchFromGitHub {
-    owner = "vinceliuice";
-    repo = "Colloid-gtk-theme";
-    rev = "824b99b86052427cedd1a63c3413153113efac39";
-    sha256 = "Etie1/3sHZfZFxQ6OYHREyeDs+uZvwPplcd2jMmJQcQ=";
-  });
-  tme = colloid-gtk-theme + "/src/other/firefox/chrome/Colloid";
+  tme = (
+    args.colloid-gtk-theme or (pkgs.fetchFromGitHub {
+      owner = "vinceliuice";
+      repo = "Colloid-gtk-theme";
+      rev = "824b99b86052427cedd1a63c3413153113efac39";
+      sha256 = "Etie1/3sHZfZFxQ6OYHREyeDs+uZvwPplcd2jMmJQcQ=";
+    })
+  ) + "/src/other/firefox/chrome/Colloid";
 in
 
 {
+  imports = [ ../base/firefox.nix ];
+
   programs.firefox.profiles = genAttrs
     cfg.profiles
     (const {
-      userChrome = ''@import "${tme}/theme.css";'';
-      userContent = ''
+      userChrome = mkBefore ''@import "${tme}/theme.css";'';
+      userContent = mkBefore ''
         @import "${tme}/colors/light.css";
         @import "${tme}/colors/dark.css";
 

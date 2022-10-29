@@ -18,4 +18,7 @@
     enable = true;
     configFile.nixpkgs.source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/src/nixfiles";
   };
+
+  # FIXME: temporary workaround
+  manual.manpages.enable = false;
 }

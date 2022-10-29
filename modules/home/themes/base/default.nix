@@ -1,0 +1,3 @@
+{
+  firefox = ./firefox.nix;
+}

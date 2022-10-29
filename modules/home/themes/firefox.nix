@@ -1,15 +1,7 @@
-{ config
-, lib
-, pkgs
-, ...
-} @ args:
+{ config, lib, pkgs, ... }:
 
 with lib;
 with builtins;
-
-let
-  cfg = config.nixfiles.themes.firefox;
-in
 
 {
   options.nixfiles.themes.firefox.profiles = mkOption {

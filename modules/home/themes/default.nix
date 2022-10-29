@@ -6,8 +6,10 @@ with builtins;
 let
   cfg = config.nixfiles.themes;
 
-  inherit (config.lib.options) themeOption;
-  builtinThemes = [ "colloid" ];
+  builtinThemes = [
+    "base"
+    "colloid"
+  ];
   getTheme = n: trivial.throwIfNot
     (elem n builtinThemes)
     "Unknown theme ${n}"

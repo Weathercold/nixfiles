@@ -3,11 +3,11 @@
     "colloid-gtk-theme": {
       "flake": false,
       "locked": {
-        "lastModified": 1666635250,
-        "narHash": "sha256-gLwfAKQyb+geofULkNmkCV80XFHuv88pIVRYaxSSZS4=",
+        "lastModified": 1666796741,
+        "narHash": "sha256-MwfvQvyVa4UnfeMLdWwPN7F+ntP9i3L1Lozl8TIa0Ws=",
         "owner": "vinceliuice",
         "repo": "Colloid-gtk-theme",
-        "rev": "b72396f2a41f0618ab2520bc5a753f47ffedd78a",
+        "rev": "c06518bbaf13bcaa04694fe5a4425789255a1bf7",
         "type": "github"
       },
       "original": {
@@ -26,6 +26,22 @@
       "original": {
         "type": "file",
         "url": "https://raw.githubusercontent.com/deadc0de6/dotdrop/master/completion/dotdrop.fish"
+      }
+    },
+    "firefox-vertical-tabs": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1666164519,
+        "narHash": "sha256-9RoF7oaxL/LPhRXRNvl1QRke9vJFTlwMKa1hXrES8PY=",
+        "owner": "ranmaru22",
+        "repo": "firefox-vertical-tabs",
+        "rev": "cfd92652bd2ab658406eecad58fdc75dfdf97103",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ranmaru22",
+        "repo": "firefox-vertical-tabs",
+        "type": "github"
       }
     },
     "flake-compat": {
@@ -84,11 +100,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1665987993,
-        "narHash": "sha256-MvlaIYTRiqefG4dzI5p6vVCfl+9V8A1cPniUjcn6Ngc=",
+        "lastModified": 1666873549,
+        "narHash": "sha256-a6Eu1Qv/EndjepSMja5SvcG+4vM5Rl2gzJD7xscRHss=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "0e6593630071440eb89cd97a52921497482b22c6",
+        "rev": "419dcc0ec767803182ed01a326f134230578bf60",
         "type": "github"
       },
       "original": {
@@ -114,11 +130,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1666640642,
-        "narHash": "sha256-jMqV8vRro+F2Y6ge2caf3h6ZitKH/IiYLH3Wzd6rm6Q=",
+        "lastModified": 1667063044,
+        "narHash": "sha256-vuykJu3nzNaUfyoqXiEwLdWiZFz+JsYcXsf5mezKZVs=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "17e3882babed0b965175b5c1f144bc3e052b8404",
+        "rev": "f08d913bb99af6f1e6b3036d72f47c8edf84b23b",
         "type": "github"
       },
       "original": {
@@ -131,6 +147,7 @@
       "inputs": {
         "colloid-gtk-theme": "colloid-gtk-theme",
         "dotdropFishComp": "dotdropFishComp",
+        "firefox-vertical-tabs": "firefox-vertical-tabs",
         "flake-compat": "flake-compat",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",

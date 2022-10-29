@@ -33,6 +33,11 @@
       url = "github:vinceliuice/Colloid-gtk-theme";
       flake = false;
     };
+    ## https://github.com/ranmaru22/firefox-vertical-tabs
+    firefox-vertical-tabs = {
+      url = "github:ranmaru22/firefox-vertical-tabs";
+      flake = false;
+    };
   };
 
   outputs =
@@ -47,6 +52,7 @@
 
     , dotdropFishComp
     , colloid-gtk-theme
+    , firefox-vertical-tabs
 
     , ...
     }:
@@ -100,11 +106,12 @@
           inherit pkgs;
           extraSpecialArgs = {
             inherit
-              dotdropFishComp
-              colloid-gtk-theme
               username
               userEmail
-              homeDirectory;
+              homeDirectory
+              dotdropFishComp
+              colloid-gtk-theme
+              firefox-vertical-tabs;
           };
           modules =
             homeModules.internal
