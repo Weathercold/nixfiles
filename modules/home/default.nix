@@ -23,6 +23,9 @@ in
   ];
 
   regular = {
-    themes.colloid = import ./themes/colloid;
+    themes = {
+      base = import ./themes/base;
+      colloid = import ./themes/colloid;
+    };
   };
 }
