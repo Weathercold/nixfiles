@@ -6,12 +6,12 @@ with builtins;
 let
   cfg = config.nixfiles.themes;
 
-  inherit (config.lib.filesystem) listDirs listFiles';
+  inherit (config.lib.filesystem) listDirs listAll';
   builtinThemes = listDirs ./.;
   getTheme = n: trivial.throwIfNot
     (elem n builtinThemes)
     "Unknown theme ${n}"
-    { imports = listFiles' ./${n}; };
+    { imports = listAll' ./${n}; };
 in
 
 {

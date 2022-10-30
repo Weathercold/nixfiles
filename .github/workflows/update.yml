@@ -1,10 +1,25 @@
 name: Automatic Hash Update
 
 on:
-  schedule: "0 0 * * *"
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
 
 jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - run: bash $(find . -name "update-*.sh")
+      - uses: actions/checkout@v3
+      - uses: cachix/install-nix-action@v18
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+      - name: Run update scripts
+        run: for p in $(find . -name "update-*.sh"); do $p; done
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: |
+            pkgs: autoupdate
+
+            uwu

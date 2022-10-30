@@ -3,8 +3,7 @@
 
   inputs = {
     # Repos
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.url = "/home/weathercold/src/nixpkgs";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     ## TODO: Actually use
     nur.url = "github:nix-community/NUR";
 
@@ -64,7 +63,6 @@
       hm = home-manager;
 
       # Modules
-      overlay = import ./pkgs;
       extendedLib = pkgs.lib.extend (_: _: { nixfiles = self.lib; });
       callLib = m: import m extendedLib;
       nixosModules = callLib ./modules/nixos;
@@ -122,12 +120,23 @@
 
     utils.lib.eachDefaultSystem
       (system:
-      let pkgs = nixpkgs.legacyPackages.${system}; in
-      {
-        formatter = pkgs.nixpkgs-fmt;
-      })
+        with import nixpkgs
+          {
+            inherit system;
+            overlays = [ self.overlays.default ];
+          };
+        {
+          formatter = nixpkgs-fmt;
+          packages = {
+            inherit
+              vscode-insiders
+              vscode-insiders-with-extensions
+              vscodium-insiders;
+          };
+        }
+      )
     // {
-      overlays.default = overlay;
+      overlays.default = import ./pkgs/top-level/all-packages.nix;
 
       lib = import ./modules/lib pkgs.lib;
 
