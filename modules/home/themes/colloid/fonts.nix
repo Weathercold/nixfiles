@@ -1,3 +1,4 @@
+# noauto
 { pkgs, lib, ... }:
 {
   imports = [ ./gtk/font.nix ];

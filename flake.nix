@@ -64,8 +64,9 @@
       hm = home-manager;
 
       # Modules
-      callLib = m: import m pkgs.lib;
       overlay = import ./pkgs;
+      extendedLib = pkgs.lib.extend (_: _: { nixfiles = self.lib; });
+      callLib = m: import m extendedLib;
       nixosModules = callLib ./modules/nixos;
       homeModules = callLib ./modules/home;
       inherit (self.lib.partials) partialFunc;
@@ -128,7 +129,7 @@
     // {
       overlays.default = overlay;
 
-      lib = callLib ./modules/lib;
+      lib = import ./modules/lib pkgs.lib;
 
       nixosModules = nixosModules.regular;
       homeModules = homeModules.regular;

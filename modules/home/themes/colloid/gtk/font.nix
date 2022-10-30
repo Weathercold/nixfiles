@@ -1,3 +1,4 @@
+# noauto
 { pkgs, ... }:
 {
   gtk.font = {

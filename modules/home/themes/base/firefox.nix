@@ -1,3 +1,4 @@
+# noauto
 { config, pkgs, lib, ... } @ args:
 
 with lib;

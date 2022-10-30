@@ -1,3 +1,4 @@
+# noauto
 # Do not install any package
 { config, pkgs, lib, ... }:
 

@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ self, config, lib, ... }:
 
 with lib;
 with builtins;
@@ -6,14 +6,12 @@ with builtins;
 let
   cfg = config.nixfiles.themes;
 
-  builtinThemes = [
-    "base"
-    "colloid"
-  ];
+  inherit (config.lib.filesystem) listDirs listFiles';
+  builtinThemes = listDirs ./.;
   getTheme = n: trivial.throwIfNot
     (elem n builtinThemes)
     "Unknown theme ${n}"
-    { imports = attrValues (import ./${n}); };
+    { imports = listFiles' ./${n}; };
 in
 
 {

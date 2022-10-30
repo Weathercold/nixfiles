@@ -1,31 +1,31 @@
+# noauto
 lib:
 
+with lib;
 with builtins;
 
 let
-  inherit (import ../lib/strings.nix { inherit lib; }) isEncrypted;
+  inherit (nixfiles.strings) isEncrypted;
+  inherit (nixfiles.filesystem) listDirs listFiles';
 in
 
 {
-  internal = [
-    ./programs/bat.nix
-    ./programs/dotdrop.nix
-    ./programs/exa.nix
-    ./programs/firefox.nix
-    ./programs/fish.nix
-    ./programs/starship.nix
-
-    ./themes
-    ./themes/firefox.nix
-  ]
-  ++ filter (f: !isEncrypted (readFile f)) [
-    ./accounts/email.nix
+  internal = pipe ./. [
+    filesystem.listFilesRecursive
+    (filter (hasSuffix ".nix"))
+    (filter (f: !isEncrypted (readFile f)))
+    # don't import modules with `# noauto` at the start
+    (filter (f: !hasPrefix "# noauto" (readFile f)))
   ];
 
+  # Epitome of overengineering
   regular = {
-    themes = {
-      base = import ./themes/base;
-      colloid = import ./themes/colloid;
-    };
+    themes = genAttrs
+      (listDirs ./themes)
+      (d: pipe d [
+        (d: listFiles' ./${d})
+        (map (f: nameValuePair (nameFromURL f ".") f))
+        listToAttrs
+      ]);
   };
 }

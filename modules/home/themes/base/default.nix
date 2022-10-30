@@ -1,3 +1,0 @@
-{
-  firefox = ./firefox.nix;
-}

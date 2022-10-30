@@ -1,3 +1,4 @@
+# noauto
 { config, pkgs, ... }:
 {
   imports = [ ./base.nix ];

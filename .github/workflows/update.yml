@@ -1,0 +1,10 @@
+name: Automatic Hash Update
+
+on:
+  schedule: "0 0 * * *"
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - run: bash $(find . -name "update-*.sh")
