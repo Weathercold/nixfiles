@@ -2,10 +2,10 @@
 
 with lib;
 
-let cfg = config.services.rclone; in
+let cfg = config.nixfiles.rclone; in
 
 {
-  options.services.rclone = {
+  options.nixfiles.rclone = {
     enable = mkEnableOption "network storage client and server daemon";
     package = mkPackageOption pkgs "rclone" { };
   };

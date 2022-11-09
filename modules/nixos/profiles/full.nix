@@ -1,4 +1,6 @@
+# noauto
 { pkgs
+, username
 , userDescription
 , userEmail
 , ...
@@ -7,6 +9,14 @@
   imports = [ ./base.nix ];
 
   nixpkgs.config.allowUnfree = true;
+
+  nixfiles = {
+    act.enable = true;
+    rclone = {
+      enable = true;
+      enableFileSystems = true;
+    };
+  };
 
   environment = {
     defaultPackages = [ ];
@@ -46,11 +56,6 @@
 
   services = {
     btrfs.autoScrub.enable = true;
-
-    rclone = {
-      enable = true;
-      enableFileSystems = true;
-    };
 
     xserver = {
       enable = true;

@@ -1,15 +1,18 @@
+# noauto
 lib:
 
+with lib;
 with builtins;
 
-let inherit (import ../lib/strings.nix { inherit lib; }) isEncrypted; in
+let inherit (nixfiles.strings) isEncrypted; in
 
 {
-  internal = [
-    ./services/rclone
-  ]
-  ++ filter (f: !isEncrypted (readFile f)) [
-    ./services/rclone/file-systems.nix
+  internal = pipe ./. [
+    filesystem.listFilesRecursive
+    (filter (hasSuffix ".nix"))
+    (filter (f: !isEncrypted (readFile f)))
+    # don't import modules with `# noauto` at the start
+    (filter (f: !hasPrefix "# noauto" (readFile f)))
   ];
 
   regular = {

@@ -1,3 +1,4 @@
+# noauto
 { hw, ... }:
 {
   imports = [ hw.nixosModules.dell-inspiron-7405 ];
