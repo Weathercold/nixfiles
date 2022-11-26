@@ -7,7 +7,6 @@ let
     mapAttrs mapAttrs' mapAttrsToList zipAttrs filterAttrs nameValuePair
     hasPrefix hasSuffix removeSuffix;
   inherit (lib.filesystem) listFilesRecursive;
-  inherit (strings) isEncrypted;
 
   list = readDir: pred: d: pipe d [
     readDir
@@ -79,10 +78,8 @@ rec {
       files = pipe d [
         # All files...
         listFilesRecursive
-        # ... that are nix expressions, ...
+        # ... that are nix expressions ...
         (filter (hasSuffix ".nix"))
-        # ... are not encrypted, ...
-        (filter (f: !isEncrypted (readFile f)))
         # ... and don't start with `# noauto`
         (filter (f: !hasPrefix "# noauto" (readFile f)))
       ];
