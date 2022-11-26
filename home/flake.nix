@@ -1,22 +1,16 @@
 {
-  description = "Weathercold's NixOS Flake";
+  description = "Weathercold's home-manager modules";
 
   inputs = {
     # Repos
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    ## TODO: Actually use
-    # nur.url = "github:nix-community/NUR";
 
     # Utils
-    flake-compat = {
-      url = "github:edolstra/flake-compat";
-      flake = false;
-    };
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
-    nixos-hardware.url = "github:NixOS/nixos-hardware";
+    nixfiles-lib.url = "github:Weathercold/nixfiles?dir=lib";
     home-manager = {
       url = "github:Weathercold/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -43,11 +37,9 @@
     { self
 
     , nixpkgs
-    , nur
 
-    , flake-compat # not actually used
     , flake-parts
-    , nixos-hardware
+    , nixfiles-lib
     , home-manager
 
     , dotdropFishComp
@@ -55,36 +47,15 @@
     , firefox-vertical-tabs
     }:
 
-    let
-      lib = import ./lib { inherit (nixpkgs) lib; };
-      extendedLib = nixpkgs.lib.extend (_: _: { nixfiles = lib; });
-    in
+    let extendedLib = nixpkgs.lib.extend (_: _: { nixfiles = nixfiles-lib.lib; }); in
 
     flake-parts.lib.mkFlake
       {
         inherit self;
-        specialArgs = {
-          lib = extendedLib;
-        };
+        specialArgs.lib = extendedLib;
       }
       {
-        imports = [
-          ./pkgs/flake-module.nix
-          ./nixos/flake-module.nix
-          ./home/flake-module.nix
-        ];
-
-        systems = [
-          "x86_64-linux"
-          "x86_64-darwin"
-          "aarch64-darwin"
-          "aarch64-linux"
-          "armv7l-linux"
-        ];
-        perSystem = { pkgs, system, ... }: {
-          formatter = pkgs.nixpkgs-fmt;
-        };
-
-        flake.lib = lib;
+        imports = [ ./flake-module.nix ];
+        flake.flakeModules.default = ./flake-module.nix;
       };
 }
