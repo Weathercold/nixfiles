@@ -4,13 +4,13 @@ with lib;
 with builtins;
 
 let
+  inherit (lib) assertOneOf;
   inherit (lib.nixfiles) listDirs collectModules;
   cfg = config.nixfiles.themes;
 
   builtinThemes = listDirs ./.;
-  getTheme = n: trivial.throwIfNot
-    (elem n builtinThemes)
-    "Unknown theme ${n}"
+  getTheme = n:
+    assert assertOneOf "theme" n builtinThemes;
     { imports = collectModules ./${n}; };
 in
 
