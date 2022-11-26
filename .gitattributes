@@ -1,2 +1,0 @@
-**/configurations/weathercold/default.nix filter=crypt diff=crypt merge=crypt
-**/rclone/file-systems.nix filter=crypt diff=crypt merge=crypt

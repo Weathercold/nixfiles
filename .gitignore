@@ -1,0 +1,4 @@
+.gitsecret/keys/random_seed
+!*.secret
+home/flake/configurations/weathercold/default.nix
+nixos/services/rclone/file-systems.nix
