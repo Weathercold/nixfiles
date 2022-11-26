@@ -70,25 +70,21 @@ rec {
           ]
         );
 
-  # Recursively collect all modules in a directory, excluding those that are
-  # encrypted or start with `# noauto`. Recursion stops when a default.nix is
-  # found.
+  # Recursively collect all modules in a directory, excluding those that start
+  # with `# noauto`. Recursion stops when a default.nix is found.
   collectModules = d:
     let
       files = pipe d [
-        # All files...
         listFilesRecursive
-        # ... that are nix expressions ...
+        (map toString) # hasSuffix and removeSuffix get weird when dealing with paths
         (filter (hasSuffix ".nix"))
-        # ... and don't start with `# noauto`
         (filter (f: !hasPrefix "# noauto" (readFile f)))
       ];
-      # Directories with default.nix...
+      # Directories with default.nix
       defaultDirs = pipe files [
-        # ..excluding the root
-        (filter (f: hasSuffix "default.nix" f && f != "${toString d}/default.nix"))
-        (map (removeSuffix "default.nix"))
+        (filter (hasSuffix "/default.nix"))
+        (map (removeSuffix "/default.nix"))
       ];
     in
-    filter (f: all (d: !hasPrefix d f) defaultDirs) files;
+    filter (f: all (d: !hasPrefix d f || f == "${d}/default.nix") defaultDirs) files;
 }
