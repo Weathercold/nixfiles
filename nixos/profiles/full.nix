@@ -29,6 +29,7 @@ let inherit (lib.nixfiles) collectModules; in
       [
         helix
         gh
+        git-secret
         jetbrains.idea-community
         jq
         kmail
@@ -39,7 +40,6 @@ let inherit (lib.nixfiles) collectModules; in
         nixpkgs-fmt
         qtstyleplugin-kvantum # For Colloid-kde
         thunderbird
-        transcrypt
         unzip
         (ventoy-bin.override {
           defaultGuiType = "qt5";
