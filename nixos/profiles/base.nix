@@ -16,6 +16,8 @@ let inherit (lib) genAttrs attrNames const; in
     };
   };
 
+  system.stateVersion = "23.05";
+
   boot = {
     loader = {
       systemd-boot = {
