@@ -3,16 +3,20 @@
 let inherit (lib.nixfiles) collectModules; in
 
 {
-  imports = [ ./base.nix ]
-    ++ collectModules ../config
-    ++ collectModules ../programs
-    ++ collectModules ../services
-    ++ collectModules ../virtualisation;
+  imports = [
+    ./base.nix
+    ../hardware/halo65.nix
+  ]
+  ++ collectModules ../config
+  ++ collectModules ../programs
+  ++ collectModules ../services
+  ++ collectModules ../virtualisation;
 
   nixpkgs.config.allowUnfree = true;
 
   nixfiles = {
     services = {
+      kanata.enable = true;
       act.enable = true;
       rclone = {
         enable = true;
@@ -66,7 +70,6 @@ let inherit (lib.nixfiles) collectModules; in
       desktopManager.plasma5.enable = true;
 
       layout = "us";
-      xkbOptions = "caps:swapescape"; # Swap caps with escape.
       libinput = {
         touchpad = {
           clickMethod = "clickfinger";
