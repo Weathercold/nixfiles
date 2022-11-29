@@ -27,7 +27,7 @@ let
         @>c  _    _    _    _    _    _    _    _    _    _    _    +    _    _
         tab  q    w    e    r    t    y    u    i    o    p    _    _    _    _
         esc  a    s    d    f    g    h    j    k    l    ;    _         @<>r _
-        @ls  z    x    c    v    b    n    m    ,    .    /         @rs  _    _
+        lsft z    x    c    v    b    n    m    ,    .    /         rsft _    _
         lctl lmet lalt           _              ralt                _    _    _)
 
       (deflayer shift
@@ -69,6 +69,8 @@ in
       ATTRS{phys}=="b4:0e:de:c7:65:27", ACTION=="add", \
       SYMLINK+="input/bt-halo65"
     '';
+    # It is not possible to put all three devices in one config because the
+    # service is only activated when all devices are found
     kanata.keyboards = {
       halo65-wired = keyboardCfg
         // { devices = [ "/dev/input/by-id/usb-BY_Tech_NuPhy_Halo65-event-kbd" ]; };
