@@ -60,7 +60,7 @@ let inherit (lib) mkIf; in
             _    _    _    _    _    _    _    _    _    _    _    _    +    _
             tab  q    w    e    r    t    y    u    i    o    p    _    _    _
             esc  a    s    d    f    g    h    j    k    l    ;    _         _
-            @ls  z    x    c    v    b    n    m    ,    .    /              @rs
+            lsft z    x    c    v    b    n    m    ,    .    /              rsft
             lctl lmet lalt           _              ralt rctl _    _    _
                                                               _    _    _)
 
