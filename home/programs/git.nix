@@ -4,6 +4,8 @@ let
   inherit (lib) mkEnableOption mkIf mkDefault;
   inherit (lib.nixfiles) findValue;
   cfg = config.nixfiles.programs.git;
+
+  primaryEmail = findValue (_: v: v.primary) config.accounts.email.accounts;
 in
 
 {
@@ -11,10 +13,8 @@ in
 
   config.programs.git = mkIf cfg.enable {
     enable = true;
-    userName = mkDefault config.home.username;
-    # Primary email address
-    userEmail = mkDefault
-      (findValue (_: v: v.primary) config.accounts.email.accounts).address;
+    userName = mkDefault primaryEmail.realName;
+    userEmail = mkDefault primaryEmail.address;
     signing = {
       signByDefault = true;
       key = null;
