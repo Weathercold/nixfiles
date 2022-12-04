@@ -2,7 +2,7 @@
 
 let
   inherit (lib) collect filterAttrs zipAttrsWith last;
-  inherit (builtins) isAttrs isList all attrNames attrValues elemAt concatLists;
+  inherit (builtins) isAttrs isList attrNames attrValues all head concatLists;
   inherit (lib.nixfiles) notf;
 in
 
@@ -20,7 +20,7 @@ rec {
     );
 
   # Find the first attribute verified by the predicate and return the name.
-  findName = pred: attrs: elemAt (attrNames (filterAttrs pred attrs)) 0;
+  findName = pred: attrs: head (attrNames (filterAttrs pred attrs));
   # Find the first attribute verified by the predicate and return the value.
-  findValue = pred: attrs: elemAt (attrValues (filterAttrs pred attrs)) 0;
+  findValue = pred: attrs: head (attrValues (filterAttrs pred attrs));
 }

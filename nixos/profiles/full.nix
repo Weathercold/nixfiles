@@ -91,7 +91,6 @@ let inherit (lib.nixfiles) collectModules; in
   };
 
   programs = {
-    git.enable = true; # TODO: move to home-manager
     # Some programs need SUID wrappers, can be configured further or are
     # started in user sessions.
     gnupg.agent.enable = true;

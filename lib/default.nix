@@ -12,7 +12,7 @@ rec {
   strings = callLib ./strings.nix;
   trivial = callLib ./trivial.nix;
 
-  inherit (attrsets) findName;
+  inherit (attrsets) findName findValue;
   inherit (filesystem) listDirs listFiles genModules collectModules;
   inherit (partials) partialSet;
   inherit (strings) isEncrypted;
