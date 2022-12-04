@@ -7,6 +7,7 @@ let inherit (lib.nixfiles) collectModules; in
     ./base.nix
     ../themes
   ]
+  ++ collectModules ../accounts
   ++ collectModules ../programs
   ++ collectModules ../services;
 
@@ -17,11 +18,12 @@ let inherit (lib.nixfiles) collectModules; in
 
   nixfiles = {
     programs = {
+      dotdrop.enable = true;
+      exa.enable = true;
       firefox.enable = true;
       fish.enable = true;
       starship.enable = true;
-      exa.enable = true;
-      dotdrop.enable = true;
+      thunderbird.enable = true;
     };
   };
 

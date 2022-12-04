@@ -34,16 +34,15 @@ let inherit (lib.nixfiles) collectModules; in
         helix
         gh
         git-secret
+        jdk
         jetbrains.idea-community
         jq
-        kmail
         libreoffice-qt
         neofetch
         nil # Nix LSP Implementation
         nixos-option
         nixpkgs-fmt
         qtstyleplugin-kvantum # For Colloid-kde
-        thunderbird
         unzip
         (ventoy-bin.override {
           defaultGuiType = "qt5";

@@ -57,7 +57,7 @@ in
         modules = [{
           nixpkgs.overlays = [ self.overlays.default ];
           home = { inherit (c) username homeDirectory; };
-          accounts.email.accounts = c.emails;
+          nixfiles = { inherit (c) emails; };
         }] ++ c.modules;
       }))
     cfg;

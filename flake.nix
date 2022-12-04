@@ -18,7 +18,7 @@
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     home-manager = {
-      url = "github:Weathercold/home-manager";
+      url = "github:Weathercold/home-manager/fix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
