@@ -22,18 +22,18 @@ let
   archive_fmt = if stdenv.isDarwin then "zip" else "tar.gz";
 
   sha256 = {
-    x86_64-linux = "0yngcpz1niznfsj1s8vmswxsyc0skx48wqzz82kz8hgxzibrk5cc";
-    x86_64-darwin = "18niby5x87703qb3ii6fr81i2pqfj1i6bzq55aa5djyqi7dcv7ws";
-    aarch64-linux = "1b79405fn3l7sdp41qy5z4m7xvhgmbsh809yk48x0a7lrifzs8mm";
-    aarch64-darwin = "0sh44bm90qlcc4xq2hyj6zy9qh4an7xfn2vnp23m96cj2jydvj82";
-    armv7l-linux = "1rk9f5zjwgadzlgcqq723r739jvw798xfn59i79mgkl1gmsc5hhl";
+    x86_64-linux = "1kd48c5szv5kxqiz3s7gingjqp7k1rvnsdla9anlj7l1868mzdad";
+    x86_64-darwin = "11vrqsmd2cjjmrc78f7m3ixazwcw6akvialzva6wzdp8r8ixn8yn";
+    aarch64-linux = "14vnzscslbmmi7f6wfpdw8ayzrrgkga3n6zkw91va3plfg6fi0w9";
+    aarch64-darwin = "1yh2r97jszrhxqjgdj2mrrch1qigsf087lk000kyjl1w2rsg6ax0";
+    armv7l-linux = "0m8w31kscs18dhk9075l46cncizan2w8wkpq45bij09wcbx7k2hm";
   }.${system} or throwSystem;
 
   sourceRoot = if stdenv.isDarwin then "" else ".";
 in
 
 callPackage "${path}/pkgs/applications/editors/vscode/generic.nix" rec {
-  version = "1.74.0.22330-insider";
+  version = "1.74.0.22337-insider";
   pname = "vscodium-insiders";
   updateScript = ./update-vscodium-insiders.sh;
 
