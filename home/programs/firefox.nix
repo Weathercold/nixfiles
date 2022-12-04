@@ -23,7 +23,7 @@ let cfg = config.nixfiles.programs.firefox; in
 
       profiles.${cfg.profile}.settings = {
         "services.sync.username" = lib.nixfiles.findName
-          (_: v: v.primary == true)
+          (_: v: v.primary)
           config.accounts.email.accounts;
         "browser.aboutConfig.showWarning" = false;
       };
