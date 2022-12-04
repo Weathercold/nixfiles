@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  inherit (lib) types mkOption mkEnableOption attrNames genAttrs const;
+  inherit (lib) types mkOption mkEnableOption mkIf attrNames genAttrs const;
   cfg = config.nixfiles.programs.thunderbird;
 in
 
@@ -14,7 +14,7 @@ in
     };
   };
 
-  config = {
+  config = mkIf cfg.enable {
     programs.thunderbird = {
       enable = true;
       profiles.${cfg.profile}.isDefault = true;
