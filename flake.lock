@@ -31,11 +31,11 @@
     "firefox-vertical-tabs": {
       "flake": false,
       "locked": {
-        "lastModified": 1669362993,
-        "narHash": "sha256-G5vojdC6s3AWZTOLv1PCqEnIiJ9niqkEiluXVmpRhTI=",
+        "lastModified": 1670140468,
+        "narHash": "sha256-q7CE5mp7GWBMn5j82VrCJWe9K6go7ZtoSrv/RCaVgao=",
         "owner": "ranmaru22",
         "repo": "firefox-vertical-tabs",
-        "rev": "9c279f13fe57f7c8947c7ca9dc96184f4657c2bd",
+        "rev": "b9ee7c25a495cee3ca49ce1dda5d72fbe0c2dd92",
         "type": "github"
       },
       "original": {
@@ -88,16 +88,15 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1670114801,
-        "narHash": "sha256-kqnh+bR/5xP9SEtaRwuFq4CPDYs3MdSHX3XWRG2cuZA=",
+        "lastModified": 1670164281,
+        "narHash": "sha256-R9yx+EK1CBq3kEXp4vOhi4dbQ7H01MZx2qFATXHsjSM=",
         "owner": "Weathercold",
         "repo": "home-manager",
-        "rev": "05f75733bff2497231cde925ab25b84247e0efd8",
+        "rev": "d9be118fb9c99bc3a2cbfead3dea3318eb0b6853",
         "type": "github"
       },
       "original": {
         "owner": "Weathercold",
-        "ref": "fix",
         "repo": "home-manager",
         "type": "github"
       }
@@ -119,11 +118,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1669969257,
-        "narHash": "sha256-mOS13sK3v+kfgP+1Mh56ohiG8uVhLHAo7m/q9kqAehc=",
+        "lastModified": 1670064435,
+        "narHash": "sha256-+ELoY30UN+Pl3Yn7RWRPabykwebsVK/kYE9JsIsUMxQ=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "b72b8b94cf0c012b0252a9100a636cad69696666",
+        "rev": "61a8a98e6d557e6dd7ed0cdb54c3a3e3bbc5e25c",
         "type": "github"
       },
       "original": {
