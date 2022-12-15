@@ -31,12 +31,14 @@ let inherit (lib.nixfiles) collectModules; in
       with pkgs;
       with libsForQt5;
       [
+        ffmpeg_5-full
         helix
         gh
         git-secret
         jdk
         jetbrains.idea-community
         jq
+        kdeconnect-kde
         libreoffice-qt
         neofetch
         nil # Nix LSP Implementation
