@@ -53,7 +53,7 @@
     , dotdropFishComp
     , colloid-gtk-theme
     , firefox-vertical-tabs
-    }:
+    } @ inputs:
 
     let
       lib = import ./lib { inherit (nixpkgs) lib; };
@@ -62,7 +62,7 @@
 
     flake-parts.lib.mkFlake
       {
-        inherit self;
+        inherit inputs;
         specialArgs = {
           lib = extendedLib;
         };

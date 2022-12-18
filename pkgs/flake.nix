@@ -6,8 +6,8 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
-  outputs = { self, nixpkgs, flake-parts }:
-    flake-parts.lib.mkFlake { inherit self; } {
+  outputs = { self, nixpkgs, flake-parts } @ inputs:
+    flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [ ./flake-module.nix ];
 
       systems = [

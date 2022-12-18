@@ -10,7 +10,10 @@
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
-    nixfiles-lib.url = "github:Weathercold/nixfiles?dir=lib";
+    nixfiles-lib = {
+      url = "github:Weathercold/nixfiles?dir=lib";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:Weathercold/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -45,13 +48,13 @@
     , dotdropFishComp
     , colloid-gtk-theme
     , firefox-vertical-tabs
-    }:
+    } @ inputs:
 
     let extendedLib = nixpkgs.lib.extend (_: _: { nixfiles = nixfiles-lib.lib; }); in
 
     flake-parts.lib.mkFlake
       {
-        inherit self;
+        inherit inputs;
         specialArgs.lib = extendedLib;
       }
       {
