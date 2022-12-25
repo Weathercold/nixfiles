@@ -26,11 +26,14 @@ let inherit (lib) genAttrs attrNames const; in
       };
       efi.canTouchEfiVariables = true;
     };
+
     kernelPackages = pkgs.linuxPackages_zen;
-    consoleLogLevel = 3;
-    kernelParams = [ "resume_offset=4929334" ];
+    consoleLogLevel = 0;
+    kernelParams = [ "resume_offset=4929334" "quiet" "udev.log_level=3" ];
     kernel.sysctl = { "vm.swappiness" = 20; };
 
+    initrd.verbose = false;
+    plymouth.enable = true;
     resumeDevice = "/dev/disk/by-label/nixos";
     tmpOnTmpfs = true;
   };
