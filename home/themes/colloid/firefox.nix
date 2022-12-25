@@ -25,7 +25,19 @@ in
 
         /* Fix findbar padding */
         .findbar-container {
-          padding: 25px !important;
+          height: inherit !important;
+        }
+
+        /* Fix border and size of extension icons */
+        toolbaritem.unified-extensions-item > toolbarbutton:not(#n):not(#n):not(#n) {
+          border-radius: 6px !important;
+          padding: 0 1px !important;
+          margin: 0 3px !important;
+        }
+
+        /* Fix navigation bar height */
+        toolbar#nav-bar.browser-toolbar {
+          height: 46px !important;
         }
       ''
     ];
