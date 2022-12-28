@@ -10,11 +10,13 @@ let inherit (lib.nixfiles) collectModules; in
   ++ collectModules ../config
   ++ collectModules ../programs
   ++ collectModules ../services
+  ++ collectModules ../system
   ++ collectModules ../virtualisation;
 
   nixpkgs.config.allowUnfree = true;
 
   nixfiles = {
+    boot.plymouth.enable = true;
     services = {
       kanata.enable = true;
       act.enable = true;

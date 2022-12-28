@@ -33,7 +33,6 @@ let inherit (lib) genAttrs attrNames const; in
     kernel.sysctl = { "vm.swappiness" = 20; };
 
     initrd.verbose = false;
-    plymouth.enable = true;
     resumeDevice = "/dev/disk/by-label/nixos";
     tmpOnTmpfs = true;
   };
