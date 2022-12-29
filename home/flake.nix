@@ -24,12 +24,10 @@
       url = "https://raw.githubusercontent.com/deadc0de6/dotdrop/master/completion/dotdrop.fish";
       flake = false;
     };
-    ## https://github.com/vinceliuice/Colloid-gtk-theme
     colloid-gtk-theme = {
       url = "github:vinceliuice/Colloid-gtk-theme";
       flake = false;
     };
-    ## https://github.com/ranmaru22/firefox-vertical-tabs
     firefox-vertical-tabs = {
       url = "github:ranmaru22/firefox-vertical-tabs";
       flake = false;
