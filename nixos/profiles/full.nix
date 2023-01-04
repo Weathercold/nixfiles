@@ -37,7 +37,6 @@ let inherit (lib.nixfiles) collectModules; in
         helix
         gh
         git-secret
-        jdk
         jetbrains.idea-community
         jq
         kdeconnect-kde
