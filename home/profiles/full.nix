@@ -13,7 +13,6 @@ let inherit (lib.nixfiles) collectModules; in
 
   home.packages = with pkgs; [
     any-nix-shell
-    (discord-canary.override { nss = nss_latest; })
   ];
 
   nixfiles = {

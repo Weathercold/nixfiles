@@ -33,6 +33,10 @@ let inherit (lib.nixfiles) collectModules; in
       with pkgs;
       with libsForQt5;
       [
+        (discord-canary.override {
+          nss = nss_latest;
+          withOpenASAR = true;
+        })
         ffmpeg_5-full
         helix
         gh
