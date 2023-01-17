@@ -44,6 +44,7 @@ let inherit (lib.nixfiles) collectModules; in
         jetbrains.idea-community
         jq
         kdeconnect-kde
+        kooha
         libreoffice-qt
         neofetch
         nil # Nix LSP Implementation
