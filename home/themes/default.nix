@@ -1,10 +1,7 @@
 { self, config, lib, ... }:
 
-with lib;
-with builtins;
-
 let
-  inherit (lib) assertOneOf;
+  inherit (lib) types mkOption assertOneOf genAttrs;
   inherit (lib.nixfiles) listDirs collectModules;
   cfg = config.nixfiles.themes;
 

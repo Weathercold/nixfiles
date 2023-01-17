@@ -1,4 +1,4 @@
-{ config, lib, firefox-vertical-tabs, ... }:
+{ inputs, config, lib, ... }:
 
 let cfg = config.nixfiles.programs.firefox; in
 
@@ -6,5 +6,5 @@ let cfg = config.nixfiles.programs.firefox; in
   imports = [ ../../programs/firefox.nix ];
 
   programs.firefox.profiles.${cfg.profile}.userChrome =
-    lib.mkBefore ''@import "${firefox-vertical-tabs}/userChrome.css";'';
+    lib.mkBefore ''@import "${inputs.firefox-vertical-tabs}/userChrome.css";'';
 }

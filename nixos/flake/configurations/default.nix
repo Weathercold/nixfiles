@@ -45,9 +45,7 @@ in
     (_: c: withSystem c.system
       ({ system, ... }: nixpkgs.lib.nixosSystem {
         inherit system lib;
-        specialArgs = {
-          inherit (inputs) nixos-hardware;
-        };
+        specialArgs = { inherit inputs; };
         modules = [{
           nixpkgs.overlays = [ config.flake.overlays.default ];
           nixfiles.users.users = c.users;

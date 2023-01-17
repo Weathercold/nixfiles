@@ -1,10 +1,10 @@
-{ config, lib, nixos-hardware, ... }:
+{ inputs, config, lib, ... }:
 
 let inherit (lib) mkIf; in
 
 {
   imports = [
-    nixos-hardware.nixosModules.dell-inspiron-7405
+    inputs.nixos-hardware.nixosModules.dell-inspiron-7405
     ../services/kanata.nix
   ];
 

@@ -1,4 +1,4 @@
-{ config, lib, dotdropFishComp, ... }:
+{ inputs, config, lib, ... }:
 
 let
   inherit (lib) mkEnableOption mkIf;
@@ -15,6 +15,6 @@ in
       sysdrop = "~/src/sysfiles/scripts/dotdrop.sh";
       syssync = "~/src/sysfiles/scripts/dotsync.sh";
     };
-    xdg.configFile."fish/completions/dotdrop.fish".source = dotdropFishComp;
+    xdg.configFile."fish/completions/dotdrop.fish".source = inputs.dotdropFishComp;
   };
 }

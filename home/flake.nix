@@ -28,6 +28,10 @@
       url = "github:vinceliuice/Colloid-gtk-theme";
       flake = false;
     };
+    catppuccin-discord = {
+      url = "https://catppuccin.github.io/discord/dist/catppuccin-latte-blue.theme.css";
+      flake = false;
+    };
     firefox-vertical-tabs = {
       url = "github:ranmaru22/firefox-vertical-tabs";
       flake = false;
@@ -45,6 +49,7 @@
 
     , dotdropFishComp
     , colloid-gtk-theme
+    , catppuccin-discord
     , firefox-vertical-tabs
     } @ inputs:
 

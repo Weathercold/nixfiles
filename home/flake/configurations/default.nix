@@ -48,12 +48,7 @@ in
     (_: c: withSystem c.system
       ({ pkgs, ... }: home-manager.lib.homeManagerConfiguration {
         inherit pkgs lib;
-        extraSpecialArgs = {
-          inherit (inputs)
-            dotdropFishComp
-            colloid-gtk-theme
-            firefox-vertical-tabs;
-        };
+        extraSpecialArgs = { inherit inputs; };
         modules = [{
           nixpkgs.overlays = [ self.overlays.default ];
           home = { inherit (c) username homeDirectory; };
