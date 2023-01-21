@@ -58,8 +58,13 @@ let inherit (lib.nixfiles) collectModules; in
         zip
       ];
     sessionVariables = {
+      # Allow unfree packages
+      NIXPKGS_ALLOW_UNFREE = "1";
+      # Enable running commands without installation
       NIX_AUTO_RUN = "1";
+      # Make Electron apps run in Wayland native mode
       NIXOS_OZONE_WL = "1";
+      # Make Firefox run in Wayland native mode
       MOZ_ENABLE_WAYLAND = "1";
     };
   };
