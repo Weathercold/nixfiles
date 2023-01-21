@@ -17,7 +17,7 @@ let inherit (lib.nixfiles) collectModules; in
 
   nixfiles = {
     programs = {
-      discocss.enable = true;
+      discord.enable = true;
       dotdrop.enable = true;
       exa.enable = true;
       firefox.enable = true;

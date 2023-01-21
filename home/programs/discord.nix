@@ -2,18 +2,18 @@
 
 let
   inherit (lib) mkIf mkEnableOption;
-  cfg = config.nixfiles.programs.discocss;
+  cfg = config.nixfiles.programs.discord;
 in
 
 {
-  options.nixfiles.programs.discocss = {
-    enable = mkEnableOption "Discord CSS injector, along with Discord itself";
+  options.nixfiles.programs.discord = {
+    enable = mkEnableOption "Discord, a server-based instant messenger";
   };
 
   config.programs.discocss = mkIf cfg.enable {
     enable = true;
     discordPackage = with pkgs; discord.override {
-      nss = nss_latest;
+      nss = nss_latest; # Fix discord links not opening in Firefox
       withOpenASAR = true;
     };
   };
