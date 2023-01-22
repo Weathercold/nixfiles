@@ -16,11 +16,7 @@ let cfg = config.nixfiles.programs.firefox; in
   config = mkIf cfg.enable {
     programs.firefox = {
       enable = true;
-      package = pkgs.firefox-devedition-bin.override {
-        extraNativeMessagingHosts =
-          with pkgs; [ libsForQt5.plasma-browser-integration ];
-      };
-
+      package = pkgs.firefox-devedition-bin;
       profiles.${cfg.profile}.settings = {
         "services.sync.username" = lib.nixfiles.findName
           (_: v: v.primary)
@@ -28,7 +24,13 @@ let cfg = config.nixfiles.programs.firefox; in
         "browser.aboutConfig.showWarning" = false;
       };
     };
-    # Make dev edition use the same profile as the normal Firefox.
-    home.file.".mozilla/firefox/ignore-dev-edition-profile".text = "";
+    home.file = {
+      # Make dev edition use the same profile as the normal Firefox.
+      ".mozilla/firefox/ignore-dev-edition-profile".text = "";
+      # Workaround to add plasma-browser-integration to the native messaging hosts.
+      # https://github.com/NixOS/nixpkgs/issues/47340#issuecomment-440645870
+      ".mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json".source =
+        pkgs.libsForQt5.plasma-browser-integration + "/lib/mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json";
+    };
   };
 }
