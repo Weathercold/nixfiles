@@ -1,8 +1,9 @@
 { config, lib, ... }:
 
-with lib;
-
-let cfg = config.nixfiles.programs.exa; in
+let
+  inherit (lib) mkEnableOption mkIf;
+  cfg = config.nixfiles.programs.exa;
+in
 
 {
   options.nixfiles.programs.exa.enable = mkEnableOption "managing exa";

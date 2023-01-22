@@ -1,15 +1,15 @@
 { config, lib, ... }:
 
-with lib;
-
-let cfg = config.nixfiles.programs.fish; in
+let
+  inherit (lib) mkEnableOption mkIf;
+  cfg = config.nixfiles.programs.fish;
+in
 
 {
   options.nixfiles.programs.fish.enable = mkEnableOption "managing fish";
 
   config.programs.fish = mkIf cfg.enable {
     enable = true;
-
     shellInit = ''
       set -gx SHELL fish
     '';

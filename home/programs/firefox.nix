@@ -1,8 +1,9 @@
 { config, pkgs, lib, ... }:
 
-with lib;
-
-let cfg = config.nixfiles.programs.firefox; in
+let
+  inherit (lib) types mkEnableOption mkOption mkIf;
+  cfg = config.nixfiles.programs.firefox;
+in
 
 {
   options.nixfiles.programs.firefox = {

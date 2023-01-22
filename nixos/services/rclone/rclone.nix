@@ -1,8 +1,9 @@
 { config, pkgs, lib, ... }:
 
-with lib;
-
-let cfg = config.nixfiles.services.rclone; in
+let
+  inherit (lib) mkEnableOption mkPackageOption mkIf;
+  cfg = config.nixfiles.services.rclone;
+in
 
 {
   options.nixfiles.services.rclone = {
