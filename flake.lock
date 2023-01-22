@@ -3,7 +3,7 @@
     "catppuccin-discord": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-H/SN/I3zKzIjwSQVUsewPcksfm/wINUUxxm7EKbuJbI=",
+        "narHash": "sha256-3ry7jrtV6dgcSZ6hWP/lDUQnEkTT3u+JvA2Nq3vuXXM=",
         "type": "file",
         "url": "https://catppuccin.github.io/discord/dist/catppuccin-latte-blue.theme.css"
       },
@@ -59,11 +59,11 @@
     "flake-compat": {
       "flake": false,
       "locked": {
-        "lastModified": 1668681692,
-        "narHash": "sha256-Ht91NGdewz8IQLtWZ9LCeNXMSXHUss+9COoqu6JLmXU=",
+        "lastModified": 1673956053,
+        "narHash": "sha256-4gtG9iQuiKITOjNQQeQIpoIB6b16fm+504Ch3sNKLd8=",
         "owner": "edolstra",
         "repo": "flake-compat",
-        "rev": "009399224d5e398d03b22badca40a37ac85412a1",
+        "rev": "35bb57c0c8d8b62bbfd284272c928ceb64ddbde9",
         "type": "github"
       },
       "original": {
@@ -130,11 +130,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1673631141,
-        "narHash": "sha256-AprpYQ5JvLS4wQG/ghm2UriZ9QZXvAwh1HlgA/6ZEVQ=",
+        "lastModified": 1674120619,
+        "narHash": "sha256-xLT1FQl7/jNPOEq5q/vmc3AExt1V9LtcjM+QY2+MUpA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "befc83905c965adfd33e5cae49acb0351f6e0404",
+        "rev": "d7705c01ef0a39c8ef532d1033bace8845a07d35",
         "type": "github"
       },
       "original": {
@@ -146,11 +146,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1673901956,
-        "narHash": "sha256-kGtiirJ8bEugRJDgKnqj8Fdkv7k+pfCsaTYGmGvToBw=",
+        "lastModified": 1674337509,
+        "narHash": "sha256-nXBhEGsrHcHZblYZgJracLO560Cms8lssz1rC4RKTaA=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "1fcd2ed63dc6d739d640372af87375494a45f180",
+        "rev": "75cccc4979ad10e02381d15a0f4f419ddaf5e2db",
         "type": "github"
       },
       "original": {
