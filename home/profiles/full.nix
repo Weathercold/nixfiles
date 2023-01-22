@@ -23,7 +23,6 @@ let inherit (lib.nixfiles) collectModules; in
       firefox.enable = true;
       fish.enable = true;
       git.enable = true;
-      java.enable = true;
       starship.enable = true;
       thunderbird.enable = true;
     };
