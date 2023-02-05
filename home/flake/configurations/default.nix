@@ -50,7 +50,7 @@ in
         inherit pkgs lib;
         extraSpecialArgs = { inherit inputs; };
         modules = [{
-          nixpkgs.overlays = [ self.overlays.default ];
+          nixpkgs.overlays = [ (final: prev: import ../../../pkgs { pkgs = final; }) ];
           home = { inherit (c) username homeDirectory; };
           nixfiles = { inherit (c) emails; };
         }] ++ c.modules;

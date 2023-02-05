@@ -47,7 +47,7 @@ in
         inherit system lib;
         specialArgs = { inherit inputs; };
         modules = [{
-          nixpkgs.overlays = [ config.flake.overlays.default ];
+          nixpkgs.overlays = [ (final: prev: import ../../../pkgs { pkgs = final; }) ];
           nixfiles.users.users = c.users;
           networking.hostName = c.hostName;
           users.users.root.hashedPassword = c.rootPassword;

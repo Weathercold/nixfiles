@@ -41,7 +41,7 @@ let inherit (lib.nixfiles) collectModules; in
         jq
         kdeconnect-kde
         kooha
-        # libreoffice-qt
+        libreoffice-qt
         neofetch
         nil # Nix LSP Implementation
         nixos-option

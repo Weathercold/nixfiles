@@ -13,8 +13,8 @@ in
   config.programs.discocss = with pkgs; mkIf cfg.enable rec {
     enable = true;
     discordAlias = false;
-    package = discocss.overrideAttrs (super: {
-      installPhase = super.installPhase + ''
+    package = discocss.overrideAttrs (prev: {
+      installPhase = prev.installPhase + ''
         wrapProgram $out/bin/discocss --set DISCOCSS_DISCORD_BIN ${discordPackage}/bin/DiscordCanary
         ln -s $out/bin/discocss $out/bin/DiscordCanary
         mkdir -p $out/share

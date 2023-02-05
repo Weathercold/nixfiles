@@ -1,6 +1,7 @@
 source
 outputs
 result
+temp
 
 .gitsecret/keys/random_seed
 home/flake/configurations/weathercold/default.nix

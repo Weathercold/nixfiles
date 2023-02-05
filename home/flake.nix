@@ -10,10 +10,6 @@
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
-    nixfiles-lib = {
-      url = "github:Weathercold/nixfiles?dir=lib";
-      inputs.nixpkgs-lib.follows = "nixpkgs";
-    };
     home-manager = {
       url = "github:Weathercold/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -44,7 +40,6 @@
     , nixpkgs
 
     , flake-parts
-    , nixfiles-lib
     , home-manager
 
     , dotdropFishComp
@@ -53,7 +48,10 @@
     , firefox-vertical-tabs
     } @ inputs:
 
-    let extendedLib = nixpkgs.lib.extend (_: _: { nixfiles = nixfiles-lib.lib; }); in
+    let
+      extendedLib = nixpkgs.lib.extend
+        (_: _: { nixfiles = import ../lib { inherit (nixpkgs) lib; }; });
+    in
 
     flake-parts.lib.mkFlake
       {
@@ -65,10 +63,10 @@
 
         systems = [
           "x86_64-linux"
-          "x86_64-darwin"
-          "aarch64-darwin"
-          "aarch64-linux"
-          "armv7l-linux"
+          # "x86_64-darwin"
+          # "aarch64-darwin"
+          # "aarch64-linux"
+          # "armv7l-linux"
         ];
         flake.flakeModules.default = ./flake-module.nix;
       };
