@@ -20,7 +20,8 @@ in
       key = null;
     };
     extraConfig = {
-      pull.rebase = true;
+      core.editor = "hx";
+      pull.rebase = false;
     };
     delta.enable = true;
   };
