@@ -1,7 +1,5 @@
 { pkgs, ... }:
 {
-  imports = [ ./font.nix ];
-
   gtk = {
     enable = true;
     theme = {
@@ -12,18 +10,14 @@
       package = pkgs.colloid-icon-theme;
       name = "Colloid-light";
     };
-    cursorTheme = {
-      name = "Breeze_Snow";
-      size = 24;
-    };
 
-    gtk2.extraConfig = ''
-      gtk-enable-animations=1
-      gtk-primary-button-warps-slider=0
-      gtk-toolbar-style=3
-      gtk-menu-images=1
-      gtk-button-images=1
-    '';
+    # gtk2.extraConfig = ''
+    #   gtk-enable-animations=1
+    #   gtk-primary-button-warps-slider=0
+    #   gtk-toolbar-style=3
+    #   gtk-menu-images=1
+    #   gtk-button-images=1
+    # '';
 
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = false;

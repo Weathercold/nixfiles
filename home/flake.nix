@@ -24,6 +24,10 @@
       url = "github:vinceliuice/Colloid-gtk-theme";
       flake = false;
     };
+    catppuccin-fcitx5 = {
+      url = "github:catppuccin/fcitx5";
+      flake = false;
+    };
     catppuccin-discord = {
       url = "https://catppuccin.github.io/discord/dist/catppuccin-latte-blue.theme.css";
       flake = false;
@@ -34,19 +38,7 @@
     };
   };
 
-  outputs =
-    { self
-
-    , nixpkgs
-
-    , flake-parts
-    , home-manager
-
-    , dotdropFishComp
-    , colloid-gtk-theme
-    , catppuccin-discord
-    , firefox-vertical-tabs
-    } @ inputs:
+  outputs = { nixpkgs, flake-parts, ... } @ inputs:
 
     let
       extendedLib = nixpkgs.lib.extend

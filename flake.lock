@@ -12,6 +12,22 @@
         "url": "https://catppuccin.github.io/discord/dist/catppuccin-latte-blue.theme.css"
       }
     },
+    "catppuccin-fcitx5": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1664946380,
+        "narHash": "sha256-uFaCbyrEjv4oiKUzLVFzw+UY54/h7wh2cntqeyYwGps=",
+        "owner": "catppuccin",
+        "repo": "fcitx5",
+        "rev": "ce244cfdf43a648d984719fdfd1d60aab09f5c97",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "fcitx5",
+        "type": "github"
+      }
+    },
     "colloid-gtk-theme": {
       "flake": false,
       "locked": {
@@ -144,23 +160,10 @@
         "type": "github"
       }
     },
-    "nur": {
-      "locked": {
-        "lastModified": 1676139885,
-        "narHash": "sha256-l/iEYXtjuNYf+Mtk0nDNsdAwWKg6tKEPxgGxKfIFvFA=",
-        "owner": "nix-community",
-        "repo": "NUR",
-        "rev": "0579171707429321536463be2e40a4aae876974b",
-        "type": "github"
-      },
-      "original": {
-        "id": "nur",
-        "type": "indirect"
-      }
-    },
     "root": {
       "inputs": {
         "catppuccin-discord": "catppuccin-discord",
+        "catppuccin-fcitx5": "catppuccin-fcitx5",
         "colloid-gtk-theme": "colloid-gtk-theme",
         "dotdropFishComp": "dotdropFishComp",
         "firefox-vertical-tabs": "firefox-vertical-tabs",
@@ -168,8 +171,7 @@
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs",
-        "nur": "nur"
+        "nixpkgs": "nixpkgs"
       }
     },
     "utils": {

@@ -11,6 +11,7 @@ let inherit (lib.nixfiles) collectModules; in
   ++ collectModules ../programs
   ++ collectModules ../services
   ++ collectModules ../system
+  ++ collectModules ../i18n
   ++ collectModules ../virtualisation;
 
   nixpkgs.config.allowUnfree = true;
@@ -25,6 +26,7 @@ let inherit (lib.nixfiles) collectModules; in
         enableFileSystems = true;
       };
     };
+    i18n.inputMethod.fcitx5.enable = true;
   };
 
   environment = {

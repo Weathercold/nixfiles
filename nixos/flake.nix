@@ -13,14 +13,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware";
   };
 
-  outputs =
-    { self
-
-    , nixpkgs
-
-    , flake-parts
-    , nixos-hardware
-    } @ inputs:
+  outputs = { nixpkgs, flake-parts, ... } @ inputs:
 
     let
       extendedLib = nixpkgs.lib.extend
