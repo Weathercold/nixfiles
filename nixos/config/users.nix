@@ -4,14 +4,14 @@ let
   inherit (lib) types mkOption mkOverride mapAttrs mergeAttrs;
   cfg = config.nixfiles.users;
 
-  usersModule = {
+  userModule = {
     options = {
       description = mkOption {
         type = with types; nullOr str;
         default = null;
         # If this option is null then ignore it by giving it an even lower
         # priority than mkDefault (1000).
-        apply = v: if isNull v then mkOverride 1011 v else v;
+        apply = v: if isNull v then mkOverride 1001 v else v;
         description = "User description";
       };
       hashedPassword = mkOption {
@@ -31,7 +31,7 @@ in
 
 {
   options.nixfiles.users.users = mkOption {
-    type = with types; attrsOf (submodule usersModule);
+    type = with types; attrsOf (submodule userModule);
     description = "Configuration of normal users";
   };
 
