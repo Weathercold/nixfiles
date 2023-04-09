@@ -10,13 +10,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - uses: cachix/install-nix-action@v20
         with:
           nix_path: nixpkgs=channel:nixos-unstable
           extra_nix_config: |
             experimental-features = nix-command flakes
-      - name: Run update scripts
-        run: for p in $(find . -name "update-*.sh"); do $p; done
+
+      # - name: Run update scripts
+        # run: for p in $(find . -name "update-*.sh"); do $p; done
+
+      - name: Update vscode-insiders
+        continue-on-error: true
+        run: pkgs/applications/editors/vscode/update-vscode-insiders.sh
+
+      - name: Update vscodium-insiders
+        continue-on-error: true
+        run: pkgs/applications/editors/vscode/update-vscodium-insiders.sh
+
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: |
