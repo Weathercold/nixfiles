@@ -35,6 +35,5 @@
           "aarch64-linux"
           "armv7l-linux"
         ];
-        flake.flakeModules.default = ./flake-module.nix;
       };
 }

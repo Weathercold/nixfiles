@@ -5,6 +5,5 @@
 
   outputs = { self, nixpkgs-lib }: {
     lib = import ./. { inherit (nixpkgs-lib) lib; };
-    flakeModules.default = ./flake-module.nix;
   };
 }
