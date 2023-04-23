@@ -34,7 +34,7 @@ let inherit (lib) genAttrs attrNames const; in
 
     initrd.verbose = false;
     resumeDevice = "/dev/disk/by-label/nixos";
-    tmpOnTmpfs = true;
+    tmp.useTmpfs = true;
   };
 
   fileSystems = {
@@ -87,8 +87,6 @@ let inherit (lib) genAttrs attrNames const; in
       "zh_CN.UTF-8/UTF-8"
     ];
     extraLocaleSettings = {
-      LANG = "en_CA.UTF-8";
-      LANGUAGE = "en_CA.UTF-8";
       LC_TIME = "en_US.UTF-8";
       LC_NUMERIC = "C.UTF-8";
     };
