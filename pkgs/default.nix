@@ -3,6 +3,8 @@
 let inherit (pkgs) callPackage; in
 
 rec {
+  anki-qt6 = callPackage ./games/anki/anki-qt6.nix { };
+
   plymouth-themes = callPackage ./data/themes/plymouth-themes { };
 
   vscode-insiders = callPackage ./applications/editors/vscode/vscode-insiders.nix { };
