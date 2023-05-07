@@ -49,6 +49,7 @@ let inherit (lib.nixfiles) collectModules; in
         nil # Nix LSP Implementation
         nixos-option
         nixpkgs-fmt
+        obsidian
         qtstyleplugin-kvantum # For Colloid-kde
         unzip
         (ventoy-bin.override {
