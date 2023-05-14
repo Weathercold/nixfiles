@@ -3,7 +3,7 @@
     "catppuccin-discord": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-Osp6EL0mdArrMzNNzmH+WHrpIGlnuF2am8nD3WL8ThM=",
+        "narHash": "sha256-gFt+Fn9AlrNyrcIPy71x1qF6tEZvcQ21I2c3/DxRKgc=",
         "type": "file",
         "url": "https://catppuccin.github.io/discord/dist/catppuccin-latte-blue.theme.css"
       },
@@ -95,11 +95,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1683458821,
-        "narHash": "sha256-fBAUiZ0XGoYy9sBud+rR2T18yIeRzb9aVkGBkOjzFwc=",
+        "lastModified": 1683560683,
+        "narHash": "sha256-XAygPMN5Xnk/W2c1aW0jyEa6lfMDZWlQgiNtmHXytPc=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "f3e943c249229affaaabd302e1cc14c769eef9d8",
+        "rev": "006c75898cf814ef9497252b022e91c946ba8e17",
         "type": "github"
       },
       "original": {
@@ -112,15 +112,14 @@
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
-        ],
-        "utils": "utils"
+        ]
       },
       "locked": {
-        "lastModified": 1681047743,
-        "narHash": "sha256-zJq5mUkBqi7tFtV1+4Oj5uCPffX/NqICgLHQX9WC4Vc=",
+        "lastModified": 1684085817,
+        "narHash": "sha256-WcrySnfDCSHnrLIxW/8PuyTxYDIpC1Nk1UUdcvx6RCw=",
         "owner": "Weathercold",
         "repo": "home-manager",
-        "rev": "f9356296f3869e0953b77bdc3c5b931b563d8940",
+        "rev": "a269c162678e8c3adbb187ede9dad7e3ff8a9cde",
         "type": "github"
       },
       "original": {
@@ -131,11 +130,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1683269598,
-        "narHash": "sha256-KNsb+nBbB1Fmxd07dt4E0KXMT4YeKJB7gQaA6Xfk+mo=",
+        "lastModified": 1683965003,
+        "narHash": "sha256-DrzSdOnLv/yFBvS2FqmwBA2xIbN/Lny/WlxHyoLR9zE=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "51559e691f1493a26f94f1df1aaf516bb507e78b",
+        "rev": "81cd886719e10d4822b2a6caa96e95d56cc915ef",
         "type": "github"
       },
       "original": {
@@ -172,21 +171,6 @@
         "home-manager": "home-manager",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs"
-      }
-    },
-    "utils": {
-      "locked": {
-        "lastModified": 1678901627,
-        "narHash": "sha256-U02riOqrKKzwjsxc/400XnElV+UtPUQWpANPlyazjH0=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "93a2b84fc4b70d9e089d029deacc3583435c2ed6",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
       }
     }
   },
