@@ -78,13 +78,13 @@ let inherit (lib) genAttrs attrNames const; in
 
   time.timeZone = "America/Toronto";
   i18n = {
-    defaultLocale = "en_CA.UTF-8";
+    defaultLocale = "en_US.UTF-8";
     supportedLocales = [
       "C.UTF-8/UTF-8"
-      "en_CA.UTF-8/UTF-8"
+      # "en_CA.UTF-8/UTF-8"
       "en_US.UTF-8/UTF-8"
-      "fr_CA.UTF-8/UTF-8"
-      "zh_CN.UTF-8/UTF-8"
+      # "fr_CA.UTF-8/UTF-8"
+      # "zh_CN.UTF-8/UTF-8"
     ];
     extraLocaleSettings = {
       LC_TIME = "en_US.UTF-8";
