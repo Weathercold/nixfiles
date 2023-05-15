@@ -4,6 +4,7 @@ let inherit (pkgs) callPackage; in
 
 rec {
   anki-qt6 = callPackage ./games/anki/anki-qt6.nix { };
+  anki-bin-qt6 = callPackage ./games/anki/anki-bin-qt6.nix { };
 
   plymouth-themes = callPackage ./data/themes/plymouth-themes { };
 

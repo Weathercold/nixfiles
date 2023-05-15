@@ -87,7 +87,7 @@ let inherit (lib) genAttrs attrNames const; in
       # "zh_CN.UTF-8/UTF-8"
     ];
     extraLocaleSettings = {
-      LC_TIME = "en_US.UTF-8";
+      # LC_TIME = "en_US.UTF-8";
       LC_NUMERIC = "C.UTF-8";
     };
   };

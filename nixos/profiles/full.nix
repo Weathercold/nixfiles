@@ -35,7 +35,8 @@ let inherit (lib.nixfiles) collectModules; in
       with pkgs;
       with libsForQt5;
       [
-        anki-qt6
+        # TODO: Switch to anki-qt6 when it is no longer broken on Wayland
+        anki-bin-qt6
         ffmpeg_5-full
         helix
         gh
