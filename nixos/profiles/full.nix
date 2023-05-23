@@ -59,6 +59,7 @@ let inherit (lib.nixfiles) collectModules; in
         })
         vscode-insiders
         wget
+        win2xcur
         xorg.xeyes
         zip
       ];

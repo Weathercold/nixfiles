@@ -38,7 +38,7 @@ stdenv.mkDerivation {
   '';
 
   meta = with lib; {
-    description = "A hugh collection (80+) of plymouth themes ported from android bootanimations";
+    description = "A huge collection (80+) of plymouth themes ported from android bootanimations";
     license = licenses.gpl3;
     platforms = platforms.linux;
     homepage = "https://github.com/adi1090x/plymouth-themes";

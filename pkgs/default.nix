@@ -13,4 +13,6 @@ rec {
     pkgs.vscode-with-extensions.override { vscode = vscode-insiders; };
 
   vscodium-insiders = callPackage ./applications/editors/vscode/vscodium-insiders.nix { };
+
+  win2xcur = callPackage ./tools/misc/win2xcur { };
 }
