@@ -1,4 +1,4 @@
-{ self, config, lib, ... }:
+{ self, lib, ... }:
 
 let
   inherit (lib) optionalAttrs;
@@ -7,8 +7,6 @@ let
   username = "custom";
   hostName = "custom";
   homeDirectory = null; # Default is "/home/${username}"
-  themes = [ "colloid" ];
-  defaultTheme = "colloid";
   # For firefox, put your firefox profile name here.
   firefox-profile = null; # Default is username
 in
@@ -21,14 +19,31 @@ in
     modules = [
       self.homeModules.profiles-build-config
       {
-        nixfiles = {
-          themes = {
-            inherit themes;
-          };
-        } // optionalAttrs (!isNull firefox-profile)
+        nixfiles = optionalAttrs (firefox-profile != null)
           { programs.firefox.profile = firefox-profile; };
-        specialization.${defaultTheme}.default = true;
+
+        # You can have multiple specializations, but only one can be default.
+        specialization = {
+          colloid = {
+            default = true;
+            configuration.imports = with self.homeModules; [
+              colloid-cursor
+              colloid-discocss
+              colloid-fcitx5
+              colloid-firefox
+              colloid-fonts
+              colloid-gtk
+              colloid-plasma
+            ];
+          };
+
+          catppuccin.configuration.imports = with self.homeModules; [
+            catppuccin-cursor
+            catppuccin-fcitx5
+            catppuccin-fonts
+          ];
+        };
       }
     ];
-  } // optionalAttrs (!isNull homeDirectory) { inherit homeDirectory; };
+  } // optionalAttrs (homeDirectory != null) { inherit homeDirectory; };
 }

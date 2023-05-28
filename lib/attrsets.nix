@@ -3,7 +3,7 @@
 let
   inherit (lib) collect filterAttrs zipAttrsWith last;
   inherit (builtins) isAttrs isList attrNames attrValues all head concatLists;
-  inherit (lib.nixfiles) notf;
+  inherit (trivial) notf;
 in
 
 rec {
@@ -13,10 +13,10 @@ rec {
   # Recursively merge attribute sets and lists.
   # This assumes that overriden options are of the same type.
   recursiveMerge = zipAttrsWith
-    (_: v:
-      if all isAttrs v then recursiveMerge v
-      else if all isList v then concatLists v
-      else last v
+    (_: vs:
+      if all isAttrs vs then recursiveMerge vs
+      else if all isList vs then concatLists vs
+      else last vs
     );
 
   # Find the first attribute verified by the predicate and return the name.

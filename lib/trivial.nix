@@ -9,6 +9,10 @@ let inherit (builtins) isString; in
   # Inverse of a boolean function
   notf = f: n: !f n;
 
+  # The builtin function is deprecated, but it can still be useful in certain
+  # situations.
+  isNull = a: a == null;
+
   # String join op
   join = a: b: lib.throwIfNot
     (isString a && isString b)

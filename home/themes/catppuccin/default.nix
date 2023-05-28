@@ -1,7 +1,7 @@
 { lib, ... }:
 
 let
-  inherit (lib) types mkOption assertOneOf;
+  inherit (lib) types mkOption;
 in
 
 {

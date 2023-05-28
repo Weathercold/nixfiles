@@ -3,7 +3,6 @@
 , path
 , callPackage
 , fetchurl
-, nixosTests
 , commandLineArgs ? ""
 }:
 

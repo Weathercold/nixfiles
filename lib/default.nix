@@ -16,5 +16,5 @@ rec {
   inherit (filesystem) listDirs listFiles genModules collectModules;
   inherit (partials) partialSet;
   inherit (strings) isEncrypted;
-  inherit (trivial) const2 notf join;
+  inherit (trivial) const2 notf isNull join;
 }

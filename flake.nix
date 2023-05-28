@@ -6,6 +6,13 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     ## TODO: Actually use
     # nur.url = "github:nix-community/NUR";
+    bocchi-cursors = {
+      url = "github:Weathercold/Bocchi-Cursors";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+      };
+    };
 
     # Utils
     flake-compat = {

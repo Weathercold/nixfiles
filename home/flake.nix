@@ -4,6 +4,13 @@
   inputs = {
     # Repos
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    bocchi-cursors = {
+      url = "github:Weathercold/Bocchi-Cursors";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+      };
+    };
 
     # Utils
     flake-parts = {

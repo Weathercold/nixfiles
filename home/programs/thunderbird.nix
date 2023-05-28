@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, ... }:
 
 let
   inherit (lib) types mkOption mkEnableOption mkIf attrNames genAttrs const;

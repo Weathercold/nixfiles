@@ -1,15 +1,12 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, lib, ... }:
 
 let inherit (lib.nixfiles) collectModules; in
 
 {
-  imports = [
-    ./base.nix
-    ../themes
-  ]
-  ++ collectModules ../accounts
-  ++ collectModules ../programs
-  ++ collectModules ../services;
+  imports = [ ./base.nix ]
+    ++ collectModules ../accounts
+    ++ collectModules ../programs
+    ++ collectModules ../services;
 
   home.packages = with pkgs; [
     any-nix-shell

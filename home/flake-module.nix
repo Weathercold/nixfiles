@@ -1,7 +1,8 @@
 { lib, ... }:
 
 let
-  inherit (lib) zipAttrs;
+  inherit (lib) recursiveUpdate;
+  inherit (builtins) foldl';
   inherit (lib.nixfiles) genModules collectModules;
   inherit (lib.nixfiles.filesystem) listDirs';
 in
@@ -10,6 +11,6 @@ in
   imports = collectModules ./flake;
 
   flake.homeModules =
-    zipAttrs (map genModules (listDirs' ./themes))
+    foldl' recursiveUpdate { } (map genModules (listDirs' ./themes))
     // genModules ./profiles;
 }

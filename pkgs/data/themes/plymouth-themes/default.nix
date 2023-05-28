@@ -7,8 +7,10 @@
 
 let
   inherit (builtins) isList isString all length concatStringsSep head;
+  inherit (lib) isNull;
+
   matchThemes =
-    if isNull themes0 then "*"
+    if themes0 == null then "*"
     else if length themes0 == 1 then head themes0
     else "{${concatStringsSep "," themes0}}";
 in

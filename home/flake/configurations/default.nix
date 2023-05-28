@@ -1,5 +1,5 @@
 # noauto
-{ self, inputs, config, lib, withSystem, ... }:
+{ inputs, config, lib, withSystem, ... }:
 
 let
   inherit (lib) types mkOption mapAttrs splitString;
@@ -50,7 +50,9 @@ in
         inherit pkgs lib;
         extraSpecialArgs = { inherit inputs; };
         modules = [{
-          nixpkgs.overlays = [ (final: prev: import ../../../pkgs { pkgs = final; }) ];
+          nixpkgs.overlays = [
+            (final: prev: import ../../../pkgs { pkgs = final; })
+          ];
           home = { inherit (c) username homeDirectory; };
           nixfiles = { inherit (c) emails; };
         }] ++ c.modules;

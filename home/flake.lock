@@ -1,5 +1,28 @@
 {
   "nodes": {
+    "bocchi-cursors": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1685285757,
+        "narHash": "sha256-yP2pplzjZpqeEo6GH+Gk4HMGkXnN2028K9ISWyLyZMY=",
+        "owner": "Weathercold",
+        "repo": "Bocchi-Cursors",
+        "rev": "2296e26cf798480611409837092d2c055508bc4a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Weathercold",
+        "repo": "Bocchi-Cursors",
+        "type": "github"
+      }
+    },
     "catppuccin-discord": {
       "flake": false,
       "locked": {
@@ -59,11 +82,11 @@
     "firefox-vertical-tabs": {
       "flake": false,
       "locked": {
-        "lastModified": 1671833934,
-        "narHash": "sha256-x0fLq1O108XvRgFcmedJy/HZQrMPOmjsDWMwT5yjoNo=",
+        "lastModified": 1685078435,
+        "narHash": "sha256-59/G2QSv4is1eL8ipGMt4/+h6gMSuDn2ztPpgiAIm48=",
         "owner": "ranmaru22",
         "repo": "firefox-vertical-tabs",
-        "rev": "97e38b1b156b474aa26541b87146a7a35f6efd3e",
+        "rev": "91501dbc24a0c090d822122fd0b39d8fa13bebbf",
         "type": "github"
       },
       "original": {
@@ -114,11 +137,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1684754342,
-        "narHash": "sha256-plGnjnbnPLoZCTdQX21oT7xliQhFtgcWlkuDHgtEb1o=",
+        "lastModified": 1685168767,
+        "narHash": "sha256-wQgnxz0PdqbyKKpsWl/RU8T8QhJQcHfeC6lh1xRUTfk=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "7084250df3d7f9735087d3234407f3c1fc2400e3",
+        "rev": "e10802309bf9ae351eb27002c85cfdeb1be3b262",
         "type": "github"
       },
       "original": {
@@ -130,6 +153,7 @@
     },
     "root": {
       "inputs": {
+        "bocchi-cursors": "bocchi-cursors",
         "catppuccin-discord": "catppuccin-discord",
         "catppuccin-fcitx5": "catppuccin-fcitx5",
         "colloid-gtk-theme": "colloid-gtk-theme",
