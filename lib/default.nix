@@ -14,7 +14,7 @@ rec {
 
   inherit (attrsets) findName findValue;
   inherit (filesystem) listDirs listFiles genModules collectModules;
-  inherit (partials) partialSet;
+  inherit (partials) partialFunc partialSet;
   inherit (strings) isEncrypted;
   inherit (trivial) const2 notf isNull join;
 }

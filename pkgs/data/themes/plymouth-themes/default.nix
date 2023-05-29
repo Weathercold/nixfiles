@@ -7,7 +7,7 @@
 
 let
   inherit (builtins) isList isString all length concatStringsSep head;
-  inherit (lib) isNull;
+  inherit (lib.nixfiles) isNull;
 
   matchThemes =
     if themes0 == null then "*"
