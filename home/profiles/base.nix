@@ -1,6 +1,7 @@
-{ config, lib, ... }:
+{ config, ... }:
 {
-  nixpkgs.config.allowUnfreePredicate = lib.const true;
+  # FIXME: Still broken, needs --impure to build
+  nixpkgs.config.allowUnfree = true;
 
   home.stateVersion = "23.05";
 

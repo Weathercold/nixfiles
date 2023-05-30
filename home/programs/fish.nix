@@ -21,12 +21,5 @@ in
       qcomm = "qfile (which $argv)";
       fetchhash = "nix flake prefetch --json $argv | jq -r .hash";
     };
-    shellAliases = {
-      ani = "ani-cli";
-      c = "clear";
-      nf = "neofetch";
-      nvl = "~/src/lightnovel.sh/lightnovel.sh";
-      zz = "z -";
-    };
   };
 }

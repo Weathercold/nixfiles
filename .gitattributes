@@ -1,4 +1,5 @@
 *.secret linguist-generated
 flake.lock linguist-generated
 
+.gitsecret/** linguist-generated
 .gitsecret/paths/mapping.cfg linguist-language=INI
