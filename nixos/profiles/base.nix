@@ -7,7 +7,13 @@ let inherit (lib) genAttrs attrNames const; in
 
   nix = {
     package = pkgs.nixVersions.unstable;
-    extraOptions = "experimental-features = nix-command flakes";
+    extraOptions = ''
+      # repl-flake: Enable passing installables to nix repl
+      experimental-features = nix-command flakes no-url-literals repl-flake
+      keep-outputs = true
+      keep-derivations = true
+      connect-timeout = 10
+    '';
     settings.auto-optimise-store = true;
     gc = {
       automatic = true;
