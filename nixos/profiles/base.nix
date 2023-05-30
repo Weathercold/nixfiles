@@ -72,7 +72,10 @@ let inherit (lib) genAttrs attrNames const; in
     dhcpcd.enable = false;
     networkmanager = {
       enable = true;
-      wifi.macAddress = "random";
+      wifi = {
+        # backend = "iwd";
+        macAddress = "random";
+      };
     };
   };
 
@@ -96,6 +99,16 @@ let inherit (lib) genAttrs attrNames const; in
     font = "Lat2-Terminus16";
     useXkbConfig = true; # use xkbOptions in tty.
   };
+
+  # School wifi is insecure :(
+  environment.etc."wpa_supplicant.conf".text = ''
+    openssl_ciphers=DEFAULT@SECLEVEL=0
+  '';
+
+  systemd.services."wpa_supplicant".serviceConfig.ExecStart = [
+    "" # Clear the overridden ExecStart as it is additive
+    "${pkgs.wpa_supplicant}/sbin/wpa_supplicant -u -i wlp1s0 -c /etc/wpa_supplicant.conf"
+  ];
 
   security = {
     rtkit.enable = true;
