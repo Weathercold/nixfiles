@@ -66,6 +66,11 @@ callPackage "${path}/pkgs/applications/editors/vscode/generic.nix" rec {
     downloadPage = "https://github.com/VSCodium/vscodium-insiders/releases";
     license = licenses.mit;
     sourceProvenance = with sourceTypes; [ binaryNativeCode ];
+    # !!!: The insiders version breaks frequently, about once every month.
+    #      You will get errors such as segfaults, crashes, issues related to
+    #      read-only system, etc. For these reasons, I have personally switched
+    #      to stable. Please use this package with caution.
+    broken = true;
     mainProgram = "codium-insiders";
     platforms = [
       "x86_64-linux"

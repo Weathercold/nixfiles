@@ -57,7 +57,7 @@ let inherit (lib.nixfiles) collectModules; in
           defaultGuiType = "qt5";
           withQt5 = true;
         })
-        vscode-insiders
+        vscode
         wget
         win2xcur
         xorg.xeyes

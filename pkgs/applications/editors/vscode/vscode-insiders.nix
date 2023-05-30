@@ -51,7 +51,6 @@ callPackage "${path}/pkgs/applications/editors/vscode/generic.nix" rec {
       Open source source code editor developed by Microsoft for Windows,
       Linux and macOS
     '';
-    mainProgram = "code-insiders";
     longDescription = ''
       Open source source code editor developed by Microsoft for Windows,
       Linux and macOS. It includes support for debugging, embedded Git
@@ -62,6 +61,12 @@ callPackage "${path}/pkgs/applications/editors/vscode/generic.nix" rec {
     homepage = "https://code.visualstudio.com/";
     downloadPage = "https://code.visualstudio.com/Updates";
     license = licenses.unfree;
+    # !!!: The insiders version breaks frequently, about once every month.
+    #      You will get errors such as segfaults, crashes, issues related to
+    #      read-only system, etc. For these reasons, I have personally switched
+    #      to stable. Please use this package with caution.
+    broken = true;
+    mainProgram = "code-insiders";
     platforms = [
       "x86_64-linux"
       "x86_64-darwin"
