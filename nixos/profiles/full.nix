@@ -26,6 +26,7 @@ let inherit (lib.nixfiles) collectModules; in
         enableFileSystems = true;
       };
     };
+    programs.neovim.enable = true;
     i18n.inputMethod.fcitx5.enable = true;
   };
 
@@ -38,7 +39,6 @@ let inherit (lib.nixfiles) collectModules; in
         # TODO: Switch to anki-qt6 when it is no longer broken on Wayland
         anki-bin-qt6
         ffmpeg_5-full
-        helix
         gh
         git-secret
         jetbrains.idea-community

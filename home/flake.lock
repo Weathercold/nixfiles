@@ -10,11 +10,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1685285757,
-        "narHash": "sha256-yP2pplzjZpqeEo6GH+Gk4HMGkXnN2028K9ISWyLyZMY=",
+        "lastModified": 1685287678,
+        "narHash": "sha256-WetyYkbViF9u6e4jQx48TTDDBpEjromKIn0AICCOWws=",
         "owner": "Weathercold",
         "repo": "Bocchi-Cursors",
-        "rev": "2296e26cf798480611409837092d2c055508bc4a",
+        "rev": "ac98b93ccc687b83740081e1c1ce2106b9407871",
         "type": "github"
       },
       "original": {
@@ -26,7 +26,7 @@
     "catppuccin-discord": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-nta6Geke3sWgCXBk6PjNMs3S28rmK4BP3PsArbJClZo=",
+        "narHash": "sha256-OaFbZEN50Cw3Omhw9Wner32O348RT14BdPc4PP8bTS0=",
         "type": "file",
         "url": "https://catppuccin.github.io/discord/dist/catppuccin-latte-blue.theme.css"
       },
@@ -54,11 +54,11 @@
     "colloid-gtk-theme": {
       "flake": false,
       "locked": {
-        "lastModified": 1684559286,
-        "narHash": "sha256-l34+716ZcRvost4euficnEUThXrtkZJH1HcjTqXuliQ=",
+        "lastModified": 1685415693,
+        "narHash": "sha256-4vtgihiX7J7ipJ0w0KwoAqpLKrCe9i/s46pLQjY4CTM=",
         "owner": "vinceliuice",
         "repo": "Colloid-gtk-theme",
-        "rev": "2449ab52c2dafe98d6b75c3e0f1c7c620f852e44",
+        "rev": "fac1f9207134e4dde4ea93a1053c7a2972961496",
         "type": "github"
       },
       "original": {
@@ -102,11 +102,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1683560683,
-        "narHash": "sha256-XAygPMN5Xnk/W2c1aW0jyEa6lfMDZWlQgiNtmHXytPc=",
+        "lastModified": 1685662779,
+        "narHash": "sha256-cKDDciXGpMEjP1n6HlzKinN0H+oLmNpgeCTzYnsA2po=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "006c75898cf814ef9497252b022e91c946ba8e17",
+        "rev": "71fb97f0d875fd4de4994dfb849f2c75e17eb6c3",
         "type": "github"
       },
       "original": {
@@ -137,11 +137,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1685168767,
-        "narHash": "sha256-wQgnxz0PdqbyKKpsWl/RU8T8QhJQcHfeC6lh1xRUTfk=",
+        "lastModified": 1685655444,
+        "narHash": "sha256-6EujQNAeaUkWvpEZZcVF8qSfQrNVWFNNGbUJxv/A5a8=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e10802309bf9ae351eb27002c85cfdeb1be3b262",
+        "rev": "e635192892f5abbc2289eaac3a73cdb249abaefd",
         "type": "github"
       },
       "original": {
