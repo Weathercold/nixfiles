@@ -28,6 +28,7 @@ let inherit (lib.nixfiles) collectModules; in
     };
     programs.neovim.enable = true;
     i18n.inputMethod.fcitx5.enable = true;
+    virtualisation.docker.enable = true;
   };
 
   environment = {
@@ -117,4 +118,6 @@ let inherit (lib.nixfiles) collectModules; in
     enable = true;
     extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
   };
+
+  virtualisation.waydroid.enable = true;
 }
