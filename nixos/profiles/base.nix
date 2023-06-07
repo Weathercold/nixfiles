@@ -14,11 +14,14 @@ let inherit (lib) genAttrs attrNames const; in
       keep-derivations = true
       connect-timeout = 10
     '';
-    settings.auto-optimise-store = true;
     gc = {
       automatic = true;
       dates = "daily";
       options = "--delete-older-than 7d";
+    };
+    settings = {
+      trusted-users = [ "root" "@wheel" ];
+      auto-optimise-store = true;
     };
   };
 
