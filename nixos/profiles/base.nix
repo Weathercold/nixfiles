@@ -1,9 +1,17 @@
 { config, pkgs, lib, ... }:
 
-let inherit (lib) genAttrs attrNames const; in
+let
+  inherit (lib) genAttrs attrNames const;
+  inherit (lib.nixfiles) collectModules;
+in
 
 {
-  imports = [ ../config/users.nix ];
+  imports = collectModules ../config
+    ++ collectModules ../programs
+    ++ collectModules ../services
+    ++ collectModules ../system
+    ++ collectModules ../i18n
+    ++ collectModules ../virtualisation;
 
   nix = {
     package = pkgs.nixVersions.unstable;

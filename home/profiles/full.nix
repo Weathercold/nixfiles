@@ -1,12 +1,6 @@
-{ pkgs, lib, ... }:
-
-let inherit (lib.nixfiles) collectModules; in
-
+{ pkgs, ... }:
 {
-  imports = [ ./base.nix ]
-    ++ collectModules ../accounts
-    ++ collectModules ../programs
-    ++ collectModules ../services;
+  imports = [ ./base.nix ];
 
   home = {
     packages = with pkgs; [

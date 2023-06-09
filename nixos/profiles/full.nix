@@ -1,18 +1,9 @@
-{ pkgs, lib, ... }:
-
-let inherit (lib.nixfiles) collectModules; in
-
+{ pkgs, ... }:
 {
   imports = [
     ./base.nix
     ../hardware/halo65.nix
-  ]
-  ++ collectModules ../config
-  ++ collectModules ../programs
-  ++ collectModules ../services
-  ++ collectModules ../system
-  ++ collectModules ../i18n
-  ++ collectModules ../virtualisation;
+  ];
 
   nixpkgs.config.allowUnfree = true;
 
