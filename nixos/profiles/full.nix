@@ -39,9 +39,11 @@ let inherit (lib.nixfiles) collectModules; in
       [
         # TODO: Switch to anki-qt6 when it is no longer broken on Wayland
         anki-bin-qt6
+        clinfo # For Plasma Info Center
         ffmpeg_5-full
         gh
         git-secret
+        glxinfo # For Plasma Info Center
         jetbrains.idea-community
         jq
         kdeconnect-kde
@@ -52,6 +54,7 @@ let inherit (lib.nixfiles) collectModules; in
         nixos-option
         nixpkgs-fmt
         obsidian
+        pciutils # For Plasma Info Center
         qtstyleplugin-kvantum # For Colloid-kde
         unzip
         (ventoy-bin.override {
@@ -59,6 +62,8 @@ let inherit (lib.nixfiles) collectModules; in
           withQt5 = true;
         })
         vscode
+        vulkan-tools # For Plasma Info Center
+        wayland-utils # For Plasma Info Center
         wget
         win2xcur
         xorg.xeyes
