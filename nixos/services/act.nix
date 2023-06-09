@@ -15,6 +15,6 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = [ cfg.package ];
-    # nixfiles.virtualisaton.docker.enable = true; # FIXME: not working
+    nixfiles.virtualisation.docker.enable = true; # FIXME: not working
   };
 }

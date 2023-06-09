@@ -26,7 +26,7 @@
     "catppuccin-discord": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-OaFbZEN50Cw3Omhw9Wner32O348RT14BdPc4PP8bTS0=",
+        "narHash": "sha256-NI6FKN/n2RRYgoQHj3cWK0uw4dagTBVO1IE3y1ZreUM=",
         "type": "file",
         "url": "https://catppuccin.github.io/discord/dist/catppuccin-latte-blue.theme.css"
       },
@@ -122,11 +122,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1684794377,
-        "narHash": "sha256-jnMbtB/705mxWxsK1svMvWzWxiSzx0wlRl5SC0yIyto=",
+        "lastModified": 1686347721,
+        "narHash": "sha256-/PA4BhWGG1yeLgAdvgQQFqVQ4kwYBi7wGeLvYaGEMr4=",
         "owner": "Weathercold",
         "repo": "home-manager",
-        "rev": "a0f2a7249f115731e7dc57134b1c38286076c786",
+        "rev": "1cc2e888a5eacc59133c94d7ebeb8ce0fda28ceb",
         "type": "github"
       },
       "original": {
@@ -137,11 +137,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1685655444,
-        "narHash": "sha256-6EujQNAeaUkWvpEZZcVF8qSfQrNVWFNNGbUJxv/A5a8=",
+        "lastModified": 1686226982,
+        "narHash": "sha256-nLuiPoeiVfqqzeq9rmXxpybh77VS37dsY/k8N2LoxVg=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e635192892f5abbc2289eaac3a73cdb249abaefd",
+        "rev": "a64b73e07d4aa65cfcbda29ecf78eaf9e72e44bd",
         "type": "github"
       },
       "original": {

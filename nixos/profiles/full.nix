@@ -19,7 +19,6 @@
     };
     programs.neovim.enable = true;
     i18n.inputMethod.fcitx5.enable = true;
-    virtualisation.docker.enable = true;
   };
 
   environment = {

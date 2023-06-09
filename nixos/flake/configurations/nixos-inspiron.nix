@@ -13,6 +13,7 @@
     modules = with self.nixosModules; [
       hardware-inspiron-7405
       profiles-full
+      { nixfiles.networking.supplicant.enableInsecureSSLCiphers = true; }
     ];
   };
 }
