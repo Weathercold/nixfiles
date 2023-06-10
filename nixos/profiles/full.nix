@@ -36,7 +36,6 @@
         glxinfo # For Plasma Info Center
         jetbrains.idea-community
         jq
-        kdeconnect-kde
         kooha
         libreoffice-qt
         neofetch
@@ -107,6 +106,8 @@
     gnupg.agent.enable = true;
 
     dconf.enable = true;
+
+    kdeconnect.enable = true;
   };
 
   xdg.portal = {
