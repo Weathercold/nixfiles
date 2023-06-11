@@ -20,7 +20,7 @@ in
       key = null;
     };
     extraConfig = {
-      core.editor = "hx";
+      core.editor = "nvim";
       pull.rebase = false;
     };
     delta.enable = true;
