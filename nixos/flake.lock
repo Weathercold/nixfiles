@@ -20,6 +20,29 @@
         "type": "github"
       }
     },
+    "nixd": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1686414173,
+        "narHash": "sha256-UksReMzPwEuU+nqZBRWrPkpnE/JK3a1PIvKofdOeUUw=",
+        "owner": "nix-community",
+        "repo": "nixd",
+        "rev": "f67e677c9ec344d0af43e168edeea12f110cf626",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixd",
+        "type": "github"
+      }
+    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1686217350,
@@ -54,6 +77,7 @@
     "root": {
       "inputs": {
         "flake-parts": "flake-parts",
+        "nixd": "nixd",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs"
       }

@@ -39,7 +39,8 @@
         kooha
         libreoffice-qt
         neofetch
-        nil # Nix LSP Implementation
+        nil
+        nixd
         nixos-option
         nixpkgs-fmt
         obsidian

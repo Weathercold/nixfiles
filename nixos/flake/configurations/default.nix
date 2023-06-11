@@ -2,8 +2,8 @@
 { inputs, config, lib, withSystem, ... }:
 
 let
-  inherit (inputs) nixpkgs;
   inherit (lib) types mkOption mapAttrs;
+  inherit (inputs) nixpkgs nixd;
   cfg = config.nixosConfigurations;
 
   configModule = { name, ... }: {
@@ -47,7 +47,10 @@ in
         inherit system lib;
         specialArgs = { inherit inputs; };
         modules = [{
-          nixpkgs.overlays = [ (final: prev: import ../../../pkgs { pkgs = final; }) ];
+          nixpkgs.overlays = [
+            nixd.overlays.default
+            (final: prev: import ../../../pkgs { pkgs = final; })
+          ];
           nixfiles.users.users = c.users;
           networking.hostName = c.hostName;
           users.users.root.hashedPassword = c.rootPassword;
