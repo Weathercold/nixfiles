@@ -51,18 +51,6 @@
         "type": "github"
       }
     },
-    "dotdropFishComp": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-xHGp1586Tmmkp3rcSgJLzigql9pajD4YWGMzbM9OAeE=",
-        "type": "file",
-        "url": "https://raw.githubusercontent.com/deadc0de6/dotdrop/master/completion/dotdrop.fish"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://raw.githubusercontent.com/deadc0de6/dotdrop/master/completion/dotdrop.fish"
-      }
-    },
     "firefox-vertical-tabs": {
       "flake": false,
       "locked": {
@@ -194,7 +182,6 @@
         "bocchi-cursors": "bocchi-cursors",
         "catppuccin-discord": "catppuccin-discord",
         "catppuccin-fcitx5": "catppuccin-fcitx5",
-        "dotdropFishComp": "dotdropFishComp",
         "firefox-vertical-tabs": "firefox-vertical-tabs",
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts",

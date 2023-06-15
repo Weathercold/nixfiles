@@ -1,8 +1,14 @@
-{ inputs, config, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 let
+  inherit (pkgs) fetchurl;
   inherit (lib) mkEnableOption mkIf;
   cfg = config.nixfiles.programs.dotdrop;
+
+  dotdropFishComp = fetchurl {
+    url = "https://raw.githubusercontent.com/deadc0de6/dotdrop/master/completion/dotdrop.fish";
+    hash = "sha256-msoL+TmqNJl3i4QGFPEnmSK1OsMhpBNWe4BDVihhQw4=";
+  };
 in
 
 {
@@ -15,6 +21,6 @@ in
       sysdrop = "~/src/sysfiles/scripts/dotdrop.sh";
       syssync = "~/src/sysfiles/scripts/dotsync.sh";
     };
-    xdg.configFile."fish/completions/dotdrop.fish".source = inputs.dotdropFishComp;
+    xdg.configFile."fish/completions/dotdrop.fish".source = dotdropFishComp;
   };
 }
