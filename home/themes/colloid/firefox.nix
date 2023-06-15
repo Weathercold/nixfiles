@@ -1,10 +1,10 @@
-{ inputs, config, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   inherit (lib) mkMerge mkBefore;
   cfg = config.nixfiles.programs.firefox;
 
-  tme = inputs.colloid-gtk-theme + "/src/other/firefox/chrome/Colloid";
+  tme = pkgs.colloid-gtk-theme.src + "/src/other/firefox/chrome/Colloid";
 in
 
 {

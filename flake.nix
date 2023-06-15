@@ -41,10 +41,6 @@
       url = "https://raw.githubusercontent.com/deadc0de6/dotdrop/master/completion/dotdrop.fish";
       flake = false;
     };
-    colloid-gtk-theme = {
-      url = "github:vinceliuice/Colloid-gtk-theme";
-      flake = false;
-    };
     catppuccin-fcitx5 = {
       url = "github:catppuccin/fcitx5";
       flake = false;

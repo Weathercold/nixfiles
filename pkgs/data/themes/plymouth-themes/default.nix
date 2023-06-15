@@ -25,7 +25,7 @@ stdenv.mkDerivation {
     owner = "adi1090x";
     repo = "plymouth-themes";
     rev = "bf2f570bee8e84c5c20caac353cbe1d811a4745f";
-    sha256 = "sha256-VNGvA8ujwjpC2rTVZKrXni2GjfiZk7AgAn4ZB4Baj2k=";
+    hash = "sha256-VNGvA8ujwjpC2rTVZKrXni2GjfiZk7AgAn4ZB4Baj2k=";
   };
 
   dontFixup = true;

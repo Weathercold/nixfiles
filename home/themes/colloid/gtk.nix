@@ -3,7 +3,7 @@
   gtk = {
     enable = true;
     theme = {
-      package = pkgs.colloid-gtk-theme;
+      package = pkgs.colloid-gtk-theme-git;
       name = "Colloid-Light";
     };
     iconTheme = {

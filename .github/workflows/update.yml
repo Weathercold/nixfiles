@@ -28,6 +28,10 @@ jobs:
         continue-on-error: true
         run: pkgs/applications/editors/vscode/update-vscodium-insiders.sh
 
+      - name: Update colloid-gtk-theme-git
+        continue-on-error: true
+        run: pkgs/data/themes/colloid-gtk-theme/update.sh
+
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: |

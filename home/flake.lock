@@ -54,11 +54,11 @@
     "colloid-gtk-theme": {
       "flake": false,
       "locked": {
-        "lastModified": 1685415693,
-        "narHash": "sha256-4vtgihiX7J7ipJ0w0KwoAqpLKrCe9i/s46pLQjY4CTM=",
+        "lastModified": 1686537179,
+        "narHash": "sha256-l6/71ZSDgrhnHabhUaX7X3LjYZZ04OqC4yLh9rcMdJg=",
         "owner": "vinceliuice",
         "repo": "Colloid-gtk-theme",
-        "rev": "fac1f9207134e4dde4ea93a1053c7a2972961496",
+        "rev": "7386d9ae77f00e13db5b5f59bd957f7d9b00381c",
         "type": "github"
       },
       "original": {
@@ -137,11 +137,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1686226982,
-        "narHash": "sha256-nLuiPoeiVfqqzeq9rmXxpybh77VS37dsY/k8N2LoxVg=",
+        "lastModified": 1686592866,
+        "narHash": "sha256-riGg89eWhXJcPNrQGcSwTEEm7CGxWC06oSX44hajeMw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "a64b73e07d4aa65cfcbda29ecf78eaf9e72e44bd",
+        "rev": "0eeebd64de89e4163f4d3cf34ffe925a5cf67a05",
         "type": "github"
       },
       "original": {
