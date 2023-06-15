@@ -8,7 +8,7 @@
     };
     iconTheme = {
       package = pkgs.colloid-icon-theme;
-      name = "Colloid-light";
+      name = "Colloid";
     };
 
     gtk2.extraConfig = ''
