@@ -15,7 +15,7 @@ in
   options.nixfiles.programs.dotdrop.enable = mkEnableOption "dotfiles manager";
 
   config = mkIf cfg.enable {
-    programs.fish.shellAliases = {
+    home.shellAliases = {
       dotdrop = "~/src/dotfiles/scripts/dotdrop.sh";
       dotsync = "~/src/dotfiles/scripts/dotsync.sh";
       sysdrop = "~/src/sysfiles/scripts/dotdrop.sh";
