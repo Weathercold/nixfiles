@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ lib, ... }:
 
 let
   inherit (lib) const;
@@ -17,9 +17,5 @@ in
 
   programs.home-manager.enable = true;
 
-  xdg = {
-    enable = true;
-    configFile.nixpkgs.source = config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/src/nixfiles";
-  };
+  xdg.enable = true;
 }
