@@ -83,6 +83,11 @@ in
   };
   swapDevices = [{ device = "/swap/swapfile"; }];
 
+  # Certain services freeze on stop which prevents shutdown.
+  systemd.extraConfig = ''
+    DefaultTimeoutStopSec=10s
+  '';
+
   networking = {
     useDHCP = true;
     firewall.enable = false;
