@@ -1,5 +1,5 @@
 { lib
-, stdenv
+, stdenvNoCC
 , fetchFromGitHub
 , # theme is reserved, took me a while to figure out
   themes0 ? null
@@ -17,7 +17,7 @@ in
 
 assert isNull themes0 || isList themes0 && all isString themes0;
 
-stdenv.mkDerivation {
+stdenvNoCC.mkDerivation {
   pname = "plymouth-themes";
   version = "2021-07-12";
 
@@ -32,10 +32,12 @@ stdenv.mkDerivation {
 
   installPhase = ''
     runHook preInstall
+
     mkdir -p $out/share/plymouth/themes
     cp -r pack_*/${matchThemes} $out/share/plymouth/themes/
     # Fix script path
     sed -i "s|/usr|$out|" $out/share/plymouth/themes/*/*.plymouth
+
     runHook postInstall
   '';
 

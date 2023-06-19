@@ -35,10 +35,6 @@
       url = "https://catppuccin.github.io/discord/dist/catppuccin-latte-blue.theme.css";
       flake = false;
     };
-    firefox-vertical-tabs = {
-      url = "github:ranmaru22/firefox-vertical-tabs";
-      flake = false;
-    };
   };
 
   outputs = { nixpkgs, flake-parts, ... } @ inputs:

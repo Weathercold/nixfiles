@@ -4,7 +4,8 @@ let
   inherit (builtins) all filter baseNameOf attrNames readDir readFile;
   inherit (lib)
     pipe const
-    mapAttrs mapAttrs' mapAttrsToList zipAttrs filterAttrs nameValuePair
+    mapAttrs mapAttrs' mapAttrsToList zipAttrsWith filterAttrs nameValuePair
+    last
     hasPrefix hasSuffix removeSuffix;
   inherit (lib.filesystem) listFilesRecursive;
 
@@ -66,7 +67,7 @@ rec {
           pipe contents [
             (filterAttrs (_: v: v == "directory"))
             (mapAttrsToList (n: _: genModules "${toString d}/${n}"))
-            zipAttrs
+            (zipAttrsWith (const last))
           ]
         );
 

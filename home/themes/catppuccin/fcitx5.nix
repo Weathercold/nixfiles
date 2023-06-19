@@ -1,4 +1,4 @@
-{ config, inputs, ... }:
+{ inputs, config, ... }:
 
 let cfg = config.nixfiles.themes.catppuccin; in
 

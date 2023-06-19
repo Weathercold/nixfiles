@@ -10,7 +10,7 @@ in
 {
   imports = [
     ../../programs/firefox.nix
-    ../base/firefox.nix
+    ../base/firefox-vertical-tabs
   ];
 
   programs.firefox.profiles.${cfg.profile} = {
