@@ -2,8 +2,5 @@
     "owner": "ranmaru22",
     "repo": "firefox-vertical-tabs",
     "rev": "91501dbc24a0c090d822122fd0b39d8fa13bebbf",
-    "sha256": "59/G2QSv4is1eL8ipGMt4/+h6gMSuDn2ztPpgiAIm48=",
-    "fetchSubmodules": false,
-    "leaveDotGit": false,
-    "deepClone": false
+    "sha256": "59/G2QSv4is1eL8ipGMt4/+h6gMSuDn2ztPpgiAIm48="
 }
