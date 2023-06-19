@@ -10,7 +10,7 @@ let inherit (lib.nixfiles.attrsets) recursiveMerge; in
     {
       system = "x86_64-linux";
       modules = [{
-        specialization.colloid = {
+        specialisation.colloid = {
           default = true;
           configuration.imports = with self.homeModules; [
             inputs.bocchi-cursors.homeModules.bocchi-cursors-shadowBlack

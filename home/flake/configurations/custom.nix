@@ -23,11 +23,10 @@ in
           { programs.firefox.profile = firefox-profile; };
 
         # You can have multiple specializations, but only one can be default.
-        specialization = {
+        specialisation = {
           colloid = {
             default = true;
             configuration.imports = with self.homeModules; [
-              colloid-cursor
               colloid-discocss
               colloid-fcitx5
               colloid-firefox
