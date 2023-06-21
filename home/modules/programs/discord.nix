@@ -10,20 +10,13 @@ in
     enable = mkEnableOption "Discord, a server-based instant messenger";
   };
 
-  config.programs.discocss = with pkgs; mkIf cfg.enable rec {
-    enable = true;
-    discordAlias = false;
-    package = discocss.overrideAttrs (prev: {
-      installPhase = prev.installPhase + ''
-        wrapProgram $out/bin/discocss --set DISCOCSS_DISCORD_BIN ${discordPackage}/bin/DiscordCanary
-        ln -s $out/bin/discocss $out/bin/DiscordCanary
-        mkdir -p $out/share
-        ln -s ${discordPackage}/share/* $out/share
-      '';
-    });
-    discordPackage = discord-canary.override {
-      nss = nss_latest; # Fix discord links not opening in Firefox
-      withOpenASAR = true;
+  config = mkIf cfg.enable {
+    programs.discocss = with pkgs; {
+      enable = true;
+      discordPackage = discord.override {
+        nss = nss_latest; # Fix discord links not opening in Firefox
+        withOpenASAR = true;
+      };
     };
   };
 }
