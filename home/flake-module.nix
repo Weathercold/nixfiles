@@ -1,16 +1,11 @@
 { lib, ... }:
 
-let
-  inherit (lib) recursiveUpdate;
-  inherit (builtins) foldl';
-  inherit (lib.nixfiles) genModules collectModules;
-  inherit (lib.nixfiles.filesystem) listDirs';
-in
+let inherit (lib.nixfiles.filesystem) toModuleAttr toModuleAttr' toModuleList; in
 
 {
-  imports = collectModules ./flake;
+  imports = toModuleList ./configurations;
 
   flake.homeModules =
-    foldl' recursiveUpdate { } (map genModules (listDirs' ./themes))
-    // genModules ./profiles;
+    toModuleAttr ./modules/themes
+    // toModuleAttr' ./modules/profiles;
 }

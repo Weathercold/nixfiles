@@ -5,5 +5,5 @@ result
 temp
 
 .gitsecret/keys/random_seed
-home/flake/configurations/weathercold/default.nix
-nixos/services/rclone/file-systems.nix
+home/configurations/weathercold/_base.nix
+nixos/modules/services/rclone/file-systems.nix

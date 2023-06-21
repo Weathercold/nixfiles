@@ -1,20 +1,18 @@
-{ lib }:
-
 let
-  callLib = m: import m { inherit lib; };
-  callLibWith = m: args: import m ({ inherit lib; } // args);
+  fetchInput = input:
+    let
+      lock = with builtins; (fromJSON (readFile ./flake.lock)).nodes.${input}.locked;
+    in
+    fetchTarball {
+      url = "https://github.com/${lock.owner}/${lock.repo}/archive/${lock.rev}.tar.gz";
+      sha256 = lock.narHash;
+    };
 in
 
-rec {
-  attrsets = callLibWith ./attrsets.nix { inherit trivial; };
-  filesystem = callLibWith ./filesystem.nix { inherit strings; };
-  partials = callLibWith ./partials.nix { inherit attrsets; };
-  strings = callLib ./strings.nix;
-  trivial = callLib ./trivial.nix;
-
-  inherit (attrsets) findName findValue;
-  inherit (filesystem) listDirs listFiles genModules collectModules;
-  inherit (partials) partialFunc partialSet;
-  inherit (strings) isEncrypted;
-  inherit (trivial) const2 notf isNull join;
+{ lib
+, haumea ? { lib = import (fetchInput "haumea") { inherit lib; }; }
+}:
+haumea.lib.load {
+  src = ./src;
+  inputs = { inherit lib haumea; };
 }

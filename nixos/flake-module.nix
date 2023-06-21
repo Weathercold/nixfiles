@@ -1,11 +1,11 @@
 { lib, ... }:
 
-let inherit (lib.nixfiles) genModules collectModules; in
+let inherit (lib.nixfiles.filesystem) toModuleAttr' toModuleList; in
 
 {
-  imports = collectModules ./flake;
+  imports = toModuleList ./configurations;
 
   flake.nixosModules =
-    genModules ./hardware
-    // genModules ./profiles;
+    toModuleAttr' ./modules/hardware
+    // toModuleAttr' ./modules/profiles;
 }

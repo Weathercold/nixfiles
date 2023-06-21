@@ -51,22 +51,6 @@
         "type": "github"
       }
     },
-    "colloid-gtk-theme": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1686990632,
-        "narHash": "sha256-iqWKeten/nJM2Hb+rDxhowmEHg6g+4tGIRIhS0n9Plo=",
-        "owner": "vinceliuice",
-        "repo": "Colloid-gtk-theme",
-        "rev": "fba46b34e0307ef5dd4fb0e35599f512aef0e1ec",
-        "type": "github"
-      },
-      "original": {
-        "owner": "vinceliuice",
-        "repo": "Colloid-gtk-theme",
-        "type": "github"
-      }
-    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
@@ -84,6 +68,26 @@
       "original": {
         "owner": "hercules-ci",
         "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "haumea": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1687176657,
+        "narHash": "sha256-G4knD3F6NZXIM95NZC64KtEc2M5qRtcOQylDPs0IyVk=",
+        "owner": "nix-community",
+        "repo": "haumea",
+        "rev": "6a4ad6d8f50b60f18d63d3c0452e9c1c98565ce3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "haumea",
         "type": "github"
       }
     },
@@ -128,8 +132,8 @@
         "bocchi-cursors": "bocchi-cursors",
         "catppuccin-discord": "catppuccin-discord",
         "catppuccin-fcitx5": "catppuccin-fcitx5",
-        "colloid-gtk-theme": "colloid-gtk-theme",
         "flake-parts": "flake-parts",
+        "haumea": "haumea",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs"
       }

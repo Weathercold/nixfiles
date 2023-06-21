@@ -30,6 +30,10 @@
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
+    haumea = {
+      url = "github:nix-community/haumea";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     home-manager = {
       url = "github:Weathercold/home-manager";
@@ -47,10 +51,13 @@
     };
   };
 
-  outputs = { nixpkgs, flake-parts, ... } @ inputs:
+  outputs = { nixpkgs, flake-parts, haumea, ... } @ inputs:
 
     let
-      lib = import ./lib { inherit (nixpkgs) lib; };
+      lib = import ./lib {
+        inherit (nixpkgs) lib;
+        inherit haumea;
+      };
       extendedLib = nixpkgs.lib.extend (_: _: { nixfiles = lib; });
     in
 

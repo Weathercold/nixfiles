@@ -17,16 +17,16 @@
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
+    haumea = {
+      url = "github:nix-community/haumea";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:Weathercold/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Data
-    colloid-gtk-theme = {
-      url = "github:vinceliuice/Colloid-gtk-theme";
-      flake = false;
-    };
     catppuccin-fcitx5 = {
       url = "github:catppuccin/fcitx5";
       flake = false;
@@ -37,13 +37,15 @@
     };
   };
 
-  outputs = { nixpkgs, flake-parts, ... } @ inputs:
-
+  outputs = { nixpkgs, flake-parts, haumea, ... } @ inputs:
     let
-      extendedLib = nixpkgs.lib.extend
-        (_: _: { nixfiles = import ../lib { inherit (nixpkgs) lib; }; });
+      extendedLib = nixpkgs.lib.extend (_: _: {
+        nixfiles = import ../lib {
+          inherit (nixpkgs) lib;
+          inherit haumea;
+        };
+      });
     in
-
     flake-parts.lib.mkFlake
       {
         inherit inputs;

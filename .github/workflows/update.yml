@@ -34,7 +34,7 @@ jobs:
 
       - name: Update firefox-vertical-tabs
         continue-on-error: true
-        run: home/themes/base/firefox-vertical-tabs/update.sh
+        run: home/modules/themes/base/firefox-vertical-tabs/update.sh
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
