@@ -14,25 +14,25 @@ be used as flake input by specifying a directory like this:
 `github:Weathercold/nixfiles?dir=home`
 
     nixfiles/
-    ├ home/: home configurations
-    │ ├ configurations/: top-level home configurations
-    │ │ ├ weathercold/: my configurations
-    │ │ ├ custom.nix: a custom example configuration
-    │ │ └ _options.nix: configuration abstraction
-    │ └ modules/: home modules
-    │   ├ profiles/: top-level home modules
-    │   ├ accounts/, programs/, services/, ...: options-based home modules
-    │   └ themes/
-    │     └ base/, colloid/, ...: home modules for theming; they don't add options and have effect on import
-    ├ nixos/: nixos configurations
-    │ ├ configurations/: top-level nixos configurations
-    │ │ ├ nixos-inspiron.nix, ...: my configurations
-    │ │ └ _options.nix: configuration abstraction
-    │ ├ profiles/: top-level nixos modules
-    │ ├ config/, i18n/, programs/, ...: options-based home modules
-    │ └ hardware/: nixos modules for hardware; they don't add options and have effect on import
-    ├ pkgs/: packaging repository
-    └ lib/: library of utility functions
+    ├ home/                                     home configurations
+    │ ├ configurations/                         top-level home configurations
+    │ │ ├ weathercold/                          my configurations
+    │ │ ├ custom.nix                            a custom example configuration
+    │ │ └ _options.nix                          configuration abstraction
+    │ └ modules/                                home modules
+    │   ├ profiles/                             top-level home modules
+    │   ├ accounts/, programs/, services/, ...  options-based home modules
+    │   └ themes/                               home modules for theming; they don't add options and have effect on import
+    │     └ base/, colloid/, ...
+    ├ nixos/                                    nixos configurations
+    │ ├ configurations/                         top-level nixos configurations
+    │ │ ├ nixos-inspiron.nix, ...               my configurations
+    │ │ └ _options.nix                          configuration abstraction
+    │ ├ profiles/                               top-level nixos modules
+    │ ├ config/, i18n/, programs/, ...          options-based home modules
+    │ └ hardware/                               nixos modules for hardware; they don't add options and have effect on import
+    ├ pkgs/                                     packaging repository
+    └ lib/                                      library of utility functions
 
 ## Import Graph
 
