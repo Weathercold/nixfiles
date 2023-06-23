@@ -9,7 +9,6 @@ in
   imports = toModuleList ../config
     ++ toModuleList ../programs
     ++ toModuleList ../services
-    ++ toModuleList ../system
     ++ toModuleList ../i18n
     ++ toModuleList ../virtualisation;
 

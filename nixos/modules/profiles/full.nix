@@ -7,7 +7,6 @@
   nixpkgs.config.allowUnfree = true;
 
   nixfiles = {
-    boot.plymouth.enable = true;
     services = {
       kanata.enable = true;
       act.enable = true;

@@ -8,8 +8,9 @@
       description = "Weathercold";
     };
     modules = with self.nixosModules; [
-      hardware-inspiron-7405
       profiles-full
+      hardware-inspiron-7405
+      catppuccin-plymouth
       { nixfiles.networking.supplicant.enableInsecureSSLCiphers = true; }
     ];
   };
