@@ -37,10 +37,6 @@
         kooha
         libreoffice-qt
         neofetch
-        nil
-        nixd
-        nixos-option
-        nixpkgs-fmt
         obsidian
         pciutils # For Plasma Info Center
         qtstyleplugin-kvantum # For Colloid-kde

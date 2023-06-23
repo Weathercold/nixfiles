@@ -9,6 +9,9 @@ I use [haumea](https://github.com/nix-community/haumea):
 
 ## Repository Structure
 
+I try to make the repo structure as close to that of nixpkgs as possible,
+differing from it only when it makes sense.
+
 Each part of this repo (`home`, `lib`, `nixos`, `pkgs`) has a subflake that can
 be used as flake input by specifying a directory like this:
 `github:Weathercold/nixfiles?dir=home`

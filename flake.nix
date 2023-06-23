@@ -23,7 +23,8 @@
 
     # Utils
     flake-compat = {
-      url = "github:edolstra/flake-compat";
+      # Fork to use the "dirty" repo, i.e. with uncommitted & unstaged changes
+      url = "github:inclyc/flake-compat";
       flake = false;
     };
     flake-parts = {
@@ -36,6 +37,7 @@
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     home-manager = {
+      # Fork to add option to specify default specialisation
       url = "github:Weathercold/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -78,9 +80,16 @@
           "aarch64-linux"
           "armv7l-linux"
         ];
-        perSystem = { pkgs, system, ... }: {
-          formatter = pkgs.nixpkgs-fmt;
-        };
+        perSystem = { inputs', pkgs, system, ... }:
+          with pkgs; {
+            formatter = nixpkgs-fmt;
+            devShells.default = mkShell {
+              packages = [
+                inputs'.nixd.packages.nixd
+                nixpkgs-fmt
+              ];
+            };
+          };
 
         flake.lib = lib;
       };

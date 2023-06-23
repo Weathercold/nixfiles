@@ -5,4 +5,4 @@ let lock = with builtins; (fromJSON (readFile ./flake.lock)).nodes.flake-compat.
     sha256 = lock.narHash;
   })
   { src = ./.; }
-).defaultNix
+).shellNix
