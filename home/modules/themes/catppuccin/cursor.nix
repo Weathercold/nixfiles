@@ -1,17 +1,16 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, ... }:
 
 let
-  inherit (builtins) getAttr substring;
-  inherit (lib) toUpper;
-  cfg = config.nixfiles.themes.catppuccin;
+  inherit (builtins) getAttr;
+  inherit (config.lib.catppuccin) getVariant toTitleCase;
 in
 
 {
   imports = [ ./_options.nix ];
 
   home.pointerCursor = {
-    package = getAttr (cfg.variant + "Light") pkgs.catppuccin-cursors;
-    name = "Catppuccin-${toUpper (substring 0 1 cfg.variant) + substring 1 100 cfg.variant}-Light";
+    package = getAttr (getVariant + "Light") pkgs.catppuccin-cursors;
+    name = "Catppuccin-${toTitleCase getVariant}-Light";
     gtk.enable = true;
     x11.enable = true;
   };

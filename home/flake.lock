@@ -23,18 +23,6 @@
         "type": "github"
       }
     },
-    "catppuccin-discord": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-NI6FKN/n2RRYgoQHj3cWK0uw4dagTBVO1IE3y1ZreUM=",
-        "type": "file",
-        "url": "https://catppuccin.github.io/discord/dist/catppuccin-latte-blue.theme.css"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://catppuccin.github.io/discord/dist/catppuccin-latte-blue.theme.css"
-      }
-    },
     "catppuccin-fcitx5": {
       "flake": false,
       "locked": {
@@ -130,7 +118,6 @@
     "root": {
       "inputs": {
         "bocchi-cursors": "bocchi-cursors",
-        "catppuccin-discord": "catppuccin-discord",
         "catppuccin-fcitx5": "catppuccin-fcitx5",
         "flake-parts": "flake-parts",
         "haumea": "haumea",

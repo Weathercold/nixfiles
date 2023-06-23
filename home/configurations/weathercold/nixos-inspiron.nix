@@ -1,4 +1,4 @@
-{ self, inputs, lib, ... }:
+{ self, lib, ... }:
 
 let inherit (lib.nixfiles.attrsets) recursiveMerge; in
 
@@ -12,15 +12,20 @@ let inherit (lib.nixfiles.attrsets) recursiveMerge; in
       modules = [{
         specialisation.colloid = {
           default = true;
-          configuration.imports = with self.homeModules; [
-            inputs.bocchi-cursors.homeModules.bocchi-cursors-shadowBlack
-            colloid-discocss
-            colloid-fcitx5
-            colloid-firefox
-            colloid-fonts
-            colloid-gtk
-            colloid-plasma
-          ];
+          configuration = {
+            imports = with self.homeModules; [
+              # inputs.bocchi-cursors.homeModules.bocchi-cursors-shadowBlack
+              catppuccin-cursor
+              catppuccin-discord
+              colloid-fcitx5
+              colloid-firefox
+              colloid-fonts
+              colloid-gtk
+              colloid-plasma
+            ];
+
+            nixfiles.themes.catppuccin.accent = "pink";
+          };
         };
       }];
     }

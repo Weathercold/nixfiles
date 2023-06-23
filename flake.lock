@@ -23,18 +23,6 @@
         "type": "github"
       }
     },
-    "catppuccin-discord": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-NI6FKN/n2RRYgoQHj3cWK0uw4dagTBVO1IE3y1ZreUM=",
-        "type": "file",
-        "url": "https://catppuccin.github.io/discord/dist/catppuccin-latte-blue.theme.css"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://catppuccin.github.io/discord/dist/catppuccin-latte-blue.theme.css"
-      }
-    },
     "catppuccin-fcitx5": {
       "flake": false,
       "locked": {
@@ -137,11 +125,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1687267055,
-        "narHash": "sha256-da5J9w+bDF4KJSqJ5M/u3P716cKYVQfr0f/Y+qt15Qw=",
+        "lastModified": 1687325637,
+        "narHash": "sha256-1m79PH4aiKls8BuV6R20uI4jZ+BuuA0ehjczkaO4c1U=",
         "owner": "nix-community",
         "repo": "nixd",
-        "rev": "0bc81079928a24730837abcc37ce1d19a80aea58",
+        "rev": "614378d5355476d5d47081e7918460e2d92935ba",
         "type": "github"
       },
       "original": {
@@ -184,7 +172,6 @@
     "root": {
       "inputs": {
         "bocchi-cursors": "bocchi-cursors",
-        "catppuccin-discord": "catppuccin-discord",
         "catppuccin-fcitx5": "catppuccin-fcitx5",
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts",

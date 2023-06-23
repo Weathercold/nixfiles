@@ -31,10 +31,6 @@
       url = "github:catppuccin/fcitx5";
       flake = false;
     };
-    catppuccin-discord = {
-      url = "https://catppuccin.github.io/discord/dist/catppuccin-latte-blue.theme.css";
-      flake = false;
-    };
   };
 
   outputs = { nixpkgs, flake-parts, haumea, ... } @ inputs:

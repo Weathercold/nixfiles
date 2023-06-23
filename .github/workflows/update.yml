@@ -32,6 +32,10 @@ jobs:
         continue-on-error: true
         run: pkgs/data/themes/colloid-gtk-theme/update.sh
 
+      - name: Update catppuccin-discord
+        continue-on-error: true
+        run: pkgs/data/themes/catppuccin-discord/update.sh
+
       - name: Update firefox-vertical-tabs
         continue-on-error: true
         run: home/modules/themes/base/firefox-vertical-tabs/update.sh

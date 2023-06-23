@@ -12,6 +12,8 @@ rec {
   anki-qt6 = callPackage ./games/anki/anki-qt6.nix { };
   anki-bin-qt6 = callPackage ./games/anki/anki-bin-qt6.nix { };
 
+  catppuccin-discord = callPackage ./data/themes/catppuccin-discord/git.nix { };
+
   colloid-gtk-theme-git = callPackage ./data/themes/colloid-gtk-theme/git.nix { };
 
   plymouth-themes = callPackage ./data/themes/plymouth-themes { };

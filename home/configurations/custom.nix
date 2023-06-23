@@ -27,7 +27,6 @@ in
           colloid = {
             default = true;
             configuration.imports = with self.homeModules; [
-              colloid-discocss
               colloid-fcitx5
               colloid-firefox
               colloid-fonts
@@ -38,6 +37,7 @@ in
 
           catppuccin.configuration.imports = with self.homeModules; [
             catppuccin-cursor
+            catppuccin-discord
             catppuccin-fcitx5
             catppuccin-fonts
           ];
