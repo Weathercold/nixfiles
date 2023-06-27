@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1687176657,
-        "narHash": "sha256-G4knD3F6NZXIM95NZC64KtEc2M5qRtcOQylDPs0IyVk=",
+        "lastModified": 1687577177,
+        "narHash": "sha256-3ZIwl4fPK/vxeCHEhXjhGwVuBf6rQxZxkAmkM/HIP8I=",
         "owner": "nix-community",
         "repo": "haumea",
-        "rev": "6a4ad6d8f50b60f18d63d3c0452e9c1c98565ce3",
+        "rev": "ed7d2f478b5c44b14e72f1b824ea5eb5e3def022",
         "type": "github"
       },
       "original": {
@@ -23,11 +23,11 @@
     "nixpkgs-lib": {
       "locked": {
         "dir": "lib",
-        "lastModified": 1687502512,
-        "narHash": "sha256-dBL/01TayOSZYxtY4cMXuNCBk8UMLoqRZA+94xiFpJA=",
+        "lastModified": 1687681650,
+        "narHash": "sha256-M2If+gRcfpmaJy/XbfSsRzLlPpoU4nr0NHnKKl50fd8=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "3ae20aa58a6c0d1ca95c9b11f59a2d12eebc511f",
+        "rev": "1c9db9710cb23d60570ad4d7ab829c2d34403de3",
         "type": "github"
       },
       "original": {

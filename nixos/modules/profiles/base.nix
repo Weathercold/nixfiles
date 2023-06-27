@@ -1,16 +1,12 @@
 { config, pkgs, lib, ... }:
 
-let
-  inherit (lib) genAttrs attrNames const;
-  inherit (lib.nixfiles.filesystem) toModuleList;
-in
+let inherit (lib) genAttrs const; in
 
 {
-  imports = toModuleList ../config
-    ++ toModuleList ../programs
-    ++ toModuleList ../services
-    ++ toModuleList ../i18n
-    ++ toModuleList ../virtualisation;
+  nixfiles.boot = {
+    loader.systemd-boot.enable = true;
+    quiet = true;
+  };
 
   nix = {
     package = pkgs.nixVersions.unstable;
@@ -35,52 +31,14 @@ in
   system.stateVersion = "23.05";
 
   boot = {
-    loader = {
-      systemd-boot = {
-        enable = true;
-        configurationLimit = 10; # Number of NixOS generations in systemd-boot.
-      };
-      efi.canTouchEfiVariables = true;
-    };
+    # Whether the installation process can modify EFI boot variables.
+    loader.efi.canTouchEfiVariables = true;
 
     kernelPackages = pkgs.linuxPackages_zen;
-    consoleLogLevel = 0;
-    kernelParams = [ "resume_offset=4929334" "quiet" "udev.log_level=3" ];
     kernel.sysctl = { "vm.swappiness" = 20; };
 
-    initrd.verbose = false;
-    resumeDevice = "/dev/disk/by-label/nixos";
     tmp.useTmpfs = true;
   };
-
-  fileSystems = {
-    "/" = {
-      device = "/dev/disk/by-label/nixos";
-      fsType = "btrfs";
-      options = [ "subvol=root" "noatime" "compress-force=zstd" ];
-    };
-    "/boot" = {
-      device = "/dev/disk/by-label/esp";
-      fsType = "vfat";
-      options = [ "nofail" "noauto" "noatime" "x-systemd.automount" "x-systemd.idle-timeout=10min" ];
-    };
-    "/home" = {
-      device = "/dev/disk/by-label/data";
-      fsType = "btrfs";
-      options = [ "subvol=home" "noatime" "compress-force=zstd" ];
-    };
-    "/nix" = {
-      device = "/dev/disk/by-label/nixos";
-      fsType = "btrfs";
-      options = [ "subvol=nix" "noatime" "compress-force=zstd" ];
-    };
-    "/swap" = {
-      device = "/dev/disk/by-label/nixos";
-      fsType = "btrfs";
-      options = [ "subvol=swap" "noatime" ];
-    };
-  };
-  swapDevices = [{ device = "/swap/swapfile"; }];
 
   # Certain services freeze on stop which prevents shutdown.
   systemd.extraConfig = ''
@@ -88,8 +46,6 @@ in
   '';
 
   networking = {
-    useDHCP = true;
-    firewall.enable = false;
     dhcpcd.enable = false;
     networkmanager = {
       enable = true;
@@ -132,9 +88,9 @@ in
   users = {
     mutableUsers = false;
     users = genAttrs
-      (attrNames config.nixfiles.users.users)
+      config.nixfiles.users.admins
       (const {
-        extraGroups = [ "wheel" "audio" "networkmanager" ];
+        extraGroups = [ "audio" "networkmanager" ];
       });
   };
 }

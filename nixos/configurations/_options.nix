@@ -1,8 +1,9 @@
 { inputs, config, lib, withSystem, ... }:
 
 let
-  inherit (lib) types mkOption mapAttrs;
-  inherit (inputs) nixpkgs nixd;
+  inherit (inputs) nixpkgs;
+  inherit (lib) types mkOption mapAttrs flatten;
+  inherit (lib.nixfiles.filesystem) toModuleList;
   cfg = config.nixosConfigurations;
 
   configModule = { name, ... }: {
@@ -15,15 +16,6 @@ let
         type = types.nonEmptyStr;
         default = name;
         description = "Name of the computer. Defaults to the name of the NixOS configuration.";
-      };
-      rootPassword = mkOption {
-        type = types.nonEmptyStr;
-        description = "Password of the root user";
-      };
-      users = mkOption {
-        type = with types; attrsOf attrs;
-        default = { };
-        description = "Configuration of normal users";
       };
       modules = mkOption {
         type = with types; listOf deferredModule;
@@ -45,15 +37,22 @@ in
       ({ system, ... }: nixpkgs.lib.nixosSystem {
         inherit system lib;
         specialArgs = { inherit inputs; };
-        modules = [{
-          nixpkgs.overlays = [
-            nixd.overlays.default
-            (final: prev: import ../../pkgs { pkgs = final; })
-          ];
-          nixfiles.users.users = c.users;
-          networking.hostName = c.hostName;
-          users.users.root.hashedPassword = c.rootPassword;
-        }] ++ c.modules;
+        modules = flatten [
+          inputs.disko.nixosModules.disko
+          (toModuleList ../modules/config)
+          (toModuleList ../modules/system)
+          (toModuleList ../modules/programs)
+          (toModuleList ../modules/services)
+          (toModuleList ../modules/i18n)
+          (toModuleList ../modules/virtualisation)
+          c.modules
+          {
+            nixpkgs.overlays = [
+              (final: prev: import ../../pkgs { pkgs = final; })
+            ];
+            networking = { inherit (c) hostName; };
+          }
+        ];
       }))
     cfg;
 }

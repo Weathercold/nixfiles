@@ -4,8 +4,6 @@
     ../hardware/halo65.nix
   ];
 
-  nixpkgs.config.allowUnfree = true;
-
   nixfiles = {
     services = {
       kanata.enable = true;
@@ -18,6 +16,8 @@
     programs.neovim.enable = true;
     i18n.inputMethod.fcitx5.enable = true;
   };
+
+  nixpkgs.config.allowUnfree = true;
 
   environment = {
     defaultPackages = [ ];
@@ -96,6 +96,11 @@
   };
 
   programs = {
+    ssh = {
+      enableAskPassword = true;
+      askPassword = "${pkgs.libsForQt5.ksshaskpass}/bin/ksshaskpass";
+    };
+
     # Some programs need SUID wrappers, can be configured further or are
     # started in user sessions.
     gnupg.agent.enable = true;

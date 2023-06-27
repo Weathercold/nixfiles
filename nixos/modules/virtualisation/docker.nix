@@ -14,7 +14,7 @@ in
       enableOnBoot = mkDefault false;
     };
     users.users = genAttrs
-      (attrNames config.nixfiles.users.users)
+      config.nixfiles.users.admins
       (const { extraGroups = [ "docker" ]; });
   };
 }

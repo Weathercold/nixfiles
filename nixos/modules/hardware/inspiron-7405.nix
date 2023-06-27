@@ -8,12 +8,12 @@ let inherit (lib) mkIf; in
     ../services/kanata.nix
   ];
 
+  hardware.bluetooth.enable = true;
+
   boot = {
     initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
     kernelModules = [ "kvm-amd" ];
   };
-
-  hardware.bluetooth.enable = true;
 
   services = {
     fwupd.enable = true; # Firmware updates
@@ -35,6 +35,7 @@ let inherit (lib) mkIf; in
         extraDefCfg = ''
           danger-enable-cmd yes
           process-unmapped-keys yes
+          log-layer-changes no
         '';
         config = ''
           (defsrc

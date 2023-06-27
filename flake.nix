@@ -35,6 +35,14 @@
       url = "github:nix-community/haumea";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    deploy-rs = {
+      url = "github:serokell/deploy-rs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     home-manager = {
       # Fork to add option to specify default specialisation
@@ -49,7 +57,7 @@
     };
   };
 
-  outputs = { nixpkgs, flake-parts, haumea, ... } @ inputs:
+  outputs = { self, nixpkgs, flake-parts, haumea, ... } @ inputs:
 
     let
       lib = import ./lib {
@@ -73,6 +81,11 @@
           ./home/flake-module.nix
         ];
 
+        # Expose flake-parts options for nixd
+        debug = true;
+
+        flake.lib = lib;
+
         systems = [
           "x86_64-linux"
           "x86_64-darwin"
@@ -80,17 +93,22 @@
           "aarch64-linux"
           "armv7l-linux"
         ];
+
         perSystem = { inputs', pkgs, system, ... }:
           with pkgs; {
             formatter = nixpkgs-fmt;
+
+            checks = inputs.deploy-rs.lib.${system}.deployChecks self.deploy;
+
             devShells.default = mkShell {
               packages = [
                 inputs'.nixd.packages.nixd
+                nil
                 nixpkgs-fmt
+                deploy-rs
+                nix-init
               ];
             };
           };
-
-        flake.lib = lib;
       };
 }

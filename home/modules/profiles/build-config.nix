@@ -1,5 +1,5 @@
 # Profile that disables every package
-{ config, pkgs, lib, ... }:
+{ lib, ... }:
 
 let inherit (lib) mkForce; in
 

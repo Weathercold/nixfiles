@@ -7,6 +7,7 @@ let
     extraDefCfg = ''
       danger-enable-cmd yes
       process-unmapped-keys yes
+      log-layer-changes no
     '';
     config = ''
       (defsrc

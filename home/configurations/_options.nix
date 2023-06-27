@@ -1,9 +1,10 @@
 { inputs, config, lib, withSystem, ... }:
 
 let
-  inherit (lib) types mkOption mapAttrs splitString;
-  inherit (builtins) head;
   inherit (inputs) home-manager;
+  inherit (builtins) head;
+  inherit (lib) types mkOption mapAttrs flatten splitString;
+  inherit (lib.nixfiles.filesystem) toModuleList;
   cfg = config.homeConfigurations;
 
   configModule = { name, config, ... }: {
@@ -48,13 +49,19 @@ in
       ({ pkgs, ... }: home-manager.lib.homeManagerConfiguration {
         inherit pkgs lib;
         extraSpecialArgs = { inherit inputs; };
-        modules = [{
-          nixpkgs.overlays = [
-            (final: prev: import ../../pkgs { pkgs = final; })
-          ];
-          home = { inherit (c) username homeDirectory; };
-          nixfiles = { inherit (c) emails; };
-        }] ++ c.modules;
+        modules = flatten [
+          (toModuleList ../accounts)
+          (toModuleList ../programs)
+          (toModuleList ../services)
+          c.modules
+          {
+            nixpkgs.overlays = [
+              (final: prev: import ../../pkgs { pkgs = final; })
+            ];
+            home = { inherit (c) username homeDirectory; };
+            nixfiles = { inherit (c) emails; };
+          }
+        ];
       }))
     cfg;
 }
