@@ -50,9 +50,9 @@ in
         inherit pkgs lib;
         extraSpecialArgs = { inherit inputs; };
         modules = flatten [
-          (toModuleList ../accounts)
-          (toModuleList ../programs)
-          (toModuleList ../services)
+          (toModuleList ../modules/accounts)
+          (toModuleList ../modules/programs)
+          (toModuleList ../modules/services)
           c.modules
           {
             nixpkgs.overlays = [
