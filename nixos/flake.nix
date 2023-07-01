@@ -25,7 +25,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware";
   };
 
-  outputs = { self, nixpkgs, flake-parts, haumea, ... } @ inputs:
+  outputs = { nixpkgs, flake-parts, haumea, ... } @ inputs:
     let
       extendedLib = nixpkgs.lib.extend (_: _: {
         nixfiles = import ../lib {
@@ -43,9 +43,5 @@
         imports = [ ./flake-module.nix ];
 
         systems = [ "x86_64-linux" ];
-
-        perSystem = { inputs', system, ... }: {
-          checks = inputs'.deploy-rs.lib.deployChecks self.deploy;
-        };
       };
 }
