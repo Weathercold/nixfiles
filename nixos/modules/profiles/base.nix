@@ -40,6 +40,15 @@ let inherit (lib) genAttrs const; in
     tmp.useTmpfs = true;
   };
 
+  users = {
+    mutableUsers = false;
+    users = genAttrs
+      config.nixfiles.users.admins
+      (const {
+        extraGroups = [ "audio" "networkmanager" ];
+      });
+  };
+
   # Certain services freeze on stop which prevents shutdown.
   systemd.extraConfig = ''
     DefaultTimeoutStopSec=10s
@@ -56,7 +65,6 @@ let inherit (lib) genAttrs const; in
     };
   };
 
-  time.timeZone = "America/Toronto";
   i18n = {
     defaultLocale = "en_US.UTF-8";
     supportedLocales = [
@@ -85,12 +93,5 @@ let inherit (lib) genAttrs const; in
     };
   };
 
-  users = {
-    mutableUsers = false;
-    users = genAttrs
-      config.nixfiles.users.admins
-      (const {
-        extraGroups = [ "audio" "networkmanager" ];
-      });
-  };
+  services.automatic-timezoned.enable = true;
 }
