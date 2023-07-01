@@ -57,7 +57,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, flake-parts, haumea, deploy-rs, ... } @ inputs:
+  outputs = { self, nixpkgs, flake-parts, haumea, ... } @ inputs:
 
     let
       lib = import ./lib {
@@ -98,7 +98,7 @@
           with pkgs; {
             formatter = nixpkgs-fmt;
 
-            checks = deploy-rs.lib.${system}.deployChecks self.deploy;
+            checks = inputs.deploy-rs.lib.${system}.deployChecks self.deploy;
 
             devShells.default = mkShell {
               packages = [
