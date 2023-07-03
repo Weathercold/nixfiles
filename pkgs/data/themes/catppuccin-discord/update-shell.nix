@@ -7,7 +7,6 @@ mkShell {
     bash
     gnused
     jq
-    nix
     nix-prefetch-github
   ];
 }

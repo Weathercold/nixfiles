@@ -21,8 +21,8 @@ update_vscode () {
 
 # VSCode
 
-VSCODE_VER=$(curl --fail --silent https://update.code.visualstudio.com/api/releases/insider \
-             | jq --raw-output .[0])
+VSCODE_VER=$(curl -fs https://update.code.visualstudio.com/api/releases/insider \
+             | jq -r .[0])
 sed -i "s/version = \".*\"/version = \"${VSCODE_VER}\"/" "$ROOT/vscode-insiders.nix"
 
 update_vscode $VSCODE_VER linux-x64 x86_64-linux

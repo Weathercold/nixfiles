@@ -5,6 +5,7 @@ let
     nixfiles = {
       users.admins = [ "weathercold" ];
       networking.supplicant.enableInsecureSSLCiphers = true;
+      services.v2raya.enable = true;
     };
 
     boot = {
@@ -52,8 +53,6 @@ let
         inherit (weathercold) hashedPassword;
       };
     };
-
-    services.v2raya.enable = true;
   };
 in
 

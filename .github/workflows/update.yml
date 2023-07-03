@@ -28,6 +28,10 @@ jobs:
         continue-on-error: true
         run: pkgs/applications/editors/vscode/update-vscodium-insiders.sh
 
+      - name: Update v2ray-rules-dat
+        continue-on-error: true
+        run: pkgs/data/misc/v2ray-rules-dat/update.sh
+
       - name: Update colloid-gtk-theme-git
         continue-on-error: true
         run: pkgs/data/themes/colloid-gtk-theme/update.sh

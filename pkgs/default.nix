@@ -24,5 +24,7 @@ rec {
 
   vscodium-insiders = callPackage ./applications/editors/vscode/vscodium-insiders.nix { };
 
+  v2ray-rules-dat = callPackage ./data/misc/v2ray-rules-dat/bin.nix { };
+
   win2xcur = callPackage ./tools/misc/win2xcur { };
 }

@@ -1,7 +1,7 @@
 .direnv
 source
 outputs
-result
+result*
 temp
 
 .gitsecret/keys/random_seed
