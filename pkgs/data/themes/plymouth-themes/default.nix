@@ -7,7 +7,6 @@
 
 let
   inherit (builtins) isList isString all length concatStringsSep head;
-  inherit (lib.nixfiles.trivial) isNull;
 
   matchThemes =
     if themes0 == null then "*"
@@ -15,7 +14,7 @@ let
     else "{${concatStringsSep "," themes0}}";
 in
 
-assert isNull themes0 || isList themes0 && all isString themes0;
+assert themes0 == null || isList themes0 && all isString themes0;
 
 stdenvNoCC.mkDerivation {
   pname = "plymouth-themes";

@@ -25,7 +25,7 @@ stdenvNoCC.mkDerivation {
   outputs = [ "out" "geoip" "geosite" ];
 
   unpackPhase = ''
-    mkdir -p "source"
+    mkdir -p source
     cd source
     for src in $srcs; do
       cp $src $(stripHash $src)

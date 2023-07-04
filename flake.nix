@@ -108,6 +108,9 @@
                 deploy-rs
                 nix-init
               ];
+              shellHook = ''
+                export NIXPKGS_ALLOW_BROKEN=1
+              '';
             };
           };
       };
