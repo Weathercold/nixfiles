@@ -1,6 +1,12 @@
 { pkgs }:
 
-let inherit (pkgs) callPackage; in
+let
+  extendedLib = pkgs.lib.extend
+    (_: _: { nixfiles = import ../lib { inherit (pkgs) lib; }; });
+  extendedPkgs = pkgs.extend
+    (_: _: { lib = extendedLib; });
+  inherit (extendedPkgs) callPackage;
+in
 
 rec {
   anki-qt6 = callPackage ./games/anki/anki-qt6.nix { };
