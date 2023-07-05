@@ -20,6 +20,7 @@
   };
 
   nixfiles = {
+    services.gpg-agent.enable = true;
     programs = {
       discord.enable = true;
       dotdrop.enable = true;
