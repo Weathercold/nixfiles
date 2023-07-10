@@ -15,7 +15,9 @@ let
       hostName = mkOption {
         type = types.nonEmptyStr;
         default = name;
-        description = "Name of the computer. Defaults to the name of the NixOS configuration.";
+        description = ''
+          Name of the computer. Defaults to the name of the NixOS configuration.
+        '';
       };
       modules = mkOption {
         type = with types; listOf deferredModule;

@@ -1,11 +1,22 @@
-{ self, ... }:
+{ self, lib, ... }:
 
 let
+  inherit (builtins) fromJSON readFile;
+  inherit (lib) recursiveUpdate;
+
+  proxySettings = fromJSON (readFile ./fracture-ray/proxy.json);
+
   mainModule = {
     nixfiles = {
       users.admins = [ "weathercold" ];
       networking.supplicant.enableInsecureSSLCiphers = true;
-      services.v2raya.enable = true;
+      services.xray = recursiveUpdate
+        proxySettings
+        {
+          enable = true;
+          preset = "vless-tcp-xtls-reality-client";
+          reality.shortId = "77b852c767077a1a";
+        };
     };
 
     boot = {

@@ -6,4 +6,5 @@ temp
 
 .gitsecret/keys/random_seed
 home/configurations/weathercold/_base.nix
+nixos/configurations/fracture-ray/proxy.json
 nixos/modules/services/rclone/file-systems.nix

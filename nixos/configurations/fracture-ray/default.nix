@@ -2,7 +2,10 @@
 { self, inputs, lib, ... }:
 
 let
-  inherit (lib) mkForce;
+  inherit (builtins) fromJSON readFile;
+  inherit (lib) mkForce recursiveUpdate;
+
+  proxySettings = fromJSON (readFile ./proxy.json);
 
   mainModule = {
     nixfiles = {
@@ -12,6 +15,9 @@ let
         grub.enable = true;
       };
       users.admins = [ "weathercold" ];
+      services.xray = recursiveUpdate
+        proxySettings
+        { preset = "vless-tcp-xtls-reality-server"; };
     };
 
     boot.loader.grub.devices = [ "/dev/vda" ];
@@ -71,7 +77,7 @@ let
 in
 
 {
-  imports = [ ./_options.nix ];
+  imports = [ ../_options.nix ];
 
   nixosConfigurations.fracture-ray = {
     system = "x86_64-linux";
@@ -83,7 +89,7 @@ in
   };
 
   flake.deploy.nodes.fracture-ray = {
-    hostname = ""; # Required for checks to succeed, overriden on command line
+    hostname = proxySettings.address;
     sshOpts = [ "-p" "1337" ];
     profiles.system = {
       user = "root";
