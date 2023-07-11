@@ -28,7 +28,17 @@ let inherit (lib) genAttrs const; in
     };
   };
 
-  system.stateVersion = "23.05";
+  system = {
+    stateVersion = "23.05";
+    # Print store diff using nvd
+    activationScripts.diff = {
+      supportsDryActivation = true;
+      text = ''
+        ${pkgs.nvd}/bin/nvd --nix-bin-dir=${config.nix.package}/bin diff \
+          /run/current-system "$systemConfig"
+      '';
+    };
+  };
 
   boot = {
     # Whether the installation process can modify EFI boot variables.

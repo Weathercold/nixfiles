@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ config, pkgs, lib, ... }:
 
 let inherit (lib) const; in
 
@@ -6,7 +6,13 @@ let inherit (lib) const; in
   # FIXME: Still broken, needs --impure to build
   nixpkgs.config.allowUnfreePredicate = const true;
 
-  home.stateVersion = "23.05";
+  home = {
+    stateVersion = "23.05";
+    # Print store diff using nvd
+    activation.diff = config.lib.dag.entryBefore [ "writeBoundary" ] ''
+      ${pkgs.nvd}/bin/nvd diff $oldGenPath $newGenPath
+    '';
+  };
 
   programs.home-manager.enable = true;
 
