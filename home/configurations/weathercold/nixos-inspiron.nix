@@ -1,8 +1,13 @@
 { self, lib, ... }:
 
-let inherit (lib.nixfiles.attrsets) recursiveMerge; in
+let
+  inherit (builtins) readDir;
+  inherit (lib) optionalAttrs;
+  inherit (lib.nixfiles.attrsets) recursiveMerge;
+in
 
-{
+# No-op if _base.nix is hidden
+optionalAttrs (readDir ./. ? "_base.nix") {
   imports = [ ../_options.nix ];
 
   homeConfigurations."weathercold@nixos-inspiron" = recursiveMerge [
