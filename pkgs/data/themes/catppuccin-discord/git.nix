@@ -20,7 +20,7 @@ let
     owner = "catppuccin";
     repo = "discord";
     rev = "ac0576d2bcaed8358ab66c3c7d139e250ab5fbe1";
-    sha256 = "I6TnKks8HFv1PPZoBpEcEYRHJgktVrcfMvQKnHbgG9o=";
+    sha256 = null;
   };
 
   nodeModules = mkYarnModules {
