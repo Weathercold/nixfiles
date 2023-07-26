@@ -19,7 +19,7 @@ let
   src = fetchFromGitHub {
     owner = "catppuccin";
     repo = "discord";
-    rev = "ac0576d2bcaed8358ab66c3c7d139e250ab5fbe1";
+    rev = "cf44950395143158a1928f20794a16c9b2f4e7f2";
     sha256 = null;
   };
 
