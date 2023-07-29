@@ -1,9 +1,9 @@
-{ colloid-gtk-theme, fetchFromGitHub }:
-
-let lock = with builtins; fromJSON (readFile ./lock.json); in
-
+{ lib, colloid-gtk-theme, fetchFromGitHub }:
 colloid-gtk-theme.overrideAttrs (prev: {
-  src = fetchFromGitHub {
-    inherit (lock) owner repo rev sha256;
-  };
+  src = with builtins;
+    lib.pipe ./lock.json [
+      readFile
+      fromJSON
+      fetchFromGitHub
+    ];
 })

@@ -2,13 +2,15 @@
 
 let
   inherit (pkgs) fetchFromGitHub;
-  inherit (lib) mkBefore;
+  inherit (lib) mkBefore pipe;
   cfg = config.nixfiles.programs.firefox;
 
-  lock = with builtins; fromJSON (readFile ./lock.json);
-  firefox-vertical-tabs = fetchFromGitHub {
-    inherit (lock) owner repo rev sha256;
-  };
+  firefox-vertical-tabs = with builtins;
+    pipe ./lock.json [
+      readFile
+      fromJSON
+      fetchFromGitHub
+    ];
 in
 
 {
