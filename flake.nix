@@ -84,7 +84,13 @@
         # Expose flake-parts options for nixd
         debug = true;
 
-        flake.lib = lib;
+        flake = {
+          # FIXME: This is suboptimal, would be better to put checks where
+          # deploy is defined.
+          checks.x86_64-linux =
+            inputs.deploy-rs.lib.x86_64-linux.deployChecks self.deploy;
+          lib = lib;
+        };
 
         systems = [
           "x86_64-linux"
@@ -97,8 +103,6 @@
         perSystem = { inputs', pkgs, system, ... }:
           with pkgs; {
             formatter = nixpkgs-fmt;
-
-            checks = inputs.deploy-rs.lib.${system}.deployChecks self.deploy;
 
             devShells.default = mkShell {
               packages = [
