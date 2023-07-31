@@ -20,8 +20,6 @@ let
         { preset = "vless-tcp-xtls-reality-server"; };
     };
 
-    boot.loader.grub.devices = [ "/dev/vda" ];
-
     disko.devices.disk.vda = {
       type = "disk";
       device = "/dev/vda";
