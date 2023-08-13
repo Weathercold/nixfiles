@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  inherit (lib) mkEnableOption mkIf mkDefault genAttrs attrNames const;
+  inherit (lib) mkEnableOption mkIf mkDefault genAttrs const;
   cfg = config.nixfiles.virtualisation.docker;
 in
 

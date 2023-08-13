@@ -5,8 +5,10 @@ let inherit (lib.nixfiles.filesystem) toModuleAttr toModuleAttr' toModuleList; i
 {
   imports = toModuleList ./configurations;
 
-  flake.nixosModules =
-    toModuleAttr ./modules/themes
-    // toModuleAttr' ./modules/hardware
-    // toModuleAttr' ./modules/profiles;
+  flake.nixosModules = {
+    xray = ./modules/services/networking/xray/default.nix;
+  }
+  // toModuleAttr ./modules/themes
+  // toModuleAttr' ./modules/hardware
+  // toModuleAttr' ./modules/profiles;
 }

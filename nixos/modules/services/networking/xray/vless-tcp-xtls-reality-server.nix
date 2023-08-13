@@ -7,6 +7,11 @@ let
   cfg = config.nixfiles.services.xray;
 
   xraySettings = {
+    log = {
+      loglevel = "info";
+      dnsLog = true;
+    };
+
     # Never EVER proxy Chinese websites as GFW is known to recognise and record
     # the proxy server's IP. Traffic to Chinese websites should be direct on the
     # client side but also blocked on the server side just to be sure.
@@ -14,9 +19,12 @@ let
     routing = {
       domainStrategy = "IPIfNonMatch";
       rules = [
+        # Since sniffing is disabled, requests to IP addresses are not matched
+        # using domain rules. We have to rely on the clients to send requests
+        # to domains.
         {
           type = "field";
-          domain = [ "bilibili.com" ];
+          domain = [ "geosite:bilibili" ];
           outboundTag = "block";
         }
         {
@@ -28,7 +36,6 @@ let
     };
 
     inbounds = [{
-      listen = cfg.address;
       port = 443;
       protocol = "vless";
       settings = {
@@ -75,13 +82,15 @@ let
   };
 in
 
-{
-  imports = [ ./_options.nix ];
-
-  config = mkIf
-    (cfg.preset == "vless-tcp-xtls-reality-server")
-    {
-      networking.firewall.allowedTCPPorts = [ 443 ];
-      services.xray.settings = xraySettings;
-    };
+mkIf (cfg.enable && cfg.preset == "vless-tcp-xtls-reality-server") {
+  # Fix too many open files
+  systemd.services.xray.serviceConfig = {
+    LimitNPROC = 500;
+    LimitNOFILE = 1000000;
+  };
+  networking.firewall = {
+    allowedTCPPorts = [ 443 ];
+    allowedUDPPorts = [ 443 ];
+  };
+  services.xray.settings = xraySettings;
 }

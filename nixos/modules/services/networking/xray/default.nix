@@ -3,23 +3,27 @@
 let
   inherit (lib) types mkOption mkEnableOption mkIf;
   cfg = config.nixfiles.services.xray;
+
+  presets = [
+    "vless-tcp-xtls-reality-server"
+    "vless-tcp-xtls-reality-client"
+    "blackhole-adblock"
+  ];
 in
 
 {
+  imports = map (s: ./${s}.nix) presets;
+
   options.nixfiles.services.xray = {
     enable = mkEnableOption "anti-censorship platform";
     preset = mkOption {
-      type = types.enum [
-        "vless-tcp-xtls-reality-server"
-        "vless-tcp-xtls-reality-client"
-        "blackhole-adblock"
-      ];
+      type = types.enum presets;
       description = "The config preset to use";
     };
     address = mkOption {
       type = types.nonEmptyStr;
       default = "0.0.0.0";
-      description = "Server address (server & client)";
+      description = "Server address (client only)";
     };
     clientIds = mkOption {
       type = with types; listOf nonEmptyStr;

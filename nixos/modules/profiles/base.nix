@@ -28,6 +28,8 @@ let inherit (lib) genAttrs const; in
     };
   };
 
+  nixpkgs.config.allowUnfree = true;
+
   system = {
     stateVersion = "23.05";
     # Print store diff using nvd
@@ -64,17 +66,6 @@ let inherit (lib) genAttrs const; in
     DefaultTimeoutStopSec=10s
   '';
 
-  networking = {
-    dhcpcd.enable = false;
-    networkmanager = {
-      enable = true;
-      wifi = {
-        # backend = "iwd";
-        macAddress = "random";
-      };
-    };
-  };
-
   i18n = {
     defaultLocale = "en_US.UTF-8";
     supportedLocales = [
@@ -102,6 +93,4 @@ let inherit (lib) genAttrs const; in
       execWheelOnly = true;
     };
   };
-
-  services.automatic-timezoned.enable = true;
 }

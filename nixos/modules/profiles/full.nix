@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   imports = [
-    ./base.nix
+    ./desktop.nix
     ../hardware/halo65.nix
   ];
 
@@ -16,8 +16,6 @@
     programs.neovim.enable = true;
     i18n.inputMethod.fcitx5.enable = true;
   };
-
-  nixpkgs.config.allowUnfree = true;
 
   environment = {
     defaultPackages = [ ];
@@ -40,6 +38,7 @@
         obsidian
         pciutils # For Plasma Info Center
         qtstyleplugin-kvantum # For Colloid-kde
+        sddm-kcm # SDDM Plasma integration
         unzip
         (ventoy-bin.override {
           defaultGuiType = "qt5";
@@ -66,15 +65,13 @@
   };
 
   services = {
-    btrfs.autoScrub.enable = true;
-
     xserver = {
       enable = true;
       displayManager.sddm.enable = true;
       desktopManager.plasma5.enable = true;
-
       layout = "us";
       libinput = {
+        enable = true;
         touchpad = {
           clickMethod = "clickfinger";
           naturalScrolling = true;
@@ -82,16 +79,7 @@
         };
       };
     };
-
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-    };
-
     mpd.enable = true;
-
     gnome.gnome-keyring.enable = true; # For storing vscode auth token
   };
 
@@ -100,19 +88,9 @@
       enableAskPassword = true;
       askPassword = "${pkgs.libsForQt5.ksshaskpass}/bin/ksshaskpass";
     };
-
-    # Some programs need SUID wrappers, can be configured further or are
-    # started in user sessions.
-    gnupg.agent.enable = true;
-
+    xwayland.enable = true;
     dconf.enable = true;
-
     kdeconnect.enable = true;
-  };
-
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
   };
 
   virtualisation.waydroid.enable = true;

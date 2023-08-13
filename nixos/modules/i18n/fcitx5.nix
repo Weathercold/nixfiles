@@ -1,13 +1,13 @@
 { config, pkgs, lib, ... }:
 
 let
-  inherit (lib) mkIf mkEnableOption;
+  inherit (lib) mkIf mkEnableOption reverseList concatStringsSep;
   cfg = config.nixfiles.i18n.inputMethod.fcitx5;
 in
 
 {
   options.nixfiles.i18n.inputMethod.fcitx5.enable =
-    mkEnableOption "Next-generation input method framework";
+    mkEnableOption "next-generation input method framework";
 
   config = mkIf cfg.enable {
     i18n.inputMethod = {
@@ -22,6 +22,9 @@ in
       };
     };
     environment.sessionVariables = {
+      # https://github.com/NixOS/nixpkgs/issues/129442#issuecomment-875972207
+      NIX_PROFILES =
+        "${concatStringsSep " " (reverseList config.environment.profiles)}";
       GTK_IM_MODULE = "fcitx";
       QT_IM_MODULE = "fcitx";
       XMODIFIERS = "@im=fcitx";

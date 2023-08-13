@@ -71,6 +71,8 @@ let
         inherit (weathercold) hashedPassword openssh;
       };
     };
+
+    services.btrfs.autoScrub.enable = true;
   };
 in
 

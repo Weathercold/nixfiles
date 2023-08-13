@@ -13,7 +13,7 @@ let
       services.xray = recursiveUpdate
         proxySettings
         {
-          enable = true;
+          # enable = true;
           preset = "vless-tcp-xtls-reality-client";
           reality.shortId = "77b852c767077a1a";
         };
@@ -64,6 +64,8 @@ let
         inherit (weathercold) hashedPassword;
       };
     };
+
+    services.btrfs.autoScrub.enable = true;
   };
 in
 
