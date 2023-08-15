@@ -20,7 +20,7 @@ let
     owner = "catppuccin";
     repo = "discord";
     rev = "c04f4bd43e571c19551e0e5da2d534408438564c";
-    sha256 = null;
+    hash = "sha256-3uEVrR2T39Pj0puUwUPuUfXcCPoOq2lNHL8UpppTOiU=";
   };
 
   nodeModules = mkYarnModules {
@@ -44,7 +44,7 @@ stdenv.mkDerivation rec {
     runHook preBuild
 
     export HOME=$(mktemp -d)
-    ln -s ${nodeModules + "/node_modules"} node_modules
+    ln -s "${nodeModules}/node_modules" node_modules
     yarn --offline release
 
     runHook postBuild

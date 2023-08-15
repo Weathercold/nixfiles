@@ -7,8 +7,8 @@ ROOT="$(dirname "$(readlink -f "$0")")"
 
 LOCK="$(nix-prefetch-github catppuccin discord)"
 REV=$(jq .rev <<< "$LOCK")
-HASH=$(jq .sha256 <<< "$LOCK")
+HASH=$(jq .hash <<< "$LOCK")
 
 sed -i "$ROOT/git.nix" \
   -e "s|rev = \".*\"|rev = $REV|" \
-  -e "s|sha256 = \".*\"|sha256 = $HASH|" \
+  -e "s|hash = \".*\"|hash = $HASH|" \
