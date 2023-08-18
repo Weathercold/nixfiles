@@ -19,8 +19,9 @@ in
       enable = true;
       profiles.${cfg.profile}.isDefault = true;
     };
+    # TODO: configure email when chat and calendar can be configured
     accounts.email.accounts = genAttrs
       (attrNames config.nixfiles.emails)
-      (const { thunderbird.enable = true; });
+      (const { thunderbird.enable = false; });
   };
 }

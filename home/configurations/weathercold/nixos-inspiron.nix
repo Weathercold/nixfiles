@@ -3,18 +3,17 @@
 let
   inherit (builtins) readDir;
   inherit (lib) optionalAttrs;
-  inherit (lib.nixfiles.attrsets) recursiveMerge;
 in
 
 # No-op if _base.nix is hidden
 optionalAttrs (readDir ./. ? "_base.nix") {
   imports = [ ../_options.nix ];
 
-  homeConfigurations."weathercold@nixos-inspiron" = recursiveMerge [
-    (import ./_base.nix { inherit self lib; })
-    {
-      system = "x86_64-linux";
-      modules = [{
+  homeConfigurations."weathercold@nixos-inspiron" = {
+    system = "x86_64-linux";
+    modules =
+      import ./_base.nix { inherit self lib; }
+      ++ [{
         specialisation.colloid = {
           default = true;
           configuration = {
@@ -33,6 +32,5 @@ optionalAttrs (readDir ./. ? "_base.nix") {
           };
         };
       }];
-    }
-  ];
+  };
 }

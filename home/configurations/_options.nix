@@ -18,12 +18,6 @@ let
         default = head (splitString "@" name);
         description = "Username";
       };
-      emails = mkOption {
-        type = with types; attrsOf attrs;
-        default = { };
-        description =
-          "User's email accounts with the same type as accounts.email.accounts";
-      };
       homeDirectory = mkOption {
         type = types.nonEmptyStr;
         default = "/home/${config.username}";
@@ -59,7 +53,6 @@ in
               (final: prev: import ../../pkgs { pkgs = final; })
             ];
             home = { inherit (c) username homeDirectory; };
-            nixfiles = { inherit (c) emails; };
           }
         ];
       }))

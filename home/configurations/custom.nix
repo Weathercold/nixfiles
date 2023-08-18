@@ -8,7 +8,7 @@ let
   hostName = "custom";
   homeDirectory = null; # Default is "/home/${username}"
   # For firefox, put your firefox profile name here.
-  firefox-profile = null; # Default is username
+  firefoxProfile = null; # Default is username
 in
 
 {
@@ -19,8 +19,8 @@ in
     modules = [
       self.homeModules.profiles-build-config
       {
-        nixfiles = optionalAttrs (firefox-profile != null)
-          { programs.firefox.profile = firefox-profile; };
+        nixfiles = optionalAttrs (firefoxProfile != null)
+          { programs.firefox.profile = firefoxProfile; };
 
         # You can have multiple specialisations, but only one can be default.
         specialisation = {

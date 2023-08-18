@@ -37,6 +37,7 @@
         neofetch
         obsidian
         pciutils # For Plasma Info Center
+        protonmail-bridge
         qtstyleplugin-kvantum # For Colloid-kde
         sddm-kcm # SDDM Plasma integration
         unzip
