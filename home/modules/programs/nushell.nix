@@ -10,6 +10,15 @@ in
 
   config.programs.nushell = mkIf cfg.enable {
     enable = true;
+    shellAliases = {
+      "..." = "cd ../..";
+      "...." = "cd ../../..";
+      ani = "ani-cli";
+      c = "clear";
+      lns = "ln -s";
+      nf = "neofetch";
+      zz = "z -";
+    };
     extraConfig = ''
       $env.config = {
         show_banner: false
