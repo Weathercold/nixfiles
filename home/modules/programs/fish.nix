@@ -10,9 +10,6 @@ in
 
   config.programs.fish = mkIf cfg.enable {
     enable = true;
-    shellInit = ''
-      set -gx SHELL fish
-    '';
     interactiveShellInit = ''
       set fish_greeting ""
       any-nix-shell fish --info-right | source

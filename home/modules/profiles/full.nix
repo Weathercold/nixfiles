@@ -22,11 +22,12 @@
   nixfiles = {
     services.gpg-agent.enable = true;
     programs = {
+      carapace.enable = true;
       discord.enable = true;
       dotdrop.enable = true;
       firefox.enable = true;
-      fish.enable = true;
       git.enable = true;
+      nushell.enable = true;
       starship.enable = true;
       thunderbird.enable = true;
     };
@@ -37,6 +38,7 @@
     direnv = {
       enable = true;
       nix-direnv.enable = true;
+      config.global.warn_timeout = "1m";
     };
     exa = {
       enable = true;

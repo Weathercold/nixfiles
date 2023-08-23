@@ -44,6 +44,11 @@ in
         format = '' [$symbol$state( \($name\))]($style)'';
         symbol = " ";
       };
+
+      character = {
+        success_symbol = "[󰘧](bold green)";
+        error_symbol = "[󰘧](bold red)";
+      };
     };
   };
 }
