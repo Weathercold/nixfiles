@@ -16,8 +16,8 @@
     "target": {
       "args": [],
       // "installable": ".#debug.options"
-      "installable": ".#nixosConfigurations.nixos-inspiron.options"
-      // "installable": ".#homeConfigurations.\"weathercold@nixos-inspiron\".options"
+      "installable": ".#nixosConfigurations.nixos-inspiron7405.options"
+      // "installable": ".#homeConfigurations.\"weathercold@nixos-inspiron7405\".options"
     }
   }
 }

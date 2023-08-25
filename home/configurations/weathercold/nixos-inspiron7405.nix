@@ -9,7 +9,7 @@ in
 optionalAttrs (readDir ./. ? "_base.nix") {
   imports = [ ../_options.nix ];
 
-  homeConfigurations."weathercold@nixos-inspiron" = {
+  homeConfigurations."weathercold@nixos-inspiron7405" = {
     system = "x86_64-linux";
     modules =
       import ./_base.nix { inherit self lib; }

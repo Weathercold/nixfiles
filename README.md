@@ -29,7 +29,7 @@ be used as flake input by specifying a directory like this:
     │     └ base/, colloid/, ...
     ├ nixos/                                    nixos configurations
     │ ├ configurations/                         top-level nixos configurations
-    │ │ ├ nixos-inspiron.nix, ...               my configurations
+    │ │ ├ nixos-inspiron7405.nix, ...           my configurations
     │ │ └ _options.nix                          configuration abstraction
     │ ├ profiles/                               top-level nixos modules
     │ ├ config/, i18n/, programs/, ...          options-based home modules
@@ -42,7 +42,7 @@ be used as flake input by specifying a directory like this:
     nixfiles/flake.nix
     ├ home/flake-module.nix
     │ ├ configurations/custom.nix, ...
-    │ └ configurations/weathercold/nixos-inspiron.nix
+    │ └ configurations/weathercold/nixos-inspiron7405.nix
     │   ├ ../_options.nix
     │   └ _base.nix
     │     └ ../../modules/profiles/full.nix
@@ -51,7 +51,7 @@ be used as flake input by specifying a directory like this:
     ├ lib/default.nix
     │ └ src/*
     ├ nixos/flake-module.nix
-    │ └ configurations/nixos-inspiron.nix
+    │ └ configurations/nixos-inspiron7405.nix
     │   ├ _options.nix
     │   ├ ../modules/hardware/inspiron-7405.nix
     │   └ ../modules/profiles/full.nix

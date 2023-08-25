@@ -72,7 +72,7 @@ in
 {
   imports = [ ./_options.nix ];
 
-  nixosConfigurations.nixos-inspiron = {
+  nixosConfigurations.nixos-inspiron7405 = {
     system = "x86_64-linux";
     modules = with self.nixosModules; [
       profiles-full
