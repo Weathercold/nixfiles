@@ -2,11 +2,11 @@
 
 let
   inherit (lib) types mkOption const genAttrs;
-  cfg = config.nixfiles.users;
+  cfg = config.abszero.users;
 in
 
 {
-  options.nixfiles.users.admins = mkOption {
+  options.abszero.users.admins = mkOption {
     type = with types; listOf nonEmptyStr;
     description = "List of admin users";
   };

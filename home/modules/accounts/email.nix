@@ -2,11 +2,11 @@
 
 let
   inherit (lib) types mkOption;
-  cfg = config.nixfiles;
+  cfg = config.abszero;
 in
 
 {
-  options.nixfiles.emails = mkOption {
+  options.abszero.emails = mkOption {
     type = types.attrs;
     default = { };
   };

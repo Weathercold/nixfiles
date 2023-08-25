@@ -3,7 +3,7 @@
 let
   inherit (pkgs) fetchurl;
   inherit (lib) mkEnableOption mkIf;
-  cfg = config.nixfiles.programs.dotdrop;
+  cfg = config.abszero.programs.dotdrop;
 
   dotdropFishComp = fetchurl {
     url = "https://raw.githubusercontent.com/deadc0de6/dotdrop/master/completion/dotdrop.fish";
@@ -12,7 +12,7 @@ let
 in
 
 {
-  options.nixfiles.programs.dotdrop.enable = mkEnableOption "dotfiles manager";
+  options.abszero.programs.dotdrop.enable = mkEnableOption "dotfiles manager";
 
   config = mkIf cfg.enable {
     home.shellAliases = {

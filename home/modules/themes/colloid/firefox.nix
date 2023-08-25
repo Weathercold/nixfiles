@@ -2,7 +2,7 @@
 
 let
   inherit (lib) mkMerge mkBefore;
-  cfg = config.nixfiles.programs.firefox;
+  cfg = config.abszero.programs.firefox;
 
   tme = pkgs.colloid-gtk-theme.src + "/src/other/firefox/chrome/Colloid";
 in

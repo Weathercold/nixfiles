@@ -2,11 +2,11 @@
 
 let
   inherit (lib) mkIf mkEnableOption;
-  cfg = config.nixfiles.programs.discord;
+  cfg = config.abszero.programs.discord;
 in
 
 {
-  options.nixfiles.programs.discord = {
+  options.abszero.programs.discord = {
     enable = mkEnableOption "Discord, a server-based instant messenger";
   };
 

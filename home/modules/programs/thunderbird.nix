@@ -2,11 +2,11 @@
 
 let
   inherit (lib) types mkOption mkEnableOption mkIf attrNames genAttrs const;
-  cfg = config.nixfiles.programs.thunderbird;
+  cfg = config.abszero.programs.thunderbird;
 in
 
 {
-  options.nixfiles.programs.thunderbird = {
+  options.abszero.programs.thunderbird = {
     enable = mkEnableOption "Mozilla's mail client";
     profile = mkOption {
       type = types.nonEmptyStr;
@@ -21,7 +21,7 @@ in
     };
     # TODO: configure email when chat and calendar can be configured
     accounts.email.accounts = genAttrs
-      (attrNames config.nixfiles.emails)
+      (attrNames config.abszero.emails)
       (const { thunderbird.enable = false; });
   };
 }

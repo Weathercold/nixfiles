@@ -2,11 +2,11 @@
 
 let
   inherit (lib) mkEnableOption mkIf;
-  cfg = config.nixfiles.programs.nushell;
+  cfg = config.abszero.programs.nushell;
 in
 
 {
-  options.nixfiles.programs.nushell.enable = mkEnableOption "a new type of shell";
+  options.abszero.programs.nushell.enable = mkEnableOption "a new type of shell";
 
   config.programs.nushell = mkIf cfg.enable {
     enable = true;

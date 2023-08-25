@@ -2,11 +2,11 @@
 
 let
   inherit (lib) mkEnableOption mkPackageOption mkIf;
-  cfg = config.nixfiles.services.rclone;
+  cfg = config.abszero.services.rclone;
 in
 
 {
-  options.nixfiles.services.rclone = {
+  options.abszero.services.rclone = {
     enable = mkEnableOption "network storage client and server daemon";
     package = mkPackageOption pkgs "rclone" { };
   };

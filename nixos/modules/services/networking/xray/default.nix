@@ -2,7 +2,7 @@
 
 let
   inherit (lib) types mkOption mkEnableOption mkIf;
-  cfg = config.nixfiles.services.xray;
+  cfg = config.abszero.services.xray;
 
   presets = [
     "vless-tcp-xtls-reality-server"
@@ -14,7 +14,7 @@ in
 {
   imports = map (s: ./${s}.nix) presets;
 
-  options.nixfiles.services.xray = {
+  options.abszero.services.xray = {
     enable = mkEnableOption "anti-censorship platform";
     preset = mkOption {
       type = types.enum presets;
@@ -31,7 +31,7 @@ in
     };
     clientId = mkOption {
       type = types.nonEmptyStr;
-      default = builtins.head config.nixfiles.users.admins;
+      default = builtins.head config.abszero.users.admins;
       description = "Client ID (client only)";
     };
     reality = {

@@ -1,10 +1,10 @@
 # Xray server
-# You still need to specify options in nixfiles.services.xray
+# You still need to specify options in abszero.services.xray
 {
   imports = [ ./server.nix ];
 
   config = {
-    nixfiles.services.xray.enable = true;
+    abszero.services.xray.enable = true;
 
     boot.kernel.sysctl = {
       # Taken from https://github.com/bannedbook/fanqiang/blob/master/v2ss/server-cfg/sysctl-bbr-cake.conf

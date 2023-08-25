@@ -1,6 +1,6 @@
 { lib, ... }:
 
-let inherit (lib.nixfiles.filesystem) toModuleAttr toModuleAttr' toModuleList; in
+let inherit (lib.abszero.filesystem) toModuleAttr toModuleAttr' toModuleList; in
 
 {
   imports = toModuleList ./configurations;

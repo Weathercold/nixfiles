@@ -2,7 +2,7 @@
 
 let
   extendedLib = pkgs.lib.extend
-    (_: _: { nixfiles = import ../lib { inherit (pkgs) lib; }; });
+    (_: _: { abszero = import ../lib { inherit (pkgs) lib; }; });
   extendedPkgs = pkgs.extend
     (_: _: { lib = extendedLib; });
   inherit (extendedPkgs) callPackage;

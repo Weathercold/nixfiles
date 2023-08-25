@@ -4,7 +4,7 @@
     ../hardware/halo65.nix
   ];
 
-  nixfiles = {
+  abszero = {
     services = {
       kanata.enable = true;
       act.enable = true;

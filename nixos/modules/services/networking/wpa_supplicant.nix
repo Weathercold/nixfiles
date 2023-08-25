@@ -2,12 +2,12 @@
 
 let
   inherit (lib) mkEnableOption mkIf singleton;
-  cfg = config.nixfiles.networking.supplicant;
+  cfg = config.abszero.networking.supplicant;
 in
 
 {
   # School wifi is insecure :(
-  options.nixfiles.networking.supplicant.enableInsecureSSLCiphers =
+  options.abszero.networking.supplicant.enableInsecureSSLCiphers =
     mkEnableOption "insecure SSL ciphers";
 
   config = mkIf cfg.enableInsecureSSLCiphers {

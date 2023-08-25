@@ -19,7 +19,7 @@
     };
   };
 
-  nixfiles = {
+  abszero = {
     services.gpg-agent.enable = true;
     programs = {
       carapace.enable = true;

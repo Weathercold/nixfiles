@@ -3,7 +3,7 @@
 let
   inherit (pkgs) fetchFromGitHub;
   inherit (lib) mkBefore pipe;
-  cfg = config.nixfiles.programs.firefox;
+  cfg = config.abszero.programs.firefox;
 
   firefox-vertical-tabs = with builtins;
     pipe ./lock.json [

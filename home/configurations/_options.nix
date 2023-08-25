@@ -4,7 +4,7 @@ let
   inherit (inputs) home-manager;
   inherit (builtins) head;
   inherit (lib) types mkOption mapAttrs flatten splitString;
-  inherit (lib.nixfiles.filesystem) toModuleList;
+  inherit (lib.abszero.filesystem) toModuleList;
   cfg = config.homeConfigurations;
 
   configModule = { name, config, ... }: {

@@ -3,7 +3,7 @@
 let
   inherit (inputs) nixpkgs;
   inherit (lib) types mkOption mapAttrs flatten;
-  inherit (lib.nixfiles.filesystem) toModuleList;
+  inherit (lib.abszero.filesystem) toModuleList;
   cfg = config.nixosConfigurations;
 
   configModule = { name, ... }: {

@@ -8,7 +8,7 @@ let
   proxySettings = fromJSON (readFile ./proxy.json);
 
   mainModule = {
-    nixfiles = {
+    abszero = {
       boot.loader = {
         # Vultr doesn't support UEFI??? Really???
         systemd-boot.enable = mkForce false;

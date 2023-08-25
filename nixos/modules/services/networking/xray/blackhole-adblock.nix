@@ -3,7 +3,7 @@
 
 let
   inherit (lib) mkIf;
-  cfg = config.nixfiles.services.xray;
+  cfg = config.abszero.services.xray;
 
   xraySettings = {
     routing.rules = [

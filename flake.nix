@@ -64,7 +64,7 @@
         inherit (nixpkgs) lib;
         inherit haumea;
       };
-      extendedLib = nixpkgs.lib.extend (_: _: { nixfiles = lib; });
+      extendedLib = nixpkgs.lib.extend (_: _: { abszero = lib; });
     in
 
     flake-parts.lib.mkFlake
@@ -89,7 +89,7 @@
           # deploy is defined.
           checks.x86_64-linux =
             inputs.deploy-rs.lib.x86_64-linux.deployChecks self.deploy;
-          lib = lib;
+          inherit lib;
         };
 
         systems = [

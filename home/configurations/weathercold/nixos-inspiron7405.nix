@@ -28,7 +28,7 @@ optionalAttrs (readDir ./. ? "_base.nix") {
               colloid-plasma
             ];
 
-            nixfiles.themes.catppuccin.accent = "pink";
+            abszero.themes.catppuccin.accent = "pink";
           };
         };
       }];

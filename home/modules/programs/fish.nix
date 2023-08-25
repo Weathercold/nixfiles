@@ -2,11 +2,11 @@
 
 let
   inherit (lib) mkEnableOption mkIf;
-  cfg = config.nixfiles.programs.fish;
+  cfg = config.abszero.programs.fish;
 in
 
 {
-  options.nixfiles.programs.fish.enable = mkEnableOption "managing fish";
+  options.abszero.programs.fish.enable = mkEnableOption "managing fish";
 
   config.programs.fish = mkIf cfg.enable {
     enable = true;

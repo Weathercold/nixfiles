@@ -3,12 +3,12 @@
 
 let
   inherit (lib) mkEnableOption mkPackageOption mkIf;
-  cfg = config.nixfiles.programs.carapace;
+  cfg = config.abszero.programs.carapace;
   bin = cfg.package + "/bin/carapace";
 in
 
 {
-  options.nixfiles.programs.carapace = {
+  options.abszero.programs.carapace = {
     enable = mkEnableOption "carapace, a multi-shell multi-command argument completer";
     package = mkPackageOption pkgs "carapace" { };
     enableBashIntegration = mkEnableOption "Bash integration" // { default = true; };

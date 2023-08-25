@@ -3,11 +3,11 @@
 let
   inherit (pkgs) v2ray-rules-dat;
   inherit (lib) mkEnableOption mkIf;
-  cfg = config.nixfiles.services.v2raya;
+  cfg = config.abszero.services.v2raya;
 in
 
 {
-  options.nixfiles.services.v2raya.enable =
+  options.abszero.services.v2raya.enable =
     mkEnableOption "cross-platform v2ray client";
 
   config = mkIf cfg.enable {

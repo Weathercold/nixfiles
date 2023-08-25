@@ -2,11 +2,11 @@
 
 let
   inherit (lib) mkEnableOption mkDefault mkIf;
-  cfg = config.nixfiles.services.kanata;
+  cfg = config.abszero.services.kanata;
 in
 
 {
-  options.nixfiles.services.kanata.enable =
+  options.abszero.services.kanata.enable =
     mkEnableOption "advanced software keyboard remapper";
 
   # Keyboard config is in ../hardware

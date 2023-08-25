@@ -3,7 +3,7 @@
 let inherit (lib) genAttrs const; in
 
 {
-  nixfiles.boot = {
+  abszero.boot = {
     loader.systemd-boot.enable = true;
     quiet = true;
   };
@@ -55,7 +55,7 @@ let inherit (lib) genAttrs const; in
   users = {
     mutableUsers = false;
     users = genAttrs
-      config.nixfiles.users.admins
+      config.abszero.users.admins
       (const {
         extraGroups = [ "audio" "networkmanager" ];
       });

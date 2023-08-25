@@ -2,11 +2,11 @@
 
 let
   inherit (lib) mkIf mkEnableOption;
-  cfg = config.nixfiles.boot;
+  cfg = config.abszero.boot;
 in
 
 {
-  options.nixfiles.boot.quiet = mkEnableOption "quiet boot";
+  options.abszero.boot.quiet = mkEnableOption "quiet boot";
 
   config.boot = mkIf cfg.quiet {
     consoleLogLevel = 0;

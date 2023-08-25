@@ -2,19 +2,19 @@
 
 let
   inherit (lib) mkEnableOption mkPackageOption mkIf;
-  cfg = config.nixfiles.services.act;
+  cfg = config.abszero.services.act;
 in
 
 {
   imports = [ ../virtualisation/docker.nix ];
 
-  options.nixfiles.services.act = {
+  options.abszero.services.act = {
     enable = mkEnableOption "local GitHub Actions runner";
     package = mkPackageOption pkgs "act" { };
   };
 
   config = mkIf cfg.enable {
     environment.systemPackages = [ cfg.package ];
-    nixfiles.virtualisation.docker.enable = true; # FIXME: not working
+    abszero.virtualisation.docker.enable = true; # FIXME: not working
   };
 }

@@ -3,7 +3,7 @@
 let
   inherit (builtins) getAttr substring;
   inherit (lib) types mkOption toUpper;
-  cfg = config.nixfiles.themes.catppuccin;
+  cfg = config.abszero.themes.catppuccin;
 
   optionModule = types.submodule {
     options = {
@@ -50,7 +50,7 @@ let
 in
 
 {
-  options.nixfiles.themes.catppuccin = mkOption {
+  options.abszero.themes.catppuccin = mkOption {
     type = optionModule;
     default = { };
     description = "Configurations for catppuccin.";

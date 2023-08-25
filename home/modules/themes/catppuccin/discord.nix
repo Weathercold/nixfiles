@@ -3,7 +3,7 @@
 let
   inherit (builtins) readFile;
   inherit (config.lib.catppuccin) getVariant;
-  cfg = config.nixfiles.themes.catppuccin;
+  cfg = config.abszero.themes.catppuccin;
 
   cssDir = pkgs.catppuccin-discord.override
     {

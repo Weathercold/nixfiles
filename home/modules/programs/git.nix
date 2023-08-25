@@ -2,14 +2,14 @@
 
 let
   inherit (lib) mkEnableOption mkIf mkDefault;
-  inherit (lib.nixfiles.attrsets) findValue;
-  cfg = config.nixfiles.programs.git;
+  inherit (lib.abszero.attrsets) findValue;
+  cfg = config.abszero.programs.git;
 
   primaryEmail = findValue (_: v: v.primary) config.accounts.email.accounts;
 in
 
 {
-  options.nixfiles.programs.git.enable = mkEnableOption "stupid content tracker";
+  options.abszero.programs.git.enable = mkEnableOption "stupid content tracker";
 
   config.programs.git = mkIf cfg.enable {
     enable = true;

@@ -2,11 +2,11 @@
 
 let
   inherit (lib) mkEnableOption mkIf;
-  cfg = config.nixfiles.programs.starship;
+  cfg = config.abszero.programs.starship;
 in
 
 {
-  options.nixfiles.programs.starship.enable =
+  options.abszero.programs.starship.enable =
     mkEnableOption "managing Starship";
 
   config.programs.starship = mkIf cfg.enable {

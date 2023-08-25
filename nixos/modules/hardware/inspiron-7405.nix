@@ -24,7 +24,7 @@ let inherit (lib) mkIf; in
       ATTRS{name}=="Power Button", \
       ACTION=="add", SYMLINK+="input/power_button"
     '';
-    kanata.keyboards.inspiron-7405 = mkIf config.nixfiles.services.kanata.enable
+    kanata.keyboards.inspiron-7405 = mkIf config.abszero.services.kanata.enable
       {
         devices = [
           # Keyboard

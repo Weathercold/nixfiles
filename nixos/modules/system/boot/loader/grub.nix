@@ -2,11 +2,11 @@
 
 let
   inherit (lib) mkIf mkEnableOption;
-  cfg = config.nixfiles.boot.loader.grub;
+  cfg = config.abszero.boot.loader.grub;
 in
 
 {
-  options.nixfiles.boot.loader.grub.enable = mkEnableOption "grub";
+  options.abszero.boot.loader.grub.enable = mkEnableOption "grub";
 
   config.boot.loader.grub = mkIf cfg.enable {
     enable = true;

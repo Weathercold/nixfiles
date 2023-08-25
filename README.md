@@ -1,4 +1,4 @@
-# Nixfiles
+# Abszero
 
 Dotfiles powered by Nix™, plus a package overlay and a library of utility
 functions.

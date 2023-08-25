@@ -19,7 +19,7 @@ in
     modules = [
       self.homeModules.profiles-build-config
       {
-        nixfiles = optionalAttrs (firefoxProfile != null)
+        abszero = optionalAttrs (firefoxProfile != null)
           { programs.firefox.profile = firefoxProfile; };
 
         # You can have multiple specialisations, but only one can be default.

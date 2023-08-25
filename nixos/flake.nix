@@ -28,7 +28,7 @@
   outputs = { nixpkgs, flake-parts, haumea, ... } @ inputs:
     let
       extendedLib = nixpkgs.lib.extend (_: _: {
-        nixfiles = import ../lib {
+        abszero = import ../lib {
           inherit (nixpkgs) lib;
           inherit haumea;
         };

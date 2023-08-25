@@ -2,11 +2,11 @@
 
 let
   inherit (lib) mkEnableOption mkIf mkDefault genAttrs const;
-  cfg = config.nixfiles.virtualisation.docker;
+  cfg = config.abszero.virtualisation.docker;
 in
 
 {
-  options.nixfiles.virtualisation.docker.enable = mkEnableOption "docker";
+  options.abszero.virtualisation.docker.enable = mkEnableOption "docker";
 
   config = mkIf cfg.enable {
     virtualisation.docker = {
@@ -14,7 +14,7 @@ in
       enableOnBoot = mkDefault false;
     };
     users.users = genAttrs
-      config.nixfiles.users.admins
+      config.abszero.users.admins
       (const { extraGroups = [ "docker" ]; });
   };
 }

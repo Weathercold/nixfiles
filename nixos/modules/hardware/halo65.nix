@@ -63,7 +63,7 @@ in
 {
   imports = [ ../services/kanata.nix ];
 
-  services = mkIf config.nixfiles.services.kanata.enable {
+  services = mkIf config.abszero.services.kanata.enable {
     # Add permanent static name when connected via Bluetooth
     udev.extraRules = ''
       KERNEL=="event[0-9]*", SUBSYSTEM=="input", \

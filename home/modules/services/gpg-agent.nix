@@ -2,11 +2,11 @@
 
 let
   inherit (lib) mkEnableOption mkIf;
-  cfg = config.nixfiles.services.gpg-agent;
+  cfg = config.abszero.services.gpg-agent;
 in
 
 {
-  options.nixfiles.services.gpg-agent.enable = mkEnableOption "GnuPG private key agent";
+  options.abszero.services.gpg-agent.enable = mkEnableOption "GnuPG private key agent";
 
   config.services.gpg-agent = mkIf cfg.enable {
     enable = true;

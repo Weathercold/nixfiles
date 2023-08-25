@@ -7,7 +7,7 @@ let
   proxySettings = fromJSON (readFile ./fracture-ray/proxy.json);
 
   mainModule = {
-    nixfiles = {
+    abszero = {
       users.admins = [ "weathercold" ];
       networking.supplicant.enableInsecureSSLCiphers = true;
       services.xray = recursiveUpdate

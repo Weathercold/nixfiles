@@ -2,11 +2,11 @@
 
 let
   inherit (lib) mkEnableOption mkIf;
-  cfg = config.nixfiles.programs.neovim;
+  cfg = config.abszero.programs.neovim;
 in
 
 {
-  options.nixfiles.programs.neovim.enable = mkEnableOption "Neovim";
+  options.abszero.programs.neovim.enable = mkEnableOption "Neovim";
 
   config = mkIf cfg.enable {
     programs.neovim = {

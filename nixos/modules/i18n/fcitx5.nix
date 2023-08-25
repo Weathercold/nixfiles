@@ -2,11 +2,11 @@
 
 let
   inherit (lib) mkIf mkEnableOption reverseList concatStringsSep;
-  cfg = config.nixfiles.i18n.inputMethod.fcitx5;
+  cfg = config.abszero.i18n.inputMethod.fcitx5;
 in
 
 {
-  options.nixfiles.i18n.inputMethod.fcitx5.enable =
+  options.abszero.i18n.inputMethod.fcitx5.enable =
     mkEnableOption "next-generation input method framework";
 
   config = mkIf cfg.enable {

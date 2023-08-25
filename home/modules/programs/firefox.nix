@@ -2,12 +2,12 @@
 
 let
   inherit (lib) types mkEnableOption mkOption mkIf;
-  inherit (lib.nixfiles.attrsets) findName;
-  cfg = config.nixfiles.programs.firefox;
+  inherit (lib.abszero.attrsets) findName;
+  cfg = config.abszero.programs.firefox;
 in
 
 {
-  options.nixfiles.programs.firefox = {
+  options.abszero.programs.firefox = {
     enable = mkEnableOption "managing Firefox";
     profile = mkOption {
       type = types.nonEmptyStr;
