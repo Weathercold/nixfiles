@@ -1,4 +1,3 @@
-# TODO: Upstream module
 { config, pkgs, lib, ... }:
 
 let
@@ -31,8 +30,6 @@ in
 
       fish.interactiveShellInit = mkIf cfg.enableFishIntegration ''
         mkdir -p ${config.xdg.configHome}/fish/completions
-        # Disable auto-loaded completions (https://github.com/rsteube/carapace-bin/issues/185)
-        ${bin} --list | awk '{print $1}' | xargs -I{} touch ${config.xdg.configHome}/fish/completions/{}.fish
         ${bin} _carapace fish | source
       '';
 
