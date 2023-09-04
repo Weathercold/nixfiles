@@ -1,22 +1,16 @@
-{ pkgs, ... }: {
+{
   imports = [ ./base.nix ];
 
-  home = {
-    packages = with pkgs; [
-      any-nix-shell
-    ];
-
-    shellAliases = {
-      "..." = "cd ../..";
-      "...." = "cd ../../..";
-      ani = "ani-cli";
-      c = "clear";
-      cat = "bat";
-      lns = "ln -s";
-      nf = "neofetch";
-      nvl = "~/src/lightnovel.sh/lightnovel.sh";
-      zz = "z -";
-    };
+  home.shellAliases = {
+    "..." = "cd ../..";
+    "...." = "cd ../../..";
+    ani = "ani-cli";
+    c = "clear";
+    cat = "bat";
+    lns = "ln -s";
+    nf = "neofetch";
+    nvl = "~/src/lightnovel.sh/lightnovel.sh";
+    zz = "z -";
   };
 
   abszero = {
