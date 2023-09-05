@@ -16,7 +16,6 @@
   abszero = {
     services.gpg-agent.enable = true;
     programs = {
-      carapace.enable = true;
       discord.enable = true;
       dotdrop.enable = true;
       firefox.enable = true;
@@ -29,6 +28,7 @@
 
   programs = {
     bat.enable = true;
+    carapace.enable = true;
     direnv = {
       enable = true;
       nix-direnv.enable = true;
