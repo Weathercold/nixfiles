@@ -34,9 +34,11 @@
       nix-direnv.enable = true;
       config.global.warn_timeout = "1m";
     };
-    exa = {
+    eza = {
       enable = true;
       enableAliases = true;
+      git = true;
+      icons = true;
     };
     fzf.enable = true;
     zoxide.enable = true;
