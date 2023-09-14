@@ -28,6 +28,7 @@
         clinfo # For Plasma Info Center
         ffmpeg_5-full
         gh
+        git-absorb
         git-secret
         glxinfo # For Plasma Info Center
         jetbrains.idea-community
