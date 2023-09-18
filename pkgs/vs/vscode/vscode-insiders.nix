@@ -21,11 +21,11 @@ let
   archive_fmt = if stdenv.isDarwin then "zip" else "tar.gz";
 
   sha256 = {
-    x86_64-linux = "1hcr2sljn461g9xldh9md8qai9nzpln80m0i46l91pgil2w70hc0";
-    x86_64-darwin = "0dj1ij2cfw3rkk0zw033c157y95q5zxsfv7qzk6mjknchvhdm009";
-    aarch64-linux = "1xjfjbabsd1jh6xhaqdpv2w4cijxmgi3ah54v54vlrk9f4srbrnx";
-    aarch64-darwin = "02wywzw8zv7zmxxa4rqv8zbax8ykfb5grarl72lk1l0n0rpckcdz";
-    armv7l-linux = "1za4xxkfbavlnq0rinna030j5p30mzvfy1dgw6x7i4js7jr27m4h";
+    x86_64-linux = "0jy9zgq8qk92al29hy9i2zfbksfzv24fpnq8xxxskx0nn13kj3xh";
+    x86_64-darwin = "12a4a30imx5m4pfrawr29mhdw8s4mbybh7w9h44havhwdvlln4jd";
+    aarch64-linux = "1abd2h1gs0mg3hsqhqi670vvj7kpgmr4g58fxzfw4ldb0yl89l9x";
+    aarch64-darwin = "1yyz059adzxzy8d6wlx35rb552k53nj7nb594kcqv3j9lc68jqw2";
+    armv7l-linux = "1pswf4hr19rshki3cisgyb88sb3bab364dcsy1xwpp2rd3hzr9zp";
   }.${system} or throwSystem;
 in
 
