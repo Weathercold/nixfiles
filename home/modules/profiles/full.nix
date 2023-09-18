@@ -41,6 +41,7 @@
       icons = true;
     };
     fzf.enable = true;
+    nix-index-database.comma.enable = true;
     zoxide.enable = true;
   };
 }

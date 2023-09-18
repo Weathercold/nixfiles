@@ -44,6 +44,7 @@ in
         inherit pkgs lib;
         extraSpecialArgs = { inherit inputs; };
         modules = flatten [
+          inputs.nix-index-database.hmModules.nix-index
           (toModuleList ../modules/accounts)
           (toModuleList ../modules/programs)
           (toModuleList ../modules/services)

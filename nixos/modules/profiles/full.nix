@@ -58,7 +58,8 @@
       # Allow unfree packages
       NIXPKGS_ALLOW_UNFREE = "1";
       # Enable running commands without installation
-      NIX_AUTO_RUN = "1";
+      # Currently not needed because nix-index is enabled in home-manager
+      # NIX_AUTO_RUN = "1";
       # Make Electron apps run in Wayland native mode
       NIXOS_OZONE_WL = "1";
       # Make Firefox run in Wayland native mode
