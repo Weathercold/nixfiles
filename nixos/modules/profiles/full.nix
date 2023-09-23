@@ -36,6 +36,7 @@
         glxinfo # For Plasma Info Center
         jetbrains.idea-community
         jq
+        katawa-shoujo
         kooha
         libreoffice-qt
         neofetch
@@ -44,6 +45,7 @@
         protonmail-bridge
         qtstyleplugin-kvantum # For Colloid-kde
         sddm-kcm # SDDM Plasma integration
+        taisei
         unzip
         (ventoy-bin.override {
           defaultGuiType = "qt5";
