@@ -13,7 +13,10 @@
         enableFileSystems = true;
       };
     };
-    programs.neovim.enable = true;
+    programs = {
+      neovim.enable = true;
+      steam.enable = true;
+    };
     i18n.inputMethod.fcitx5.enable = true;
   };
 
