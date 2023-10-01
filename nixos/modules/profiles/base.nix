@@ -61,11 +61,6 @@ let inherit (lib) genAttrs const; in
       });
   };
 
-  # Certain services freeze on stop which prevents shutdown.
-  systemd.extraConfig = ''
-    DefaultTimeoutStopSec=10s
-  '';
-
   i18n = {
     defaultLocale = "en_US.UTF-8";
     supportedLocales = [
@@ -81,10 +76,12 @@ let inherit (lib) genAttrs const; in
     };
   };
 
-  console = {
-    font = "Lat2-Terminus16";
-    useXkbConfig = true; # use xkbOptions in tty.
-  };
+  console.font = "Lat2-Terminus16";
+
+  # Certain services freeze on stop which prevents shutdown.
+  systemd.extraConfig = ''
+    DefaultTimeoutStopSec=10s
+  '';
 
   security = {
     rtkit.enable = true;
@@ -93,4 +90,7 @@ let inherit (lib) genAttrs const; in
       execWheelOnly = true;
     };
   };
+
+  # Allow unfree packages
+  environment.sessionVariables.NIXPKGS_ALLOW_UNFREE = "1";
 }

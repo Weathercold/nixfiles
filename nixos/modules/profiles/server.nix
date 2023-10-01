@@ -4,8 +4,6 @@
   # UTC is the default but we explicitly set it to disallow imperative changing.
   time.timeZone = "UTC";
 
-  environment.noXlibs = true;
-
   services.openssh = {
     enable = true;
     startWhenNeeded = true;
@@ -14,4 +12,6 @@
     # make it less detectable by the GFW.
     ports = [ 1337 ];
   };
+
+  environment.noXlibs = true;
 }

@@ -14,7 +14,7 @@ let inherit (lib) const; in
     '';
   };
 
-  programs.home-manager.enable = true;
-
   xdg.enable = true;
+
+  programs.home-manager.enable = true;
 }

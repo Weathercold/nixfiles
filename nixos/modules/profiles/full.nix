@@ -20,6 +20,38 @@
     i18n.inputMethod.fcitx5.enable = true;
   };
 
+  virtualisation.waydroid.enable = true;
+
+  services = {
+    gnome.gnome-keyring.enable = true; # For storing vscode auth token
+    mpd.enable = true;
+    xserver = {
+      enable = true;
+      displayManager.sddm.enable = true;
+      desktopManager.plasma5.enable = true;
+      layout = "us";
+      libinput = {
+        enable = true;
+        touchpad = {
+          clickMethod = "clickfinger";
+          naturalScrolling = true;
+          disableWhileTyping = true;
+        };
+      };
+    };
+  };
+
+  programs = {
+    dconf.enable = true;
+    kdeconnect.enable = true;
+    nix-ld.enable = true;
+    ssh = {
+      enableAskPassword = true;
+      askPassword = "${pkgs.libsForQt5.ksshaskpass}/bin/ksshaskpass";
+    };
+    xwayland.enable = true;
+  };
+
   environment = {
     defaultPackages = [ ];
     systemPackages =
@@ -60,8 +92,6 @@
         zip
       ];
     sessionVariables = {
-      # Allow unfree packages
-      NIXPKGS_ALLOW_UNFREE = "1";
       # Enable running commands without installation
       # Currently not needed because nix-index is enabled in home-manager
       # NIX_AUTO_RUN = "1";
@@ -71,35 +101,4 @@
       MOZ_ENABLE_WAYLAND = "1";
     };
   };
-
-  services = {
-    xserver = {
-      enable = true;
-      displayManager.sddm.enable = true;
-      desktopManager.plasma5.enable = true;
-      layout = "us";
-      libinput = {
-        enable = true;
-        touchpad = {
-          clickMethod = "clickfinger";
-          naturalScrolling = true;
-          disableWhileTyping = true;
-        };
-      };
-    };
-    mpd.enable = true;
-    gnome.gnome-keyring.enable = true; # For storing vscode auth token
-  };
-
-  programs = {
-    ssh = {
-      enableAskPassword = true;
-      askPassword = "${pkgs.libsForQt5.ksshaskpass}/bin/ksshaskpass";
-    };
-    xwayland.enable = true;
-    dconf.enable = true;
-    kdeconnect.enable = true;
-  };
-
-  virtualisation.waydroid.enable = true;
 }

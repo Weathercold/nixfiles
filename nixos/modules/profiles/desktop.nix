@@ -1,6 +1,8 @@
 { pkgs, ... }: {
   imports = [ ./base.nix ];
 
+  console.useXkbConfig = true; # use xkbOptions in tty.
+
   networking = {
     dhcpcd.enable = false;
     networkmanager = {

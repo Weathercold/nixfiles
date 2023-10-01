@@ -1,18 +1,6 @@
 {
   imports = [ ./base.nix ];
 
-  home.shellAliases = {
-    "..." = "cd ../..";
-    "...." = "cd ../../..";
-    ani = "ani-cli";
-    c = "clear";
-    cat = "bat";
-    lns = "ln -s";
-    nf = "neofetch";
-    nvl = "~/src/lightnovel.sh/lightnovel.sh";
-    zz = "z -";
-  };
-
   abszero = {
     services.gpg-agent.enable = true;
     programs = {
@@ -24,6 +12,18 @@
       starship.enable = true;
       thunderbird.enable = true;
     };
+  };
+
+  home.shellAliases = {
+    "..." = "cd ../..";
+    "...." = "cd ../../..";
+    ani = "ani-cli";
+    c = "clear";
+    cat = "bat";
+    lns = "ln -s";
+    nf = "neofetch";
+    nvl = "~/src/lightnovel.sh/lightnovel.sh";
+    zz = "z -";
   };
 
   programs = {
