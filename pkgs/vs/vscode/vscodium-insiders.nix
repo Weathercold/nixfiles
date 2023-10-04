@@ -21,7 +21,7 @@ let
   archive_fmt = if stdenv.isDarwin then "zip" else "tar.gz";
 
   sha256 = {
-    x86_64-linux = "0sw692mjrh5g3arwxzpfp3xaa6ds4ss8inrq3agncbixrg1plhxb";
+    x86_64-linux = "0x7qgrsqliscsfvscf0k1fz9pb73y01y5w5z7r8g0lphakn16pas";
     x86_64-darwin = "00wfv3m2zrnvqj96ny88crn3z5vlai1ay4qzcmp2kkryp9hj5ms3";
     aarch64-linux = "11wp9x6844wzmw66yzycz0sly94x9agpmx2c3sq0ycshmqz7diik";
     aarch64-darwin = "1ykp5zzddr7a13syq8rvsra78bckfmcx0987n41w1h4l7q4jdhq4";
