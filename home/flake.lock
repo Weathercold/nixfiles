@@ -86,11 +86,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1694544521,
-        "narHash": "sha256-Fj+KQ3FBLz77c9RexbTScJ7RG96DCqwpqHVtIK+8LPw=",
+        "lastModified": 1696700604,
+        "narHash": "sha256-6RPMxRKghR4Xu6YuU1Qd3DiCxkipkXLScy48b9xXdLM=",
         "owner": "Weathercold",
         "repo": "home-manager",
-        "rev": "fdea6aa4b6160ac014c104f5682774440e5a22b0",
+        "rev": "ccecc604b7e78e12ac36be67611320f062f9a15a",
         "type": "github"
       },
       "original": {
@@ -121,11 +121,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1696193975,
-        "narHash": "sha256-mnQjUcYgp9Guu3RNVAB2Srr1TqKcPpRXmJf4LJk6KRY=",
+        "lastModified": 1696375444,
+        "narHash": "sha256-Sv0ICt/pXfpnFhTGYTsX6lUr1SljnuXWejYTI2ZqHa4=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "fdd898f8f79e8d2f99ed2ab6b3751811ef683242",
+        "rev": "81e8f48ebdecf07aab321182011b067aafc78896",
         "type": "github"
       },
       "original": {
