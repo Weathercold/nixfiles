@@ -64,10 +64,10 @@ stdenv.mkDerivation rec {
 
   meta = with lib; {
     description = "Soothing pastel theme for Discord";
-    license = licenses.mit;
-    platforms = platforms.all;
     homepage = "https://github.com/catppuccin/discord";
-    sourceProvenance = with sourceTypes; [ fromSource ];
+    license = licenses.mit;
     maintainers = with maintainers; [ weathercold ];
+    platforms = platforms.all;
+    sourceProvenance = with sourceTypes; [ fromSource ];
   };
 }

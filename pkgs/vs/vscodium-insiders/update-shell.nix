@@ -7,9 +7,7 @@ mkShell {
     bash
     curl
     gawk
-    gnugrep
     gnused
-    jq
     nix-prefetch-scripts
   ];
 }

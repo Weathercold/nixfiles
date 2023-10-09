@@ -22,11 +22,11 @@ jobs:
 
       - name: Update vscode-insiders
         continue-on-error: true
-        run: pkgs/vs/vscode/update-vscode-insiders.sh
+        run: pkgs/vs/vscode-insiders/update.sh
 
       - name: Update vscodium-insiders
         continue-on-error: true
-        run: pkgs/vs/vscode/update-vscodium-insiders.sh
+        run: pkgs/vs/vscodium-insiders/update.sh
 
       - name: Update v2ray-rules-dat
         continue-on-error: true
@@ -34,11 +34,11 @@ jobs:
 
       - name: Update colloid-gtk-theme-git
         continue-on-error: true
-        run: pkgs/co/colloid-gtk-theme/update.sh
+        run: pkgs/co/colloid-gtk-theme-git/update.sh
 
-      - name: Update catppuccin-discord
+      - name: Update catppuccin-discord-git
         continue-on-error: true
-        run: pkgs/ca/catppuccin-discord/update.sh
+        run: pkgs/ca/catppuccin-discord-git/update.sh
 
       - name: Update firefox-vertical-tabs
         continue-on-error: true

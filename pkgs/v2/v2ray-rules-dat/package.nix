@@ -50,11 +50,11 @@ stdenvNoCC.mkDerivation {
 
   meta = with lib; {
     description = "Enhanced edition of V2Ray rules dat files (techprober's fork)";
-    license = licenses.gpl3Only;
-    platforms = platforms.all;
     homepage = repo;
     downloadPage = "${repo}/releases";
-    outputsToInstall = [ "geoip" "geosite" ];
+    license = licenses.gpl3Only;
     maintainers = with maintainers; [ weathercold ];
+    outputsToInstall = [ "geoip" "geosite" ];
+    platforms = platforms.all;
   };
 }

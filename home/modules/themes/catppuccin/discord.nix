@@ -5,7 +5,7 @@ let
   inherit (config.lib.catppuccin) getVariant;
   cfg = config.abszero.themes.catppuccin;
 
-  cssDir = pkgs.catppuccin-discord.override
+  cssDir = pkgs.catppuccin-discord-git.override
     {
       themes0 =
         if cfg.automaticThemeSwitching then

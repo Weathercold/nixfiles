@@ -43,8 +43,8 @@ stdenvNoCC.mkDerivation {
 
   meta = with lib; {
     description = "A huge collection (80+) of plymouth themes ported from android bootanimations";
+    homepage = "https://github.com/adi1090x/plymouth-themes";
     license = licenses.gpl3Only;
     platforms = platforms.linux;
-    homepage = "https://github.com/adi1090x/plymouth-themes";
   };
 }
