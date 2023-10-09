@@ -51,7 +51,7 @@ in
           c.modules
           {
             nixpkgs.overlays = [
-              (final: prev: import ../../pkgs { pkgs = final; })
+              (_: prev: import ../../pkgs { pkgs = prev; })
             ];
             home = { inherit (c) username homeDirectory; };
           }

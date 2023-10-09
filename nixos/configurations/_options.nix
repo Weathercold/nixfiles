@@ -50,7 +50,7 @@ in
           c.modules
           {
             nixpkgs.overlays = [
-              (final: prev: import ../../pkgs { pkgs = final; })
+              (_: prev: import ../../pkgs { pkgs = prev; })
             ];
             networking = { inherit (c) hostName; };
           }

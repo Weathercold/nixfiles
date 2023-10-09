@@ -2,7 +2,7 @@
 
 let
   lib = pkgs.lib.extend
-    (_: _: { abszero = import ../lib { inherit (pkgs) lib; }; });
+    (_: prev: { abszero = import ../lib { lib = prev; }; });
   extPkgs = pkgs.extend (_: _: { inherit lib; });
   pkgsByName = lib.abszero.filesystem.toPackages extPkgs ./.;
 in
