@@ -72,6 +72,7 @@
         kooha
         libreoffice-qt
         neofetch
+        noita_save_manager
         obsidian
         pciutils # For Plasma Info Center
         protonmail-bridge

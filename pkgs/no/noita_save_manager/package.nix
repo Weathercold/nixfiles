@@ -1,6 +1,7 @@
 { lib
 , python3
 , fetchFromGitHub
+, makeDesktopItem
 , makeWrapper
 }:
 
@@ -14,6 +15,14 @@ python3.pkgs.buildPythonApplication rec {
     repo = "noita_save_manager";
     rev = version;
     hash = "sha256-v6zABwYqTCqDRI6uCWyOv8rjBJS2P0BfrOclDkELO/A=";
+  };
+
+  desktopItem = makeDesktopItem {
+    name = pname;
+    exec = meta.mainProgram;
+    comment = meta.description;
+    desktopName = "Noita Save Manager";
+    categories = [ "Game" "Utility" ];
   };
 
   nativeBuildInputs = [
@@ -38,6 +47,9 @@ python3.pkgs.buildPythonApplication rec {
       --run 'DIR="''${XDG_DATA_HOME:-~/.local/share}"
              mkdir -p "$DIR/noita_save_manager"
              cd "$DIR/noita_save_manager"'
+
+    mkdir -p "$out/share"
+    ln -s ${desktopItem}/share/applications $out/share/applications
   '';
 
   pythonImportsCheck = [ "noita_save_manager" ];
