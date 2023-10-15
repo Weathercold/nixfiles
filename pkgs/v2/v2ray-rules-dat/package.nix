@@ -1,9 +1,9 @@
 { stdenvNoCC, lib, fetchurl }:
 
 let
-  version = "2023-10-08-00-57";
-  geoipHash = "0fyqf7lgdkygdbh7c9xfb2xi5isq11x0ihnz12477jzpdckgxb16";
-  geositeHash = "0p6zxgznzzarxp3fa9gqgry21d072aai3cnpcvb7chfngkny1jfl";
+  version = "2023-10-15-00-57";
+  geoipHash = "0fginsdd1nd5g7fav58v9n092zp2kgc2x333m414w4jh52ac0sy9";
+  geositeHash = "0qwcgrg6qdmfxqc38gn0z5j4r27npbndr65drdb0d8ak4wjcfxcd";
 
   repo = "https://github.com/techprober/v2ray-rules-dat";
   geoip = fetchurl {
