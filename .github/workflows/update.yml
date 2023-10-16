@@ -3,7 +3,10 @@ name: Automatic Hash Update
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 */3 * * *"
+    - cron: "0 */4 * * *"
+
+env:
+  BRANCH: update-${{ github.run_number }}
 
 jobs:
   get-update-scripts:
@@ -21,6 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: get-update-scripts
     strategy:
+      fail-fast: false
       matrix:
         update-script: ${{ fromJson(needs.get-update-scripts.outputs.update-scripts) }}
     steps:
@@ -29,50 +33,52 @@ jobs:
       - uses: cachix/install-nix-action@v23
         with:
           nix_path: nixpkgs=channel:nixos-unstable
-          extra_nix_config: |-
-            experimental-features = nix-command flakes
+          extra_nix_config: experimental-features = nix-command flakes
 
       - name: Run update script
-        id: update
         run: |-
           ${{ matrix.update-script }}
-          # Escape newlines because YAML doesn't like multiline strings
-          echo "diff=$(git diff | sed 's,$,!!!\\n,g' | tr -d '\n')" >> "$GITHUB_OUTPUT"
+          git stash
+          git pull
+          git stash pop || true
 
-      # Matrix jobs overwrite each other's output, this is a workaround using artifacts
-      - if: steps.update.outputs.diff != ''
-        uses: cloudposse/github-action-matrix-outputs-write@0.4.2
-        with:
-          matrix-step-name: update
-          matrix-key: ${{ matrix.update-script }}
-          outputs: |-
-            diffs: |-
-              ${{ steps.update.outputs.diff }}
-
-  commit:
-    if: always()
-    runs-on: ubuntu-latest
-    needs: update
-    steps:
-      - id: read
-        uses: cloudposse/github-action-matrix-outputs-read@0.1.1
-        with:
-          matrix-step-name: update
-
-      - if: fromJson(steps.read.outputs.result).diffs != null
-        uses: actions/checkout@v4
-
-      - name: Apply diffs
-        if: fromJson(steps.read.outputs.result).diffs != null
-        env:
-          DIFFS: ${{ toJson(fromJson(steps.read.outputs.result).diffs) }}
-        run: bash <(echo "$DIFFS" | jq '.[] | "echo \(@sh) | sed \'s,!!!\\n,\n,g\' | git apply"')
-
-      - if: fromJson(steps.read.outputs.result).diff != null
-        uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: |
             pkgs: autoupdate
 
             uwu
           commit_author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+          branch: ${{ env.BRANCH }}
+          push_options: --atomic
+          create_branch: true
+
+  squash-to-master:
+    if: always()
+    runs-on: ubuntu-latest
+    needs: update
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check if branch exists
+        id: check-branch
+        run: '! git branch -r | grep $BRANCH; echo exists=$? >> "$GITHUB_OUTPUT"'
+
+      - name: Squash commits to master
+        if: steps.check-branch.outputs.exists == '1'
+        run: git merge --squash origin/$BRANCH
+
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        if: steps.check-branch.outputs.exists == '1'
+        with:
+          commit_message: |
+            pkgs: autoupdate
+
+            uwu
+          commit_author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+
+      - name: Delete temporary branch
+        if: always() && steps.check-branch.outputs.exists == '1'
+        run: git push origin -d $BRANCH
