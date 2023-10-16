@@ -6,45 +6,70 @@ on:
     - cron: "0 */3 * * *"
 
 jobs:
+  get-update-scripts:
+    runs-on: ubuntu-latest
+    outputs:
+      update-scripts: ${{ steps.get-update-scripts.outputs.update-scripts }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get update scripts
+        id: get-update-scripts
+        run: echo "update-scripts=$(find . -name "update.sh" | jq -cnR '[inputs]')" >> "$GITHUB_OUTPUT"
+
   update:
     runs-on: ubuntu-latest
+    needs: get-update-scripts
+    strategy:
+      matrix:
+        update-script: ${{ fromJson(needs.get-update-scripts.outputs.update-scripts) }}
     steps:
       - uses: actions/checkout@v4
 
       - uses: cachix/install-nix-action@v23
         with:
           nix_path: nixpkgs=channel:nixos-unstable
-          extra_nix_config: |
+          extra_nix_config: |-
             experimental-features = nix-command flakes
 
-      # - name: Run update scripts
-        # run: for p in $(find . -name "update-*.sh"); do $p; done
+      - name: Run update script
+        id: update
+        run: |-
+          ${{ matrix.update-script }}
+          # Escape newlines because YAML doesn't like multiline strings
+          echo "diff=$(git diff | sed 's,$,!!!\\n,g' | tr -d '\n')" >> "$GITHUB_OUTPUT"
 
-      - name: Update vscode-insiders
-        continue-on-error: true
-        run: pkgs/vs/vscode-insiders/update.sh
+      # Matrix jobs overwrite each other's output, this is a workaround using artifacts
+      - if: steps.update.outputs.diff != ''
+        uses: cloudposse/github-action-matrix-outputs-write@0.4.2
+        with:
+          matrix-step-name: update
+          matrix-key: ${{ matrix.update-script }}
+          outputs: |-
+            diffs: |-
+              ${{ steps.update.outputs.diff }}
 
-      - name: Update vscodium-insiders
-        continue-on-error: true
-        run: pkgs/vs/vscodium-insiders/update.sh
+  commit:
+    if: always()
+    runs-on: ubuntu-latest
+    needs: update
+    steps:
+      - id: read
+        uses: cloudposse/github-action-matrix-outputs-read@0.1.1
+        with:
+          matrix-step-name: update
 
-      - name: Update v2ray-rules-dat
-        continue-on-error: true
-        run: pkgs/v2/v2ray-rules-dat/update.sh
+      - if: fromJson(steps.read.outputs.result).diffs != null
+        uses: actions/checkout@v4
 
-      - name: Update colloid-gtk-theme-git
-        continue-on-error: true
-        run: pkgs/co/colloid-gtk-theme-git/update.sh
+      - name: Apply diffs
+        if: fromJson(steps.read.outputs.result).diffs != null
+        env:
+          DIFFS: ${{ fromJson(steps.read.outputs.result).diffs }}
+        run: bash <(jq '.[] | "echo \(@sh) | sed \'s,!!!\\n,\n,g\' | git apply"' <<< "$DIFFS")
 
-      - name: Update catppuccin-discord-git
-        continue-on-error: true
-        run: pkgs/ca/catppuccin-discord-git/update.sh
-
-      - name: Update firefox-vertical-tabs
-        continue-on-error: true
-        run: home/modules/themes/base/firefox-vertical-tabs/update.sh
-
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - if: fromJson(steps.read.outputs.result).diff != null
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: |
             pkgs: autoupdate
