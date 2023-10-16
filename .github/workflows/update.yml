@@ -65,8 +65,8 @@ jobs:
       - name: Apply diffs
         if: fromJson(steps.read.outputs.result).diffs != null
         env:
-          DIFFS: ${{ fromJson(steps.read.outputs.result).diffs }}
-        run: bash <(jq '.[] | "echo \(@sh) | sed \'s,!!!\\n,\n,g\' | git apply"' <<< "$DIFFS")
+          DIFFS: ${{ toJson(fromJson(steps.read.outputs.result).diffs) }}
+        run: bash <(echo "$DIFFS" | jq '.[] | "echo \(@sh) | sed \'s,!!!\\n,\n,g\' | git apply"')
 
       - if: fromJson(steps.read.outputs.result).diff != null
         uses: stefanzweifel/git-auto-commit-action@v5
