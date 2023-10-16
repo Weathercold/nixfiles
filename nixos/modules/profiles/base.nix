@@ -11,8 +11,7 @@ let inherit (lib) genAttrs const; in
   nix = {
     package = pkgs.nixVersions.unstable;
     extraOptions = ''
-      # repl-flake: Enable passing installables to nix repl
-      experimental-features = nix-command flakes no-url-literals repl-flake
+      experimental-features = nix-command flakes no-url-literals
       keep-outputs = true
       keep-derivations = true
       connect-timeout = 10
