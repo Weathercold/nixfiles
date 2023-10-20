@@ -80,6 +80,7 @@
         qtstyleplugin-kvantum # For Colloid-kde
         sddm-kcm # SDDM Plasma integration
         taisei
+        tenacity
         unzip
         (ventoy-bin.override {
           defaultGuiType = "qt5";
