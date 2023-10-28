@@ -20,7 +20,6 @@ optionalAttrs (readDir ./. ? "_base.nix") {
             imports = with self.homeModules; [
               # inputs.bocchi-cursors.homeModules.bocchi-cursors-shadowBlack
               catppuccin-cursor
-              catppuccin-discord
               colloid-fcitx5
               colloid-firefox
               colloid-fonts

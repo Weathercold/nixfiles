@@ -4,7 +4,6 @@
   abszero = {
     services.gpg-agent.enable = true;
     programs = {
-      discord.enable = true;
       dotdrop.enable = true;
       firefox.enable = true;
       git.enable = true;

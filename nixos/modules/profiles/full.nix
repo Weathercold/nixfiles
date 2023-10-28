@@ -89,6 +89,7 @@
           defaultGuiType = "qt5";
           withQt5 = true;
         })
+        vesktop
         vscode
         vulkan-tools # For Plasma Info Center
         wayland-utils # For Plasma Info Center

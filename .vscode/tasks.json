@@ -24,7 +24,6 @@
       "label": "flake-update",
       "type": "shell",
       "command": "nix flake update; nix flake update ./nixos; nix flake update ./home; nix flake update ./pkgs; nix flake update ./lib",
-      "problemMatcher": []
     }
   ]
 }
