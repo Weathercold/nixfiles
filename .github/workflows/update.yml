@@ -36,13 +36,15 @@ jobs:
           extra_nix_config: experimental-features = nix-command flakes
 
       - name: Run update script
+        continue-on-error: true
         run: |-
           ${{ matrix.update-script }}
           git stash
           git pull
-          git stash pop || true
+          git stash pop
 
       - uses: stefanzweifel/git-auto-commit-action@v5
+        continue-on-error: true
         with:
           commit_message: |
             pkgs: autoupdate
