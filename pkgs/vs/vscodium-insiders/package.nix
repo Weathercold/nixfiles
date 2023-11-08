@@ -22,10 +22,10 @@ let
 
   sha256 = {
     x86_64-linux = "1w3qp92f6dfid3z4j594p9md33inz5yqys8ih35p5ynw6xdz1dk1";
-    x86_64-darwin = "0qvi92gchn6r10zy8h2zwpb6bylhw2pg47aanafrwrng79rrfalf";
-    aarch64-linux = "0hdnlqfkjhfrvaad29dc2cbf882gkkpvqgx1caisvflbsgx356kf";
-    aarch64-darwin = "1qwjrh8crj4i83wakkfq5g2rxra9hdkmpgai1vnqnjh2jpp2vcg0";
-    armv7l-linux = "0lxy6iwnfpsldmcgjnjjzabidswwv8cfs7hh3gkrwvqzhn0y5s9a";
+    x86_64-darwin = "1qrp2pph4pg20322mcg2zh100m6vl79zkz4a1a5s4llxgb4x4lhm";
+    aarch64-linux = "04rsngar82n78kdmq3x7rm22vqs4h9cdbargvv59mxgf3lb9hh59";
+    aarch64-darwin = "0kk9dzg76d14561zpkapxhr0xi51lngf2zrwfqlfn93i1p2imzp4";
+    armv7l-linux = "0w4ypqylgilbljwiyhnhnv0xcqv6gp4z71x8ljywwh56g9ncd4pw";
   }.${system} or throwSystem;
 
   sourceRoot = if stdenv.isDarwin then "" else ".";
