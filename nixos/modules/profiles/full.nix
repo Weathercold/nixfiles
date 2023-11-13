@@ -69,6 +69,7 @@
         git-absorb
         git-secret
         glxinfo # For Plasma Info Center
+        goldendict-ng
         jetbrains.idea-community
         jq
         katawa-shoujo
