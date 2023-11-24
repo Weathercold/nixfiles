@@ -30,7 +30,7 @@ let inherit (lib) genAttrs const; in
   nixpkgs.config.allowUnfree = true;
 
   system = {
-    stateVersion = "23.11";
+    stateVersion = "24.05";
     # Print store diff using nvd
     activationScripts.diff = {
       supportsDryActivation = true;
