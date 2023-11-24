@@ -25,7 +25,6 @@ in
       # https://github.com/NixOS/nixpkgs/issues/129442#issuecomment-875972207
       NIX_PROFILES =
         "${concatStringsSep " " (reverseList config.environment.profiles)}";
-      GTK_IM_MODULE = "fcitx";
       QT_IM_MODULE = "fcitx";
       XMODIFIERS = "@im=fcitx";
       SDL_IM_MODULE = "fcitx";
