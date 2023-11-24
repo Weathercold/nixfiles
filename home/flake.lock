@@ -86,11 +86,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1696700604,
-        "narHash": "sha256-6RPMxRKghR4Xu6YuU1Qd3DiCxkipkXLScy48b9xXdLM=",
+        "lastModified": 1700845911,
+        "narHash": "sha256-EpasycgOPKHN/zuuTbCMAtBCHEeFjkQaTJ0rmy5W2FQ=",
         "owner": "Weathercold",
         "repo": "home-manager",
-        "rev": "ccecc604b7e78e12ac36be67611320f062f9a15a",
+        "rev": "3ed006755270397f84ba45f3b5ff512ad528f0bb",
         "type": "github"
       },
       "original": {
