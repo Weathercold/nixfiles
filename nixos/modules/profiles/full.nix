@@ -69,6 +69,7 @@
         git-absorb
         git-secret
         glxinfo # For Plasma Info Center
+        gnome-solanum
         goldendict-ng
         jetbrains.idea-community
         jq
