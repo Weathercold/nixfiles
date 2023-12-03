@@ -16,6 +16,7 @@
     programs = {
       neovim.enable = true;
       steam.enable = true;
+      virt-manager.enable = true;
     };
     i18n.inputMethod.fcitx5.enable = true;
   };
