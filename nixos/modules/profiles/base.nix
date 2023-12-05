@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ inputs, config, pkgs, lib, ... }:
 
 let inherit (lib) genAttrs const; in
 
@@ -10,12 +10,10 @@ let inherit (lib) genAttrs const; in
 
   nix = {
     package = pkgs.nixVersions.unstable;
-    extraOptions = ''
-      experimental-features = nix-command flakes no-url-literals
-      keep-outputs = true
-      keep-derivations = true
-      connect-timeout = 10
-    '';
+    # Let nix-shell use the system nixpkgs
+    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+    # Pin nixpkgs to the system version
+    registry.nixpkgs.flake = inputs.nixpkgs;
     gc = {
       automatic = true;
       dates = "daily";
@@ -25,6 +23,12 @@ let inherit (lib) genAttrs const; in
       trusted-users = [ "root" "@wheel" ];
       auto-optimise-store = true;
     };
+    extraOptions = ''
+      experimental-features = nix-command flakes no-url-literals
+      keep-outputs = true
+      keep-derivations = true
+      connect-timeout = 10
+    '';
   };
 
   nixpkgs.config.allowUnfree = true;
