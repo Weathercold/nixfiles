@@ -19,8 +19,8 @@ let
   src = fetchFromGitHub {
     owner = "catppuccin";
     repo = "discord";
-    rev = "9a917458ec1eefa3a1bbd3212ac4286f4ef20dae";
-    hash = "sha256-Mu8lFiUmEQr2WGNT7t8cTeNCT+S1iLMs43HkW3V1C6Y=";
+    rev = "5660f74864050c2aaad3d465c9b4ccfc23a99b22";
+    hash = "sha256-i+hLSz2zOu4zT4nqd9ICue40MnuzlOEgAP++77x7tRE=";
   };
 
   nodeModules = mkYarnModules {
