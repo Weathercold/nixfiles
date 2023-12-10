@@ -19,7 +19,7 @@ in
       enable = true;
       profiles.${cfg.profile}.isDefault = true;
     };
-    # TODO: configure email when chat and calendar can be configured
+    # TODO: Configure email when chat and calendar can be configured
     accounts.email.accounts = genAttrs
       (attrNames config.abszero.emails)
       (const { thunderbird.enable = false; });
