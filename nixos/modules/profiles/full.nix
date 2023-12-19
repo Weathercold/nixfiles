@@ -72,6 +72,7 @@
         glxinfo # For Plasma Info Center
         gnome-solanum
         goldendict-ng
+        inkscape
         jetbrains.idea-community
         jq
         katawa-shoujo
