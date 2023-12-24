@@ -21,6 +21,11 @@
     i18n.inputMethod.fcitx5.enable = true;
   };
 
+  # For obsidian
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-25.9.0"
+  ];
+
   virtualisation.waydroid.enable = true;
 
   services = {

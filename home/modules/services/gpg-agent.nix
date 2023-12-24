@@ -11,5 +11,6 @@ in
   config.services.gpg-agent = mkIf cfg.enable {
     enable = true;
     enableSshSupport = true;
+    pinentryFlavor = "gnome3";
   };
 }
