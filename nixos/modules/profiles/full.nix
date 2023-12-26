@@ -17,6 +17,7 @@
       neovim.enable = true;
       steam.enable = true;
       virt-manager.enable = true;
+      wireshark.enable = true;
     };
     i18n.inputMethod.fcitx5.enable = true;
   };
@@ -69,6 +70,7 @@
       [
         # TODO: Switch to anki-qt6 when it is no longer broken on Wayland
         anki-bin-qt6
+        aseprite
         clinfo # For Plasma Info Center
         ffmpeg_5-full
         gh
