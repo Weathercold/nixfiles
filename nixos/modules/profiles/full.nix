@@ -5,6 +5,7 @@
   ];
 
   abszero = {
+    virtualisation.libvirtd.enable = true;
     services = {
       kanata.enable = true;
       act.enable = true;
@@ -16,7 +17,6 @@
     programs = {
       neovim.enable = true;
       steam.enable = true;
-      virt-manager.enable = true;
       wireshark.enable = true;
     };
     i18n.inputMethod.fcitx5.enable = true;
