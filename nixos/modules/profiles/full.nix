@@ -16,6 +16,7 @@
     };
     programs = {
       neovim.enable = true;
+      pot.enable = true;
       steam.enable = true;
       wireshark.enable = true;
     };
