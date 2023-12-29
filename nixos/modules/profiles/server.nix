@@ -1,8 +1,11 @@
+# Headless server
 {
   imports = [ ./base.nix ];
 
   # UTC is the default but we explicitly set it to disallow imperative changing.
   time.timeZone = "UTC";
+
+  fonts.fontconfig.enable = false;
 
   services.openssh = {
     enable = true;

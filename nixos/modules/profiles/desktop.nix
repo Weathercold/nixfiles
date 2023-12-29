@@ -3,6 +3,11 @@
 
   console.useXkbConfig = true; # use xkbOptions in tty.
 
+  fonts.fontconfig = {
+    hinting.style = "medium";
+    subpixel.rgba = "rgb";
+  };
+
   networking = {
     dhcpcd.enable = false;
     networkmanager = {
