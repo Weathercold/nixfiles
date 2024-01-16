@@ -72,6 +72,7 @@ let inherit (lib) genAttrs const; in
       "en_US.UTF-8/UTF-8"
       # "fr_CA.UTF-8/UTF-8"
       # "zh_CN.UTF-8/UTF-8"
+      "ja_JP.UTF-8/UTF-8"
     ];
     extraLocaleSettings = {
       # LC_TIME = "en_US.UTF-8";
