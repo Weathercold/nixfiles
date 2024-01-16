@@ -110,11 +110,13 @@
 
             devShells.default = mkShell {
               packages = [
+                deploy-rs
                 inputs'.nixd.packages.nixd
                 nil
                 nixpkgs-fmt
-                deploy-rs
                 nix-init
+                nix-prefetch-github # Somehow not in nix-prefetch-scripts
+                nix-prefetch-scripts
               ];
               shellHook = ''
                 export NIXPKGS_ALLOW_BROKEN=1
