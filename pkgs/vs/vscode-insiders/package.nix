@@ -21,16 +21,16 @@ let
   archive_fmt = if stdenv.isDarwin then "zip" else "tar.gz";
 
   sha256 = {
-    x86_64-linux = "1j2107112kpb0zp907fmz557ck3a90mzrxyw27vjhfy5vvxqiiac";
-    x86_64-darwin = "05h80682shj53snhjfknslv5lhchl45xbjmsi07925vni7k1dmk0";
-    aarch64-linux = "1c9z7kkgf9vvq7nh10ah53asvqw7y11dpy2azxx6s39ilrypphgi";
-    aarch64-darwin = "0f2p32lf85hviqq7874la6x3z75cfbfj0c45hxc53zg1nbm3xca2";
-    armv7l-linux = "0mzygm0azq331r1ahszkwfrs882pnyq3g2gnrkw8r75ya9pf82i5";
+    x86_64-linux = "1rrk33wzi6j9ajb5l1ssnpa69mhxinbff23zfwpz7f1cdxsf82jj";
+    x86_64-darwin = "00fpa43xcvk7jdb3q81sqkpaxm8b86qrscbr7swnl8d8q7zwy052";
+    aarch64-linux = "0y0ar0sy6kmx0pnym9pcbgfpizdh8n6jn47j3z2ik7andp432pmc";
+    aarch64-darwin = "062w8ibm22cxwlssgrflw57vckwcl7pspl7gdnninqrqgnvkcyr5";
+    armv7l-linux = "1fgag0cgczyw7mfslhiph8pbf9pq1zgsi9ac7msvsk07n23vshzh";
   }.${system} or throwSystem;
 in
 
 callPackage "${path}/pkgs/applications/editors/vscode/generic.nix" rec {
-  version = "1.86.0-insider";
+  version = "1.87.0-insider";
   pname = "vscode-insiders";
   updateScript = ./update.sh;
 
