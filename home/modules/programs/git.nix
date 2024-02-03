@@ -21,7 +21,7 @@ in
     };
     extraConfig = {
       core.editor = "nvim";
-      pull.rebase = false;
+      pull.ff = "only";
     };
     delta.enable = true;
   };
