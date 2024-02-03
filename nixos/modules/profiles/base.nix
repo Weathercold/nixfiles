@@ -24,7 +24,7 @@ let inherit (lib) genAttrs const; in
       auto-optimise-store = true;
     };
     extraOptions = ''
-      experimental-features = nix-command flakes auto-allocate-uids configurable-impure-env no-url-literals
+      experimental-features = nix-command flakes auto-allocate-uids no-url-literals
       keep-outputs = true
       keep-derivations = true
       connect-timeout = 10
