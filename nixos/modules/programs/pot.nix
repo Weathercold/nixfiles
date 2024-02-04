@@ -10,6 +10,6 @@ in
 
   config.environment.systemPackages = with pkgs; mkIf cfg.enable [
     pot
-    tesseract
+    # tesseract
   ];
 }
