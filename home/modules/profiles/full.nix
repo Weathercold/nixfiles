@@ -4,13 +4,16 @@
   abszero = {
     services.gpg-agent.enable = true;
     programs = {
+      carapace.enable = true;
       direnv.enable = true;
       dotdrop.enable = true;
       firefox.enable = true;
+      fish.enable = true;
       git.enable = true;
       nushell.enable = true;
       starship.enable = true;
       thunderbird.enable = true;
+      zoxide.enable = true;
     };
   };
 
@@ -28,7 +31,6 @@
 
   programs = {
     bat.enable = true;
-    carapace.enable = true;
     eza = {
       enable = true;
       enableAliases = true;
@@ -37,6 +39,5 @@
     };
     fzf.enable = true;
     nix-index-database.comma.enable = true;
-    zoxide.enable = true;
   };
 }
