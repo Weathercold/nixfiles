@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib) mkEnableOption mkIf mkOrder;
   cfg = config.abszero.programs.nushell;
 in
 
@@ -32,10 +32,28 @@ in
         show_banner: false
         table: {
           mode: light
-          header_on_separator: true
+          # header_on_separator: true
         }
         color_config: (atelier-sulphurpool-light)
       }
+    '';
+
+    # Order of overrides of completer:
+    # Fish <-- Carapace <-- Zoxide & Fish <-- Expand Alias
+    extraConfig = mkOrder 2000 ''
+      let prev_completer = $env.config?.completions?.external?.completer? | default echo
+      let next_completer = {|spans: list<string>|
+        let expansion = scope aliases
+        | where name == $spans.0
+        | get -i 0.expansion
+        | default $spans.0
+        | split row " "
+
+        do $prev_completer ($spans | skip 1 | prepend $expansion)
+      }
+      $env.config = ($env.config?
+      | default {}
+      | merge { completions: { external: { completer: $next_completer } } })
     '';
   };
 }

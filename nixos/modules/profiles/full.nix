@@ -53,6 +53,7 @@
 
   programs = {
     dconf.enable = true;
+    fish.enable = true; # For vendor completions; config is managed by home-manager
     kdeconnect.enable = true;
     nix-ld.enable = true;
     ssh = {
