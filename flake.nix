@@ -110,6 +110,7 @@
 
             devShells.default = mkShell {
               packages = [
+                cachix
                 deploy-rs
                 inputs'.nixd.packages.nixd
                 nil

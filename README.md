@@ -1,5 +1,10 @@
 # Abszero
 
+[![Cachix badge](https://img.shields.io/badge/Cachix-abszero-blue.svg?logo=hack-the-box&logoColor=73C3D5&style=flat-square)](https://app.cachix.org/cache/abszero)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/y/Weathercold/nixfiles?authorFilter=Weathercold&style=flat-square&label=My%20commits)](https://github.com/Weathercold/nixfiles/commits?author=Weathercold)
+[![Hash update status](https://img.shields.io/github/actions/workflow/status/Weathercold/nixfiles/update.yml?style=flat-square&label=Hash%20update)](https://github.com/Weathercold/nixfiles/actions/workflows/update.yml)
+[![Build status](https://img.shields.io/github/actions/workflow/status/Weathercold/nixfiles/build.yml?style=flat-square&label=Build)](https://github.com/Weathercold/nixfiles/actions/workflows/build.yml)
+
 Dotfiles powered by Nix™, plus a package overlay and a library of utility
 functions.
 
@@ -25,16 +30,17 @@ be used as flake input by specifying a directory like this:
     │ └ modules/                                home modules
     │   ├ profiles/                             top-level home modules
     │   ├ accounts/, programs/, services/, ...  options-based home modules
-    │   └ themes/                               home modules for theming; they don't add options and have effect on import
+    │   └ themes/                               home modules that need manual import
     │     └ base/, colloid/, ...
     ├ nixos/                                    nixos configurations
     │ ├ configurations/                         top-level nixos configurations
     │ │ ├ nixos-inspiron7405.nix, ...           my configurations
     │ │ └ _options.nix                          configuration abstraction
-    │ ├ profiles/                               top-level nixos modules
-    │ ├ config/, i18n/, programs/, ...          options-based home modules
-    │ └ hardware/                               nixos modules for hardware; they don't add options and have effect on import
-    ├ pkgs/                                     packaging repository
+    │ └ modules/                                nixos modules
+    │   ├ profiles/                             top-level nixos modules
+    │   ├ config/, i18n/, programs/, ...        options-based home modules
+    │   └ hardware/                             home modules that need manual import
+    ├ pkgs/                                     package repository (by-name)
     └ lib/                                      library of utility functions
 
 ## Import Graph

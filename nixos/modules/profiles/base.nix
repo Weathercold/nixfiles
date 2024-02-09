@@ -21,6 +21,8 @@ let inherit (lib) genAttrs const; in
     };
     settings = {
       trusted-users = [ "root" "@wheel" ];
+      substituters = [ "https://abszero.cachix.org" ];
+      trusted-public-keys = [ "abszero.cachix.org-1:HXOydaS51jSWrM07Ko8AVtGdoBRT9F+QhdYQBiNDaM0=" ];
       auto-optimise-store = true;
     };
     extraOptions = ''
