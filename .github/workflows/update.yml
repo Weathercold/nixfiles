@@ -18,6 +18,7 @@ jobs:
 
       - name: Get update scripts
         id: get-update-scripts
+        shell: bash # Set pipefail
         run: echo "update-scripts=$(find . -name "update.sh" | jq -cnR '[inputs]')" >> "$GITHUB_OUTPUT"
 
   update:

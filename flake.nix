@@ -31,10 +31,6 @@
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
-    haumea = {
-      url = "github:nix-community/haumea";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     deploy-rs = {
       url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -61,21 +57,18 @@
     };
   };
 
-  outputs = { self, nixpkgs, flake-parts, haumea, ... } @ inputs:
+  outputs = { self, nixpkgs, flake-parts, ... } @ inputs:
 
     let
-      lib = import ./lib {
-        inherit (nixpkgs) lib;
-        inherit haumea;
-      };
-      extendedLib = nixpkgs.lib.extend (_: _: { abszero = lib; });
+      lib = import ./lib { inherit (nixpkgs) lib; };
+      extLib = nixpkgs.lib.extend (_: _: { abszero = lib; });
     in
 
     flake-parts.lib.mkFlake
       {
         inherit inputs;
         specialArgs = {
-          lib = extendedLib;
+          lib = extLib;
         };
       }
       {
