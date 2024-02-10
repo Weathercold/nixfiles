@@ -1,6 +1,7 @@
 # Abszero
 
-[![Cachix badge](https://img.shields.io/badge/Cachix-abszero-blue.svg?logo=hack-the-box&logoColor=73C3D5&style=flat-square)](https://app.cachix.org/cache/abszero)
+[![NUR Badge](https://img.shields.io/badge/NUR-abszero-lightblue?style=flat-square&logo=hack-the-box&logoColor=lightblue)](https://nur.nix-community.org/repos/abszero)
+[![Cachix Badge](https://img.shields.io/badge/Cachix-abszero-lightblue?style=flat-square&logo=googlepubsub&logoColor=lightblue)](https://app.cachix.org/cache/abszero)
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/y/Weathercold/nixfiles?authorFilter=Weathercold&style=flat-square&label=My%20commits)](https://github.com/Weathercold/nixfiles/commits?author=Weathercold)
 [![Hash update status](https://img.shields.io/github/actions/workflow/status/Weathercold/nixfiles/update.yml?style=flat-square&label=Hash%20update)](https://github.com/Weathercold/nixfiles/actions/workflows/update.yml)
 [![Build status](https://img.shields.io/github/actions/workflow/status/Weathercold/nixfiles/build.yml?style=flat-square&label=Build)](https://github.com/Weathercold/nixfiles/actions/workflows/build.yml)

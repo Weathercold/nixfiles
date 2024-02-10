@@ -1,10 +1,15 @@
-{ pkgs }:
+{ pkgs
+, haumea ? null
+}:
 
 let
-  lib = pkgs.lib.extend
-    (_: prev: { abszero = import ../lib { lib = prev; }; });
-  extPkgs = pkgs.extend (_: _: { inherit lib; });
-  pkgsByName = lib.abszero.filesystem.toPackages extPkgs ./.;
+  extLib = pkgs.lib.extend (_: prev: {
+    abszero = import ../lib
+      ({ lib = prev; }
+        // prev.optionalAttrs (haumea != null) { inherit haumea; });
+  });
+  extPkgs = pkgs.extend (_: _: { lib = extLib; });
+  pkgsByName = extLib.abszero.filesystem.toPackages extPkgs ./.;
 in
 
 pkgsByName // {

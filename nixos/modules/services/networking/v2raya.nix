@@ -13,7 +13,7 @@ in
   config = mkIf cfg.enable {
     # TODO: Add package option to upstream
     nixpkgs.overlays = [
-      (final: prev: {
+      (_: prev: {
         v2raya = prev.v2raya.override {
           v2ray-geoip = v2ray-rules-dat.geoip;
           v2ray-domain-list-community = v2ray-rules-dat.geosite;

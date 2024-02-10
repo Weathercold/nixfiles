@@ -13,7 +13,7 @@ in
   config = mkIf cfg.enableInsecureSSLCiphers {
     # Let wpa_supplicant use a version of openssl that supports weak SSL ciphers
     nixpkgs.overlays = singleton
-      (final: prev:
+      (_: prev:
         let
           openssl = prev.openssl.overrideAttrs (prev: {
             configureFlags = prev.configureFlags ++ singleton "enable-weak-ssl-ciphers";

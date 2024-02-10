@@ -1,4 +1,4 @@
-name: Automatic Hash Update
+name: Hash Update
 
 on:
   workflow_dispatch:
