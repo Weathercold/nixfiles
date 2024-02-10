@@ -1,0 +1,3 @@
+[submodule "lib/haumea"]
+	path = lib/haumea
+	url = https://github.com/nix-community/haumea.git

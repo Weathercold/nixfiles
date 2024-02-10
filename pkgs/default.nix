@@ -1,13 +1,8 @@
-{ pkgs
-, haumea ? null
-}:
+{ pkgs }:
 
 let
-  extLib = pkgs.lib.extend (_: prev: {
-    abszero = import ../lib
-      ({ lib = prev; }
-        // prev.optionalAttrs (haumea != null) { inherit haumea; });
-  });
+  extLib = pkgs.lib.extend
+    (_: prev: { abszero = import ../lib { lib = prev; }; });
   extPkgs = pkgs.extend (_: _: { lib = extLib; });
   pkgsByName = extLib.abszero.filesystem.toPackages extPkgs ./.;
 in
