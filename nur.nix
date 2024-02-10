@@ -1,5 +1,11 @@
 { pkgs ? import <nixpkgs> { } }:
-import ./pkgs { inherit pkgs; }
+builtins.removeAttrs
+  (import ./pkgs { inherit pkgs; })
+  [
+    "vscode-insiders"
+    "vscode-insiders-with-extensions"
+    "vscodium-insiders"
+  ]
   // {
   lib = import ./lib { inherit (pkgs) lib; };
   overlays = rec {
