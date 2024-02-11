@@ -15,6 +15,11 @@ let
     if themes0 == [ ] then "*"
     else if length themes0 == 1 then head themes0
     else "{${concatStringsSep "," themes0}}";
+in
+
+stdenv.mkDerivation rec {
+  pname = "catppuccin-discord";
+  version = src.rev;
 
   src = fetchFromGitHub {
     owner = "catppuccin";
@@ -30,13 +35,6 @@ let
     packageJSON = src + "/package.json";
     yarnLock = src + "/yarn.lock";
   };
-in
-
-stdenv.mkDerivation rec {
-  pname = "catppuccin-discord";
-  version = src.rev;
-
-  inherit src;
 
   nativeBuildInputs = [ nodejs yarn ];
 
@@ -44,7 +42,7 @@ stdenv.mkDerivation rec {
     runHook preBuild
 
     export HOME=$(mktemp -d)
-    ln -s "${nodeModules}/node_modules" node_modules
+    ln -s "$nodeModules/node_modules" node_modules
     yarn --offline release
 
     runHook postBuild
