@@ -1,8 +1,7 @@
 { lib }:
 
 # NUR disallows IFD, which means we can't fetch haumea and then use it during
-# evaluation. The solution is to make haumea available as a git submodule prior
-# evaluation.
+# evaluation. The solution is to merge haumea as a subtree prior to evaluation.
 let haumea = { lib = import ./haumea { inherit lib; }; }; in
 
 haumea.lib.load {
