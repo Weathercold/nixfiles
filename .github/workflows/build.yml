@@ -42,6 +42,8 @@ jobs:
         extra_nix_config: experimental-features = nix-command flakes
 
     - uses: DeterminateSystems/magic-nix-cache-action@v4
+      with:
+        use-flakehub: false
 
     - uses: cachix/cachix-action@v14
       with:
