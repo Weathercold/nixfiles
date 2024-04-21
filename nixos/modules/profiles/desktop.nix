@@ -1,3 +1,4 @@
+# Desktop essentials
 { pkgs, ... }: {
   imports = [ ./base.nix ];
 
@@ -54,10 +55,28 @@
       dnssec = "true";
       llmnr = "false";
     };
+    xserver.libinput = {
+      enable = true;
+      touchpad = {
+        clickMethod = "clickfinger";
+        naturalScrolling = true;
+        disableWhileTyping = true;
+      };
+    };
   };
 
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+  };
+
+  programs.xwayland.enable = true;
+
+  environment.sessionVariables = {
+    # Enable running commands without installation
+    # Currently not needed because nix-index is enabled in home-manager
+    # NIX_AUTO_RUN = "1";
+    # Make Electron apps run in Wayland native mode
+    NIXOS_OZONE_WL = "1";
   };
 }
