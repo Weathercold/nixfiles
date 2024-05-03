@@ -40,6 +40,14 @@
 
   services = {
     automatic-timezoned.enable = true;
+    libinput = {
+      enable = true;
+      touchpad = {
+        clickMethod = "clickfinger";
+        naturalScrolling = true;
+        disableWhileTyping = true;
+      };
+    };
     pipewire = {
       enable = true;
       alsa = {
@@ -56,14 +64,6 @@
       llmnr = "false";
     };
     system76-scheduler.enable = true;
-    xserver.libinput = {
-      enable = true;
-      touchpad = {
-        clickMethod = "clickfinger";
-        naturalScrolling = true;
-        disableWhileTyping = true;
-      };
-    };
   };
 
   xdg.portal = {
