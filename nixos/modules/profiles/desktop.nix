@@ -55,6 +55,7 @@
       dnssec = "true";
       llmnr = "false";
     };
+    system76-scheduler.enable = true;
     xserver.libinput = {
       enable = true;
       touchpad = {
