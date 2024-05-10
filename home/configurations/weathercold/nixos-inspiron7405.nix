@@ -22,14 +22,14 @@ optionalAttrs (readDir ./. ? "_base.nix") {
               base-firefox-vertical-tabs
               base-foot
               base-nushell
+              catppuccin-catppuccin
               catppuccin-fonts
-              catppuccin-gtk
               catppuccin-plasma
               catppuccin-stylix
               colloid-fcitx5
             ];
 
-            abszero.themes.catppuccin.accent = "pink";
+            catppuccin.accent = "pink";
           };
         };
       }];

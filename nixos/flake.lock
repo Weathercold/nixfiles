@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "catppuccin": {
+      "locked": {
+        "lastModified": 1715355088,
+        "narHash": "sha256-070D1q0pcuY2JGman8MymUndSh5ab85yRartgY5t5Rw=",
+        "owner": "Weathercold",
+        "repo": "nix",
+        "rev": "8a1edc689b91dee98cd60e3bc4353e9cb28d3d21",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Weathercold",
+        "ref": "patch",
+        "repo": "nix",
+        "type": "github"
+      }
+    },
     "deploy-rs": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -131,6 +147,7 @@
     },
     "root": {
       "inputs": {
+        "catppuccin": "catppuccin",
         "deploy-rs": "deploy-rs",
         "disko": "disko",
         "flake-parts": "flake-parts",

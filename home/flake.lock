@@ -114,26 +114,19 @@
         "type": "github"
       }
     },
-    "bocchi-cursors": {
-      "inputs": {
-        "flake-parts": [
-          "flake-parts"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
+    "catppuccin": {
       "locked": {
-        "lastModified": 1685287678,
-        "narHash": "sha256-WetyYkbViF9u6e4jQx48TTDDBpEjromKIn0AICCOWws=",
+        "lastModified": 1715355088,
+        "narHash": "sha256-070D1q0pcuY2JGman8MymUndSh5ab85yRartgY5t5Rw=",
         "owner": "Weathercold",
-        "repo": "Bocchi-Cursors",
-        "rev": "ac98b93ccc687b83740081e1c1ce2106b9407871",
+        "repo": "nix",
+        "rev": "8a1edc689b91dee98cd60e3bc4353e9cb28d3d21",
         "type": "github"
       },
       "original": {
         "owner": "Weathercold",
-        "repo": "Bocchi-Cursors",
+        "ref": "patch",
+        "repo": "nix",
         "type": "github"
       }
     },
@@ -208,16 +201,16 @@
     "gnome-shell": {
       "flake": false,
       "locked": {
-        "lastModified": 1698794309,
-        "narHash": "sha256-/TIkZ8y5Wv3QHLFp79Poao9fINurKs5pa4z0CRe+F8s=",
+        "lastModified": 1713702291,
+        "narHash": "sha256-zYP1ehjtcV8fo+c+JFfkAqktZ384Y+y779fzmR9lQAU=",
         "owner": "GNOME",
         "repo": "gnome-shell",
-        "rev": "a7c169c6c29cf02a4c392fa0acbbc5f5072823e7",
+        "rev": "0d0aadf013f78a7f7f1dc984d0d812971864b934",
         "type": "github"
       },
       "original": {
         "owner": "GNOME",
-        "ref": "45.1",
+        "ref": "46.1",
         "repo": "gnome-shell",
         "type": "github"
       }
@@ -249,11 +242,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1710555030,
-        "narHash": "sha256-4jZBGWmd+CzEJ7NcNldcUNACJI2btz2jx2mHwqymADo=",
+        "lastModified": 1715355389,
+        "narHash": "sha256-noETFPqsUpBcjrABLVq+nyWmCu/82zpoJ3AM8y3M7aE=",
         "owner": "Weathercold",
         "repo": "home-manager",
-        "rev": "a118c5f75c792ca02c6b701e972970e4e80fae0b",
+        "rev": "a402f07c81c8805f5b0f8b80059ab5374476e588",
         "type": "github"
       },
       "original": {
@@ -300,7 +293,7 @@
     },
     "root": {
       "inputs": {
-        "bocchi-cursors": "bocchi-cursors",
+        "catppuccin": "catppuccin",
         "catppuccin-fcitx5": "catppuccin-fcitx5",
         "flake-parts": "flake-parts",
         "haumea": "haumea",
@@ -329,11 +322,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1714555012,
-        "narHash": "sha256-WVUrm3TGVj6c8g5aG20OjJRHMvUtAZjpHQgukDhyOT8=",
+        "lastModified": 1715258460,
+        "narHash": "sha256-zIrOcHX5iMc4/Z5TSOzSSdRlE4JzFAIlUGPO6f+ck1M=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "43d23b1609b87f6a4100db2a09bd118c52c78766",
+        "rev": "197526923a2929b223bab3e36d3aa240f5f84870",
         "type": "github"
       },
       "original": {

@@ -38,6 +38,8 @@
 
   services.arrpc.enable = true;
 
+  gtk.enable = true;
+
   programs = {
     bat.enable = true;
     eza = {
