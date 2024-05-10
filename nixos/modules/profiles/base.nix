@@ -78,7 +78,10 @@ let inherit (lib) genAttrs const; in
     };
   };
 
-  console.font = "Lat2-Terminus16";
+  console = {
+    font = "ter-u22b";
+    packages = with pkgs; [ terminus_font ];
+  };
 
   # Certain services freeze on stop which prevents shutdown.
   systemd.extraConfig = ''
