@@ -96,6 +96,8 @@ let inherit (lib) genAttrs const; in
     };
   };
 
+  services.journald.console = "1";
+
   # Allow unfree packages
   environment.sessionVariables.NIXPKGS_ALLOW_UNFREE = "1";
 }
