@@ -40,6 +40,7 @@ in
             catppuccin-discord
             catppuccin-fcitx5
             catppuccin-fonts
+            catppuccin-foot
             catppuccin-kvantum
             catppuccin-plasma
             catppuccin-stylix

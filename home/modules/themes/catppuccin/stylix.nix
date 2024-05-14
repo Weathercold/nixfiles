@@ -19,6 +19,7 @@ in
   imports = [
     ../base/stylix.nix
     ./catppuccin.nix
+    ./fonts.nix
   ];
 
   stylix = {
@@ -32,17 +33,17 @@ in
 
     fonts = {
       sansSerif = {
-        package = pkgs.open-sans;
+        package = pkgs.emptyDirectory; # font packages are in fonts.nix
         name = "Open Sans";
       };
       serif = {
-        # package = pkgs.noto-fonts;
+        # package = pkgs.emptyDirectory;
         # name = "Noto Serif";
-        package = pkgs.iosevka-bin.override { variant = "Etoile"; };
+        package = pkgs.emptyDirectory;
         name = "Iosevka Etoile";
       };
       monospace = {
-        package = pkgs.iosevka-bin.override { variant = "SGr-IosevkaTerm"; };
+        package = pkgs.emptyDirectory;
         name = "Iosevka Term Extended";
       };
     };
