@@ -96,7 +96,7 @@ in
     modules = with self.nixosModules; [
       profiles-full
       hardware-inspiron-7405
-      catppuccin-catppuccin
+      catppuccin-sddm
       mainModule
     ];
   };
