@@ -19,7 +19,7 @@ let
     catppuccin.accent = "pink";
 
     boot = {
-      kernelParams = [ "resume_offset=4929334" ];
+      kernelParams = [ "resume_offset=533760" ];
       resumeDevice = "/dev/disk/by-label/nixos";
     };
 
