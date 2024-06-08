@@ -31,9 +31,11 @@ let
               format = "vfat";
               mountpoint = "/boot";
               mountOptions = [
-                "nofail"
-                "noauto"
                 "noatime"
+                "noauto"
+                "nodev" # block device files for security
+                "nofail"
+                "nosuid" # block suid and sgid bits for security
                 "x-systemd.automount"
                 "x-systemd.idle-timeout=10min"
               ];
@@ -48,8 +50,10 @@ let
                 home = {
                   mountpoint = "/home";
                   mountOptions = [
-                    "noatime"
                     "compress-force=zstd"
+                    "noatime"
+                    "nodev"
+                    "nosuid"
                   ];
                 };
               };
@@ -64,20 +68,26 @@ let
                 root = {
                   mountpoint = "/";
                   mountOptions = [
-                    "noatime"
                     "compress-force=zstd"
+                    "noatime"
                   ];
                 };
                 nix = {
                   mountpoint = "/nix";
                   mountOptions = [
-                    "noatime"
                     "compress-force=zstd"
+                    "noatime"
+                    "nodev"
                   ];
                 };
                 swap = {
                   mountpoint = "/swap";
-                  mountOptions = [ "noatime" ];
+                  mountOptions = [
+                    "noatime"
+                    "nodev"
+                    "noexec" # block execution of binaries for security
+                    "nosuid"
+                  ];
                   # TODO: define swap with disko when options under
                   # `swapDevices.*` are added
                   # swap.swapfile.size = "8G";
