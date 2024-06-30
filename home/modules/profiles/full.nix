@@ -49,6 +49,7 @@
       icons = true;
     };
     fzf.enable = true;
+    helix.enable = true;
     nix-index-database.comma.enable = true;
   };
 }
