@@ -57,10 +57,6 @@ in
       fish.enable = true;
       kdeconnect.enable = true;
       nix-ld.enable = true;
-      ssh = {
-        enableAskPassword = true;
-        askPassword = "${pkgs.libsForQt5.ksshaskpass}/bin/ksshaskpass";
-      };
     };
 
     environment = {
