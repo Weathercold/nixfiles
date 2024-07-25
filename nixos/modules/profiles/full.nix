@@ -53,8 +53,6 @@ in
 
     programs = {
       dconf.enable = true;
-      # For vendor completions; config is managed by home-manager
-      fish.enable = true;
       kdeconnect.enable = true;
       nix-ld.enable = true;
     };
