@@ -30,6 +30,7 @@ in
 
     nix = {
       package = pkgs.nixVersions.latest;
+      channel.enable = false;
       gc = {
         automatic = true;
         dates = "daily";
