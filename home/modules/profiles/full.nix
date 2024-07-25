@@ -62,6 +62,11 @@ in
       helix.enable = true;
       nix-index-database.comma.enable = true;
       yazi.enable = true;
+      zsh = {
+        syntaxHighlighting.enable = true;
+        autosuggestion.enable = true;
+        enableVteIntegration = true;
+      };
     };
   };
 }
