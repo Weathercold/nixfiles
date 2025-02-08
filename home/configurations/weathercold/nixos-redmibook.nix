@@ -4,6 +4,13 @@ let
   mainModule = {
     abszero = {
       profiles.hyprland.enable = true;
+
+      services.darkman = {
+        enable = true;
+        lightSpecialisation = "catppuccin-latte-pink";
+        darkSpecialisation = "catppuccin-macchiato-pink";
+      };
+
       themes = {
         base = {
           fastfetch.enable = true;
@@ -25,6 +32,11 @@ let
     catppuccin = {
       accent = "pink";
       gtk.icon.enable = true;
+    };
+
+    specialisation = {
+      catppuccin-latte-pink = { };
+      catppuccin-macchiato-pink.configuration.abszero.themes.catppuccin.polarity = "dark";
     };
   };
 in
