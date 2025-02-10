@@ -26,6 +26,7 @@ in
 
     home = {
       stateVersion = "24.11";
+      preferXdgDirectories = true;
       # NOTE: this doesn't enable pointerCursor by default.
       pointerCursor = {
         gtk.enable = mkDefault true;
