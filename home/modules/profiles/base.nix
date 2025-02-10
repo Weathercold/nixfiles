@@ -26,8 +26,10 @@ in
 
     home = {
       stateVersion = "24.11";
+      # NOTE: this doesn't enable pointerCursor by default.
       pointerCursor = {
         gtk.enable = mkDefault true;
+        hyprcursor.enable = mkDefault true;
         x11.enable = mkDefault true;
       };
       # Create .profile so that greetd sets session variables before starting
