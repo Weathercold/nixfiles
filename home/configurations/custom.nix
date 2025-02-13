@@ -29,6 +29,7 @@ in
           ghostty.enable = true;
           hyprland.dynamicCursors.enable = true;
           nushell.enable = true;
+          starship.enable = true;
         };
       };
 
