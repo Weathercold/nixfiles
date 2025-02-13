@@ -13,9 +13,12 @@ in
     enable = true;
     settings = {
       format = ''
-        ($directory )($username$hostname )($cmd_duration )($jobs )$fill( $git_state)( $git_branch)( $nix_shell)( $direnv)
-        $character
+        ($directory )($git_branch )($jobs )($cmd_duration )$fill( $git_state)( $nodejs)( $rust)( $nix_shell)
+        ($username$hostname )$character
       '';
+      add_newline = false;
+
+      # region Head Left
 
       directory = {
         format = "([$read_only]($read_only_style) )[$path]($style)";
@@ -25,10 +28,23 @@ in
         truncation_symbol = "…/";
         # Set these two options so repo_root_format takes effect
         before_repo_root_style = "bold cyan";
-        repo_root_style = "bold #bf5700";
+        repo_root_style = "bold yellow";
       };
-      username.format = "[$user]($style)";
-      hostname.format = "@[$hostname]($style)";
+      git_branch = {
+        format = "[$symbol $branch]($style)";
+        symbol = "󰘬";
+        style = "bold yellow";
+        ignore_branches = [
+          "HEAD"
+          "master"
+          "main"
+        ];
+      };
+      jobs = {
+        format = "$symbol[$number]($style)";
+        symbol = "󱓺";
+        style = "bold bright-yellow";
+      };
       cmd_duration = {
         format = "[$duration]($style)";
         style = "bold blue";
@@ -37,45 +53,50 @@ in
         show_notifications = true;
         min_time_to_notify = 60000;
       };
-      jobs = {
-        format = "$symbol[$number]($style)";
-        symbol = "󱓺";
-        style = "bold bright-yellow";
-      };
+
+      # endregion
 
       fill.symbol = " ";
 
+      # region Head Right
+
       git_state = {
         format = "[$state( $progress_current/$progress_total)]($style)";
-        style = "bold #bf5700";
+        style = "bold yellow";
       };
-      git_branch = {
-        format = "[$symbol $branch]($style)";
-        symbol = "󰘬";
-        style = "bold #bf5700";
-        ignore_branches = [
-          "master"
-          "main"
-        ];
+      nodejs = {
+        format = "[$symbol $version]($style)";
+        symbol = "󰎙";
+      };
+      rust = {
+        format = "[$symbol $version]($style)";
+        symbol = "󱘗";
       };
       nix_shell = {
         format = "[$symbol $state]($style)";
         symbol = "";
       };
-      direnv = {
-        # FIXME: invalid allow status - possibly due to nix-direnv?
-        # disabled = false;
-        format = "$allowed$loaded";
-        allowed_msg = "";
-        denied_msg = "[󱏵](bold red)";
-        loaded_msg = "[󰂖](bold purple)";
-        unloaded_msg = "[󰂕](bold yellow)";
-      };
+      # direnv = {
+      #   # FIXME: invalid allow status - possibly due to nix-direnv?
+      #   # disabled = false;
+      #   format = "$allowed$loaded";
+      #   allowed_msg = "";
+      #   denied_msg = "[󱏵](bold red)";
+      #   loaded_msg = "[󰂖](bold purple)";
+      #   unloaded_msg = "[󰂕](bold yellow)";
+      # };
 
+      # endregion
+      # region Prompt Left
+
+      username.format = "[$user]($style)";
+      hostname.format = "@[$hostname]($style)";
       character = {
         success_symbol = "[󰘧](bold green)";
         error_symbol = "[󰘧](bold red)";
       };
+
+      # endregion
     };
   };
 }
