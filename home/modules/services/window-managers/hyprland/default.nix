@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   inherit (lib) mkEnableOption mkIf;
@@ -134,7 +139,11 @@ in
         "float,        class:Zotero, title: Error"
       ];
 
-      exec-once = [ "fcitx5 -d" ];
+      exec-once = [
+        "fcitx5 -d"
+        # Polkit authentication agent
+        "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1 &"
+      ];
     };
   };
 }
