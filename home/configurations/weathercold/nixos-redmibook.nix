@@ -14,7 +14,7 @@ let
       themes = {
         base = {
           fastfetch.enable = true;
-          # hyprland.dynamicCursors.enable = true;
+          hyprland.dynamicCursors.enable = true;
           nushell.enable = true;
         };
         catppuccin = {
