@@ -1,15 +1,9 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}:
+{ config, lib, ... }:
 
 let
   inherit (lib)
     mkIf
     mkDefault
-    getExe
     removePrefix
     ;
   inherit (lib.abszero.modules) mkExternalEnableOption;
@@ -25,7 +19,7 @@ in
     nixpkgs.config.allowUnfree = true;
 
     home = {
-      stateVersion = "24.11";
+      stateVersion = "25.05";
       preferXdgDirectories = true;
       # NOTE: this doesn't enable pointerCursor by default.
       pointerCursor = {
