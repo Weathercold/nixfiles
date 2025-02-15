@@ -70,15 +70,15 @@ in
       style = "bold red";
     };
     nodejs = {
-      format = "[[$symbol $version]($style inverted)]($style)";
+      format = "[[$symbol( $version)]($style inverted)]($style)";
       symbol = "󰎙";
     };
     rust = {
-      format = "[[$symbol $version]($style inverted)]($style)";
+      format = "[[$symbol( $version)]($style inverted)]($style)";
       symbol = "󱘗";
     };
     nix_shell = {
-      format = "[[$symbol $state]($style inverted)]($style)";
+      format = "[[$symbol( $state)]($style inverted)]($style)";
       symbol = "";
     };
     # direnv = {
