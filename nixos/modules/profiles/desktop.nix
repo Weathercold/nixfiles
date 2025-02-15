@@ -93,7 +93,10 @@ in
         enable = true;
         extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
       };
-      terminal-exec.enable = true;
+      terminal-exec = {
+        enable = true;
+        settings.default = [ "ghostty.desktop" ];
+      };
     };
 
     programs.xwayland.enable = true;
