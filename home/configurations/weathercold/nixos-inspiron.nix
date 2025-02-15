@@ -63,6 +63,8 @@ let
 
       catppuccin.accent = "pink";
 
+      xdg.dataFile."home-manager/specialisation".text = "plasma6-latte-pink";
+
       gtk.catppuccin.icon.enable = true;
     };
   };

@@ -40,18 +40,20 @@ in
       file.".profile".text = ''
         . "${config.home.profileDirectory}/etc/profile.d/hm-session-vars.sh"
       '';
-      # Print store diff using nvd
-      activation.diff = config.lib.dag.entryBefore [ "writeBoundary" ] ''
-        if [[ -v oldGenPath ]]; then
-          ${getExe pkgs.nvd} diff "$oldGenPath" "$newGenPath"
-        fi
-      '';
     };
 
     xdg.enable = true;
 
     programs = {
       home-manager.enable = true;
+      nh = {
+        enable = true;
+        # flake = "path:/home/weathercold/src/nixfiles";
+        clean = {
+          enable = true;
+          extraArgs = "--keep 3 --keep-since 1w";
+        };
+      };
       zsh = {
         enable = true;
         # Hack since `dotDir` is relative to home

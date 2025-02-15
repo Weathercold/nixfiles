@@ -30,12 +30,6 @@ in
 
       channel.enable = false;
 
-      gc = {
-        automatic = true;
-        dates = "daily";
-        options = "--delete-older-than 7d";
-      };
-
       settings = {
         trusted-users = [
           "root"
@@ -65,19 +59,7 @@ in
 
     nixpkgs.config.allowUnfree = true;
 
-    system = {
-      stateVersion = "24.11";
-      # Print store diff using nvd
-      activationScripts.diff = {
-        supportsDryActivation = true;
-        text = ''
-          if [ -d /run/current-system ]; then
-            ${getExe pkgs.nvd} --nix-bin-dir=${config.nix.package}/bin diff \
-              /run/current-system "$systemConfig"
-          fi
-        '';
-      };
-    };
+    system.stateVersion = "24.11";
 
     boot = {
       loader = {

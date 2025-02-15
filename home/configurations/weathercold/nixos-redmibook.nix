@@ -35,8 +35,13 @@ let
     };
 
     specialisation = {
-      catppuccin-latte-pink = { };
-      catppuccin-macchiato-pink.configuration.abszero.themes.catppuccin.polarity = "dark";
+      # Hint nh to autoswitch to the current specialisation
+      catppuccin-latte-pink.configuration.xdg.dataFile."home-manager/specialisation".text =
+        "catppuccin-latte-pink";
+      catppuccin-macchiato-pink.configuration = {
+        abszero.themes.catppuccin.polarity = "dark";
+        xdg.dataFile."home-manager/specialisation".text = "catppuccin-macchiato-pink";
+      };
     };
   };
 in
