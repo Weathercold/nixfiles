@@ -11,7 +11,6 @@ let
     mkIf
     const
     genAttrs
-    getExe
     ;
   inherit (lib.abszero.modules) mkExternalEnableOption;
   cfg = config.abszero.profiles.base;
