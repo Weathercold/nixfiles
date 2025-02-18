@@ -21,7 +21,6 @@ in
         carapace.enable = true;
         direnv.enable = true;
         dotdrop.enable = true;
-        # firefox.enable = true;
         git.enable = true;
         jujutsu.enable = true;
         nushell.enable = true;

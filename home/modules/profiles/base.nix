@@ -39,6 +39,11 @@ in
     xdg.enable = true;
 
     programs = {
+      # NOTE: most of gpg config is in user's configuration
+      gpg = {
+        mutableKeys = mkDefault false;
+        mutableTrust = mkDefault false;
+      };
       home-manager.enable = true;
       nh = {
         enable = true;
