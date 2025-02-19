@@ -47,7 +47,7 @@ in
       home-manager.enable = true;
       nh = {
         enable = true;
-        # flake = "path:/home/weathercold/src/nixfiles";
+        flake = "path:/home/weathercold/src/nixfiles";
         clean = {
           enable = true;
           extraArgs = "--keep 3 --keep-since 1w";
