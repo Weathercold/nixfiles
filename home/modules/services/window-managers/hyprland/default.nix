@@ -74,7 +74,8 @@ in
 
       bind =
         [
-          "$mod,       q,                    exit"
+          # https://wiki.hyprland.org/Configuring/Dispatchers
+          "$mod,       q,                    exec,           uwsm stop"
           "$mod,       w,                    killactive"
           "$mod,       Page_Up,              fullscreen,     0"
           "$mod,       Page_Down,            fullscreen,     1"
