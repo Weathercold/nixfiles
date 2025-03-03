@@ -49,6 +49,6 @@ in
     };
 
     # Remove minimize, maximize, close buttons
-    dconf.settings."org/gnome/desktop/wm/preferences".button-layout = "menu:";
+    dconf.settings."org/gnome/desktop/wm/preferences".button-layout = "";
   };
 }
