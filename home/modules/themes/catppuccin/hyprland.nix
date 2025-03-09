@@ -24,7 +24,7 @@ in
         border_size = 4;
         gaps_in = 8;
         "col.inactive_border" = "$surface0";
-        "col.active_border" = "$mauve $accent 45deg";
+        "col.active_border" = "$accent";
       };
 
       decoration = {
@@ -32,7 +32,8 @@ in
         blur.enabled = false;
         shadow = {
           range = 8;
-          color = "$text";
+          render_power = 2;
+          color = "$accent";
         };
       };
 
