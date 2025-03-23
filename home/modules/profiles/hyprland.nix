@@ -32,8 +32,8 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = [
-        ",      XF86MonBrightnessDown, exec, brillo -qu 200000 -U 5"
-        ",      XF86MonBrightnessUp,   exec, brillo -qu 200000 -A 5"
+        ",      XF86MonBrightnessDown, exec, sudo brillo -qu 200000 -U 5"
+        ",      XF86MonBrightnessUp,   exec, sudo brillo -qu 200000 -A 5"
 
         "$mod,  Slash,                 exec, albert show"
         "$mod,  t,                     exec, ghostty"
