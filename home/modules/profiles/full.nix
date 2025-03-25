@@ -62,7 +62,10 @@ in
         enable = true;
         enableZshIntegration = true;
       };
-      helix.enable = true;
+      helix = {
+        enable = true;
+        defaultEditor = true;
+      };
       nix-index-database.comma.enable = true;
       starship.enable = true;
       yazi.enable = true;
