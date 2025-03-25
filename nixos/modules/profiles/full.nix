@@ -72,6 +72,7 @@ in
         git-secret
         gnome-solanum
         goldendict-ng
+        hyperfine
         inkscape
         inotify-tools
         jetbrains.idea-community
@@ -89,10 +90,7 @@ in
         taisei
         tenacity
         unzip
-        (ventoy.override {
-          defaultGuiType = "qt5";
-          withQt5 = true;
-        })
+        ventoy-full-qt
         vesktop
         vscode
         wev
