@@ -22,7 +22,7 @@ in
         prompt-prev = "Alt+Up";
         prompt-next = "Alt+Down";
         search-start = "Control+Alt+f";
-        show-urls-launch = "Control+Alt+slash";
+        show-urls-launch = "Control+Alt+o";
       };
       search-bindings = {
         find-prev = "Alt+comma";
