@@ -58,10 +58,6 @@ in
       };
       fastfetch.enable = true;
       fzf.enable = true;
-      ghostty = {
-        enable = true;
-        enableZshIntegration = true;
-      };
       helix = {
         enable = true;
         defaultEditor = true;
