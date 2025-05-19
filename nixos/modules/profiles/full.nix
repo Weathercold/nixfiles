@@ -42,6 +42,10 @@ in
       };
     };
 
+    nixpkgs.config.permittedInsecurePackages = [
+      "ventoy-qt5-1.1.05"
+    ];
+
     virtualisation.waydroid.enable = true;
 
     services = {
