@@ -93,6 +93,7 @@ in
         ventoy-full-qt
         vesktop
         vscode
+        waydroid-helper
         wev
         wget
         win2xcur
