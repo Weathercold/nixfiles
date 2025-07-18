@@ -37,10 +37,7 @@ in
           };
         };
 
-        layout = {
-          empty-workspace-above-first = true;
-          always-center-single-column = true;
-        };
+        layout.empty-workspace-above-first = true;
 
         environment.DISPLAY = ":0"; # For XWayland
 
