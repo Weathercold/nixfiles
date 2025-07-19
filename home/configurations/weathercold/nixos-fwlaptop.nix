@@ -26,7 +26,10 @@ let
             enable = true;
             wallpaper = "xppen-chan";
           };
-          niri.enable = true;
+          niri = {
+            enable = true;
+            enableCompactLayout = true;
+          };
         };
       };
     };
