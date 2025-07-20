@@ -122,6 +122,12 @@ in
               { app-id = "org\\.gnome\\.Solanum"; }
             ];
           }
+          {
+            open-floating = true;
+            matches = [
+              { app-id = "org\\.kde\\.polkit-kde-authentication-agent-1"; }
+            ];
+          }
           # Overlay
           {
             open-floating = true;
