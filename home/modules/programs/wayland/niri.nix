@@ -118,6 +118,7 @@ in
             default-column-width.fixed = 370;
             default-window-height.fixed = 370;
             matches = [
+              { title = "Buzz"; }
               { title = "KDE Connect"; }
               { app-id = "org\\.gnome\\.Solanum"; }
             ];
