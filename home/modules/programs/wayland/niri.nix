@@ -106,6 +106,15 @@ in
           "Shift+Print".action = screenshot-window;
         };
 
+        layer-rules = [
+          {
+            place-within-backdrop = true;
+            matches = [
+              { namespace = "^pandora$"; }
+            ];
+          }
+        ];
+
         window-rules = [
           {
             open-fullscreen = true;
@@ -123,9 +132,15 @@ in
               { app-id = "org\\.gnome\\.Solanum"; }
             ];
           }
-          # Important modal
           {
             open-floating = true;
+            matches = [
+              { app-id = "org\\.kde\\.polkit-kde-authentication-agent-1"; }
+              { app-id = "it\\.mijorus\\.smile"; }
+            ];
+          }
+          # Float up and down
+          {
             baba-is-float = true;
             matches = [
               { app-id = "org\\.kde\\.polkit-kde-authentication-agent-1"; }
