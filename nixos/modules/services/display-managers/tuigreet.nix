@@ -17,7 +17,7 @@ in
     enable = true;
     useTextGreeter = true;
     settings.default_session.command = ''
-      ${getExe pkgs.greetd.tuigreet} \
+      ${getExe pkgs.tuigreet} \
         -rt --asterisks \
         --window-padding 1 \
         --power-shutdown 'systemctl poweroff' \
