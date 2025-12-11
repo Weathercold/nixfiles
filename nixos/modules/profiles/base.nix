@@ -62,7 +62,7 @@ in
     nixpkgs.config.allowUnfree = true;
 
     system = {
-      stateVersion = "25.11";
+      stateVersion = "26.05";
       nixos-init.enable = true; # Initialise system with a Rust program
       etc.overlay.enable = true; # Mount /etc as overlay; required for nixos-init
     };
