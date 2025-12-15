@@ -121,6 +121,8 @@ let
 
       catppuccin.accent = "pink";
 
+      nixpkgs.config.rocmSupport = true; # For ComfyUI
+
       users.users = rec {
         weathercold = {
           description = "Weathercold";
@@ -136,6 +138,15 @@ let
       };
 
       services = {
+        comfyui = {
+          enable = true;
+          acceleration = "rocm";
+          extraFlags = [
+            "--base-directory=/var/lib/comfyui" # Imperative config
+            # "--highvram"
+            "--cpu" # FIXME: wait for ROCm 7
+          ];
+        };
         ollama = {
           enable = true;
           package = pkgs.ollama-vulkan;
