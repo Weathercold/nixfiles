@@ -1,3 +1,4 @@
+# WARN: unmaintained
 {
   config,
   pkgs,

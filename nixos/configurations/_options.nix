@@ -50,7 +50,7 @@ in
   config.flake.nixosConfigurations = mapAttrs (
     _: c:
     withSystem c.system (
-      { system, inputs', ... }:
+      { system, ... }:
       nixpkgs.lib.nixosSystem {
         inherit system lib;
         specialArgs = {
@@ -71,7 +71,6 @@ in
               (_: prev: import ../../pkgs { pkgs = prev; })
               inputs.nix-cachyos-kernel.overlays.default
               inputs.niri.overlays.niri
-              (_: _: { zen-browser = inputs'.zen-browser.packages.beta; })
             ];
             networking = {
               inherit (c) hostName;
