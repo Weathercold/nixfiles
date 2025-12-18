@@ -139,6 +139,7 @@
                 nix-init
                 nix-prefetch-github # Somehow not in nix-prefetch-scripts
                 nix-prefetch-scripts
+                nix-update
                 taplo # TOML language server
                 yaml-language-server
                 vscode-langservers-extracted # For vscode-json-language-server
