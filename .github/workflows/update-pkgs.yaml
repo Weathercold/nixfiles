@@ -36,6 +36,9 @@ jobs:
       - run: $update --version=branch=main colloid-gtk-theme_git
         continue-on-error: true
 
+      - run: $update --version=branch=main framework_rgbafan
+        continue-on-error: true
+
       - run: $update --version=branch=main noita_save_manager
         continue-on-error: true
 

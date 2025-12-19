@@ -1,4 +1,8 @@
-{ lib, python313Packages, fetchFromGitHub }:
+{
+  lib,
+  python313Packages,
+  fetchFromGitHub,
+}:
 
 let
   inherit (python313Packages) buildPythonPackage;
