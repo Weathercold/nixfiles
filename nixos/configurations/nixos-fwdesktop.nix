@@ -185,10 +185,7 @@ let
         comfyui = {
           enable = true;
           acceleration = "rocm";
-          extraFlags = [
-            # "--highvram"
-            "--cpu" # FIXME: wait for ROCm 7
-          ];
+          extraFlags = [ "--highvram" ];
           customNodes = [
             pkgs.comfyuiPackages.comfyui-res4lyf
             pkgs.comfyuiPackages.comfyui-rgthree
