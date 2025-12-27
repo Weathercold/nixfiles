@@ -89,15 +89,9 @@ in
       };
     };
 
-    xdg = {
-      portal = {
-        enable = true;
-        extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
-      };
-      terminal-exec = {
-        enable = true;
-        settings.default = [ "foot.desktop" ];
-      };
+    xdg.terminal-exec = {
+      enable = true;
+      settings.default = [ "foot.desktop" ];
     };
 
     programs = {
