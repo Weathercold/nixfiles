@@ -40,9 +40,7 @@ in
       };
     };
 
-    nixpkgs.config.permittedInsecurePackages = [
-      "ventoy-qt5-1.1.07"
-    ];
+    nixpkgs.config.permittedInsecurePackages = [ "ventoy-1.1.07" ];
 
     virtualisation.waydroid.enable = true;
 
@@ -87,7 +85,7 @@ in
         # taisei
         tenacity
         unzip
-        ventoy-full-qt
+        ventoy-full
         vesktop
         vscode
         waydroid-helper
