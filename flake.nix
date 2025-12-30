@@ -129,6 +129,7 @@
 
             devShells.default = mkShell {
               packages = [
+                bash-language-server
                 cachix
                 deploy-rs
                 markdown-oxide
@@ -140,7 +141,7 @@
                 nix-prefetch-github # Somehow not in nix-prefetch-scripts
                 nix-prefetch-scripts
                 nix-update
-                taplo # TOML language server
+                tombi # TOML language server
                 yaml-language-server
                 vscode-langservers-extracted # For vscode-json-language-server
               ];
