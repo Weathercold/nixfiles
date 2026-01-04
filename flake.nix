@@ -1,10 +1,14 @@
 {
   description = "Weathercold's NixOS Flake";
 
+  nixConfig = {
+    extra-substituters = [ "https://abszero.cachix.org" ];
+    extra-trusted-public-keys = [ "abszero.cachix.org-1:HXOydaS51jSWrM07Ko8AVtGdoBRT9F+QhdYQBiNDaM0=" ];
+  };
+
   inputs = {
     # Repos
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    # nixpkgs.url = "github:LunNova/nixpkgs/lunnova/rocm-7-inplace";
     nix-cachyos-kernel = {
       url = "github:xddxdd/nix-cachyos-kernel";
       inputs = {
