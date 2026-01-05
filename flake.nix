@@ -12,6 +12,13 @@
         flake-parts.follows = "flake-parts";
       };
     };
+    nixified-ai = {
+      url = "github:nixified-ai/flake";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+      };
+    };
     niri = {
       url = "github:sodiboo/niri-flake/27e012b";
       inputs = {
@@ -19,11 +26,12 @@
         nixpkgs-stable.follows = "nixpkgs";
       };
     };
-    nixified-ai = {
-      url = "github:nixified-ai/flake";
+    wisp = {
+      url = "github:Weathercold/wisp";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-parts.follows = "flake-parts";
+        flake-compat.follows = "flake-compat";
       };
     };
     zen-browser = {

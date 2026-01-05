@@ -53,6 +53,7 @@ in
       dconf.enable = true;
       kdeconnect.enable = true;
       nix-ld.enable = true;
+      wisp.enable = true;
     };
 
     environment = {
