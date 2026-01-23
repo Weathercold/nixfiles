@@ -40,7 +40,7 @@ in
       };
     };
 
-    nixpkgs.config.permittedInsecurePackages = [ "ventoy-1.1.07" ];
+    nixpkgs.config.permittedInsecurePackages = [ "ventoy-1.1.10" ];
 
     hardware.keyboard.qmk.enable = true;
 

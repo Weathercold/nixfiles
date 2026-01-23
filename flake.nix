@@ -142,7 +142,7 @@
                 deploy-rs
                 markdown-oxide
                 nixd
-                nixfmt-rfc-style
+                nixfmt
                 nixfmt-tree
                 nixos-anywhere
                 nix-init
