@@ -62,6 +62,7 @@
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
+    nixpkgs-patcher.url = "github:gepbird/nixpkgs-patcher";
     deploy-rs = {
       url = "github:serokell/deploy-rs";
       inputs = {
