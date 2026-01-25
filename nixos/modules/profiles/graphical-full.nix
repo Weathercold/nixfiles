@@ -94,7 +94,7 @@ in
         waypipe
         wev
         wget
-        xorg.xeyes
+        xeyes
         ytmdesktop
         zip
         zotero
