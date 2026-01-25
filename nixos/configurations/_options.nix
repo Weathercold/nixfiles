@@ -51,11 +51,9 @@ in
     _: c:
     withSystem c.system (
       { system, ... }:
-      let
-        nixpkgs = nixpkgs-patcher.lib.patchNixpkgs { inherit system inputs; };
-      in
-      nixpkgs.lib.nixosSystem {
+      nixpkgs-patcher.lib.nixosSystem {
         inherit system lib;
+        nixpkgsPatcher.inputs = inputs;
         specialArgs = {
           inherit inputs;
         };
