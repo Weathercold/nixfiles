@@ -64,7 +64,7 @@ in
         anki-wayland
         aseprite
         ayugram-desktop
-        ffmpeg-full
+        ffmpeg
         gh
         git-absorb
         git-secret
