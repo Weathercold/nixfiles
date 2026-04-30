@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   lib,
   ...
 }:
@@ -14,6 +15,7 @@ in
 
   config.programs.helix = mkIf cfg.enable {
     enable = true;
+    package = pkgs.steelix;
     defaultEditor = true;
 
     settings = {
