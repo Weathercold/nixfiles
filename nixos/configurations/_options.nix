@@ -58,6 +58,7 @@ in
           inherit inputs;
         };
         modules = flatten [
+          inputs.charmbracelet.nixosModules.crush
           inputs.disko.nixosModules.disko
           inputs.lanzaboote.nixosModules.lanzaboote
           inputs.nixified-ai.nixosModules.comfyui
