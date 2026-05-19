@@ -50,7 +50,7 @@ buildVscode rec {
   };
   sourceRoot = "";
 
-  tests = {};
+  tests = { };
 
   meta = with lib; {
     description = ''

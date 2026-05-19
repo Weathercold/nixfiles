@@ -7,16 +7,14 @@
 }:
 
 let
-  inherit (lib) mkIf;
-  inherit (lib.abszero.modules) mkExternalEnableOption;
+  inherit (lib) mkEnableOption mkIf;
   cfg = config.abszero.profiles.desktopWithAI;
 in
 
 {
   imports = [ ./desktop.nix ];
 
-  options.abszero.profiles.desktopWithAI.enable =
-    mkExternalEnableOption config "AI-enabled desktop profile";
+  options.abszero.profiles.desktopWithAI.enable = mkEnableOption "AI-enabled desktop profile";
 
   config = mkIf cfg.enable {
     abszero = {
