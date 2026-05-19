@@ -42,7 +42,6 @@ in
     };
 
     environment.systemPackages = with pkgs; [
-      context7-mcp
       skills
     ];
   };
