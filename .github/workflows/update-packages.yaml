@@ -39,7 +39,10 @@ jobs:
       - run: $update comfyui-autocomplete-plus
         continue-on-error: true
 
-      - run: $update --version=branch=main comfyui-manager
+      - run: $update comfyui-lora-manager
+        continue-on-error: true
+
+      - run: $update --version=branch=main comfyui-manager # TODO: drop git after next release
         continue-on-error: true
 
       - run: $update --version=branch=main comfyui-teacache
