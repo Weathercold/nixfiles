@@ -45,6 +45,9 @@ jobs:
       - run: $update --version=branch=main comfyui-manager # TODO: drop git after next release
         continue-on-error: true
 
+      - run: $update --version=branch=main comfyui-prompt-manager
+        continue-on-error: true
+
       - run: $update --version=branch=main comfyui-teacache
         continue-on-error: true
 
