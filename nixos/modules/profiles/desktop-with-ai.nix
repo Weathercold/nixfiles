@@ -31,8 +31,13 @@ in
         extraFlags = [
           "--highvram"
           "--use-pytorch-cross-attention"
+          # FIXME: Fails with cryptic error
+          # "--use-sage-attention"
         ];
         customNodes = with pkgs; [
+          (comfyui-anima-booster.override {
+            sageattention = null;
+          })
           comfyui-manager
           comfyuiPackages.comfyui-res4lyf
           # Install dependencies for plugins managed by ComfyUI-Manager
