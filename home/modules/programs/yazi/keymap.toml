@@ -1,7 +1,6 @@
-"$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
+#:schema https://yazi-rs.github.io/schemas/keymap.json
 
 [mgr]
-
 prepend_keymap = [
   { on = [ "l", "a" ],      run = "link",                                   desc = "Abs link" },
   { on = [ "l", "r" ],      run = "link --relative",                        desc = "Rel link" },

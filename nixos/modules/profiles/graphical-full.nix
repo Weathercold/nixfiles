@@ -73,7 +73,7 @@ in
         jq
         kooha
         libreoffice-qt
-        # lutris
+        lutris
         minefair
         nautilus
         nudoku
