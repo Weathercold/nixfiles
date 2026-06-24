@@ -28,6 +28,8 @@ stdenvNoCC.mkDerivation (final: {
              utils/logging_config.py
   '';
 
+  dontBuild = true;
+
   installPhase = ''
     runHook preInstall
 
