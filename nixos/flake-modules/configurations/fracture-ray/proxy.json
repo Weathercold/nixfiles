@@ -1,0 +1,16 @@
+{
+  "address": "45.76.202.211",
+  "clientIds": [
+    "weathercold"
+  ],
+  "reality": {
+    "privateKey": "KLF7nFxc2izYAl6yv8k3dJLdIDJPF6ERbwXie66rP3I",
+    "publicKey": "SJSSDq114PLU7hsyzJawTT8HkN8GEVqNcrqe8i1vklE",
+    "shortIds": [
+      "77b852c767077a1a",
+      "6dc6902465047572",
+      "df6bfe4559aa8aed",
+      "8fac27a865ba3aae"
+    ]
+  }
+}

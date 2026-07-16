@@ -1,0 +1,26 @@
+{
+  "personal-protonmail": {
+    "primary": true,
+    "address": "weathercold.scr@proton.me",
+    "userName": "weathercold.scr@proton.me",
+    "imap": {
+      "host": "127.0.0.1",
+      "port": 1143
+    },
+    "smtp": {
+      "host": "127.0.0.1",
+      "port": 1025
+    },
+    "realName": "Weathercold"
+  },
+  "personal-gmail": {
+    "address": "weathercold.scr@gmail.com",
+    "flavor": "gmail.com",
+    "realName": "Weathercold"
+  },
+  "school-outlook": {
+    "address": "haochen.zhang6@mail.mcgill.ca",
+    "flavor": "outlook.office365.com",
+    "realName": "Haochen Zhang"
+  }
+}
