@@ -76,7 +76,6 @@ in
             nixpkgs.overlays = [
               (_: prev: import ../../../pkgs { pkgs = prev; })
               inputs.nix-cachyos-kernel.overlays.default
-              inputs.niri.overlays.niri
             ];
             networking = { inherit (c) hostName; };
           }

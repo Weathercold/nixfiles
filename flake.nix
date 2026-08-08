@@ -23,13 +23,6 @@
         flake-parts.follows = "flake-parts";
       };
     };
-    niri = {
-      url = "github:sodiboo/niri-flake";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        nixpkgs-stable.follows = "nixpkgs";
-      };
-    };
     wisp = {
       url = "github:Weathercold/wisp";
       inputs = {

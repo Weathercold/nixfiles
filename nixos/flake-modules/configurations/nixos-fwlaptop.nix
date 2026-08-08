@@ -38,8 +38,6 @@ let
         };
       };
 
-      programs.niri.enable = true;
-
       themes.catppuccin = {
         enable = true;
         plymouth.enable = true;
@@ -157,6 +155,8 @@ let
     };
 
     networking = { inherit domain; };
+
+    programs.niri.enable = true;
   };
 in
 

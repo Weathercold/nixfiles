@@ -30,13 +30,10 @@ let
       gtk.icon.enable = true;
     };
 
-    programs.niri.settings.outputs.DP-4 = {
-      mode = {
-        width = 3840;
-        height = 2160;
-        refresh = 120.0;
-      };
-      variable-refresh-rate = true;
+    wayland.windowManager.niri.settings.output = {
+      _args = [ "DP-4" ];
+      mode = "3840x2160@120.0";
+      variable-refresh-rate = { };
     };
 
     specialisation = {

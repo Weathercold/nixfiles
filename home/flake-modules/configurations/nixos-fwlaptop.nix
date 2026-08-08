@@ -36,9 +36,10 @@ let
     # There's no ALS on framework 12 :(
     services.wluma.enable = false;
 
-    programs.niri.settings.outputs.eDP-1 = {
+    wayland.windowManager.niri.settings.output = {
+      _args = [ "eDP-1" ];
       scale = 1.25;
-      variable-refresh-rate = true;
+      variable-refresh-rate = { };
     };
 
     specialisation = {
