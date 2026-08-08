@@ -30,6 +30,13 @@ in
 
       layout.empty-workspace-above-first = { };
 
+      recent-windows.binds = {
+        "Mod+Tab".next-window = {};
+        "Mod+Shift+Tab".previous-window = {};
+        "Mod+Ctrl+Tab".next-window._props.filter = "app-id";
+        "Mod+Ctrl+Shift+Tab".previous-window._props.filter = "app-id";
+      };
+
       binds = {
         "Mod+q".quit = { };
         "Mod+Escape".toggle-keyboard-shortcuts-inhibit = { };
