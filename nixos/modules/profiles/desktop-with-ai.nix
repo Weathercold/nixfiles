@@ -17,7 +17,6 @@ in
       services = {
         # comfyui.enable = true; # TODO: enable
         llama-cpp.enable = true;
-        sillytavern.enable = true;
       };
     };
   };
