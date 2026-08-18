@@ -43,6 +43,7 @@ let
       themes.catppuccin = {
         enable = true;
         plymouth.enable = true;
+        tuigreet.enable = true;
       };
     };
 

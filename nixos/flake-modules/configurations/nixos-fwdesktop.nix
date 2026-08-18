@@ -66,6 +66,7 @@ let
         enable = true;
         fonts.enable = true;
         plymouth.enable = true;
+        tuigreet.enable = true;
       };
     };
 
