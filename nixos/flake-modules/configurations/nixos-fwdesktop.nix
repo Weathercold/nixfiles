@@ -60,6 +60,8 @@ let
         };
       };
 
+      programs.driftwm.enable = true;
+
       themes.catppuccin = {
         enable = true;
         fonts.enable = true;
@@ -159,9 +161,6 @@ let
     networking = { inherit domain; };
 
     services.comfyui.acceleration = "rocm";
-
-    # Most of the config is in home-manager
-    programs.niri.enable = true;
   };
 
   configModule = submodule: {

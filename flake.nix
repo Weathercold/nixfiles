@@ -23,6 +23,10 @@
         flake-parts.follows = "flake-parts";
       };
     };
+    driftwm = {
+      url = "github:malbiruk/driftwm";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     wisp = {
       url = "github:Weathercold/wisp";
       inputs = {

@@ -63,6 +63,7 @@ in
         specialArgs = { inherit inputs; };
         modules = flatten [
           inputs.nixified-ai.nixosModules.comfyui
+          inputs.driftwm.nixosModules.driftwm
           inputs.wisp.nixosModules.wisp
           inputs.charmbracelet.nixosModules.crush
           inputs.sops.nixosModules.sops
