@@ -64,6 +64,7 @@ let
 
       themes.catppuccin = {
         enable = true;
+        polarity = "dark";
         fonts.enable = true;
         plymouth.enable = true;
         tuigreet.enable = true;
