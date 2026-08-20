@@ -173,7 +173,7 @@ let
     config.modules = [
       {
         nix.settings.substituters = mkIf submodule.config.substituters.${hostName}.enable [
-          "ssh-ng://weathercold@${hostName}.${domain}:1337"
+          "ssh-ng://weathercold@${hostName}.${domain}:1337?trusted=true"
         ];
       }
       {
