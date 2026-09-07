@@ -1,25 +1,5 @@
 {
   "nodes": {
-    "catppuccin": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1786696832,
-        "narHash": "sha256-wjdfX+jCJCJsteGD75xEfsDR3yATFFEx4mwelhlDXdU=",
-        "owner": "catppuccin",
-        "repo": "nix",
-        "rev": "35d78c213b65e38789bcb359aae2380fcb4dc3e8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "catppuccin",
-        "repo": "nix",
-        "type": "github"
-      }
-    },
     "charmbracelet": {
       "inputs": {
         "nixpkgs": [
@@ -449,11 +429,11 @@
         "treefmt-nix": "treefmt-nix_2"
       },
       "locked": {
-        "lastModified": 1766224085,
-        "narHash": "sha256-hZbaqww++6dh2324Us3h868BZWDAzZViiB4c6/i/BDo=",
+        "lastModified": 1786189893,
+        "narHash": "sha256-7iy5fo8tZ7BFw4Tgz6msS9B34xs1g7GVr9M6wU2XEJI=",
         "owner": "imiric",
         "repo": "qml-niri",
-        "rev": "39e9c83d908318032ccd5330b1ad77764b498eb8",
+        "rev": "93e603901bed2c4465d5675ae43fd52b7f7c4adf",
         "type": "github"
       },
       "original": {
@@ -470,11 +450,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1766725085,
-        "narHash": "sha256-O2aMFdDUYJazFrlwL7aSIHbUSEm3ADVZjmf41uBJfHs=",
+        "lastModified": 1787994703,
+        "narHash": "sha256-6SUZyyALo19heYPa/Xmu2H4zV+wvdfVX4fTcqbgHRnI=",
         "owner": "quickshell-mirror",
         "repo": "quickshell",
-        "rev": "41828c4180fb921df7992a5405f5ff05d2ac2fff",
+        "rev": "2d3b3e9c70ef380dff751b61d334dc88df016c29",
         "type": "github"
       },
       "original": {
@@ -485,7 +465,6 @@
     },
     "root": {
       "inputs": {
-        "catppuccin": "catppuccin",
         "charmbracelet": "charmbracelet",
         "deploy-rs": "deploy-rs",
         "disko": "disko",
@@ -633,11 +612,11 @@
         "quickshell": "quickshell"
       },
       "locked": {
-        "lastModified": 1768120295,
-        "narHash": "sha256-SBXQPUpgvZVgH7rRvGT+fwIjTdHQnkdSFT8TF0tusD8=",
+        "lastModified": 1789066782,
+        "narHash": "sha256-nyThyxLpMr+JgW4Y70Z1CylL5t853cWNHN6QafYvnm0=",
         "owner": "Weathercold",
         "repo": "wisp",
-        "rev": "9b265968f3ea118304550365e48ef2ca75184021",
+        "rev": "6f01dc69e0d9f26c3d4d53441c251e626ddf6baf",
         "type": "github"
       },
       "original": {

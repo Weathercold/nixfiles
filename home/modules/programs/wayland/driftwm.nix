@@ -130,6 +130,11 @@ in
       };
 
       window_rules = [
+        # Transient
+        {
+          title = "Noctalia Settings";
+          suspend_on_close = false;
+        }
         # Fullscreen
         {
           title = "Waydroid";
@@ -163,7 +168,7 @@ in
           pinned_to_screen = true;
         }
         {
-          title = "Satty";
+          title = "satty";
           suspend_on_close = false;
           pinned_to_screen = true;
         }

@@ -26,7 +26,7 @@ let
     else
       warn "proxy.json is hidden, configuration is incomplete" { };
 
-  mainModule = {
+  mainModule = { pkgs, ... }: {
     abszero = {
       profiles.desktopWithAI.enable = true;
 
@@ -37,7 +37,6 @@ let
       users.admins = [ "weathercold" ];
 
       services = {
-        displayManager.tuigreet.enable = true;
         hardware.framework_rgbafan = {
           enable = true;
           mode = "smoothspin";
@@ -62,13 +61,7 @@ let
 
       programs.driftwm.enable = true;
 
-      themes.catppuccin = {
-        enable = true;
-        polarity = "dark";
-        fonts.enable = true;
-        plymouth.enable = true;
-        tuigreet.enable = true;
-      };
+      themes.noctalia.fonts.enable = true;
     };
 
     disko.devices.disk.nvme0n1 = {
@@ -145,8 +138,6 @@ let
       };
     };
 
-    catppuccin.accent = "pink";
-
     nixpkgs.config.rocmSupport = true; # For ComfyUI
 
     users.users = rec {
@@ -162,7 +153,16 @@ let
 
     networking = { inherit domain; };
 
-    services.comfyui.acceleration = "rocm";
+    services = {
+      comfyui.acceleration = "rocm";
+      displayManager.noctalia-greeter = {
+        cursorTheme = {
+          name = "aris-cursors";
+          package = pkgs.aris-cursors;
+        };
+        settings.cursor.size = 96;
+      };
+    };
   };
 
   configModule = submodule: {

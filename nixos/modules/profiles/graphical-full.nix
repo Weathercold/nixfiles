@@ -46,6 +46,13 @@ in
     virtualisation.waydroid.enable = true;
 
     services = {
+      displayManager.noctalia-greeter = {
+        enable = true;
+        settings = {
+          appearance.hide_logo = true;
+          idle.timeout = 600;
+        };
+      };
       flatpak.enable = true;
       protonmail-bridge.enable = true;
     };
