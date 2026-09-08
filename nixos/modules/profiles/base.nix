@@ -142,7 +142,10 @@ in
     };
 
     services = {
-      journald.console = "/dev/tty10";
+      journald.settings.Journal = {
+        ForwardToConsole = true;
+        TTYPath = "/dev/tty10";
+      };
       userborn.enable = true; # Manage users with userborn; required for nixos-init
     };
 

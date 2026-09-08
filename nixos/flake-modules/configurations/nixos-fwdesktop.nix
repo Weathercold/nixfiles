@@ -12,6 +12,7 @@ let
     mkEnableOption
     mkOption
     mkIf
+    mkAfter
     singleton
     recursiveUpdate
     ;
@@ -173,9 +174,9 @@ let
 
     config.modules = [
       {
-        nix.settings.substituters = mkIf submodule.config.substituters.${hostName}.enable [
+        nix.settings.substituters = mkIf submodule.config.substituters.${hostName}.enable (mkAfter [
           "ssh-ng://weathercold@${hostName}.${domain}:1337?trusted=true"
-        ];
+        ]);
       }
       {
         nix = mkIf submodule.config.buildMachines.${hostName}.enable {
@@ -194,7 +195,7 @@ let
               "nixos-test"
             ];
           };
-          # For builders with faster Internet than the local machine
+          # For builders with faster connection to substitutes than to the local machine
           settings.builders-use-substitutes = true;
         };
       }
