@@ -31,7 +31,6 @@ in
         };
       };
       programs = {
-        # pot.enable = true;
         steam.enable = true;
         wireshark.enable = true;
       };
@@ -76,6 +75,7 @@ in
         git-absorb
         git-secret
         goldendict-ng
+        gpclient
         hyperfine
         inkscape
         inotify-tools
