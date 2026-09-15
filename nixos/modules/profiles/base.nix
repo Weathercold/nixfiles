@@ -59,6 +59,7 @@ in
         keep-outputs = true
         keep-derivations = true
         connect-timeout = 10
+        stalled-download-timeout = 30
       '';
     };
 
