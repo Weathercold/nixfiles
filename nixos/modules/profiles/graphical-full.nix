@@ -103,7 +103,7 @@ in
         wl-clipboard-rs
         xeyes
         ytmdesktop
-        zotero
+        # zotero
       ];
     };
   };
