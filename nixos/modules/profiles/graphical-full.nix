@@ -74,6 +74,7 @@ in
         gh
         git-absorb
         git-secret
+        godot
         goldendict-ng
         gpclient
         hyperfine
