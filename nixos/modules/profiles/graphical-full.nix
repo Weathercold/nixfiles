@@ -90,6 +90,7 @@ in
         obsidian
         proton-pass
         proton-vpn
+        skills
         taisei
         tenacity
         tetrio-desktop
