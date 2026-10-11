@@ -36,6 +36,8 @@ let
       name = "aris-cursors";
       package = pkgs.aris-cursors;
     };
+
+    programs.opencode.web.enable = true;
   };
 
   configModule = {
