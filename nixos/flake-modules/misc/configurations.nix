@@ -65,7 +65,6 @@ in
           inputs.nixified-ai.nixosModules.comfyui
           inputs.driftwm.nixosModules.driftwm
           inputs.wisp.nixosModules.wisp
-          inputs.charmbracelet.nixosModules.crush
           inputs.sops.nixosModules.sops
           inputs.disko.nixosModules.disko
           inputs.lanzaboote.nixosModules.lanzaboote
@@ -75,6 +74,7 @@ in
           {
             disabledModules = flatten [
               ../../../lib/modules/themes/catppuccin/catppuccin.nix
+              ../../modules/programs/crush.nix
               (toModuleList ../../modules/themes/catppuccin)
             ];
             nixpkgs.overlays = [

@@ -1,10 +1,5 @@
 # Desktop running local AI
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}:
+{ config, lib, ... }:
 
 let
   inherit (lib) mkEnableOption mkIf;

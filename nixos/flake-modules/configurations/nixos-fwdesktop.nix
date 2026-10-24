@@ -138,8 +138,6 @@ let
       };
     };
 
-    nixpkgs.config.rocmSupport = true; # For ComfyUI
-
     users.users = rec {
       weathercold = {
         description = "Weathercold";
