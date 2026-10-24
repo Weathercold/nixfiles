@@ -47,6 +47,7 @@ in
     services = {
       displayManager.noctalia-greeter = {
         enable = true;
+        passwordlessSyncUsers = config.abszero.users.admins;
         settings = {
           appearance.hide_logo = true;
           idle.timeout = 600;
