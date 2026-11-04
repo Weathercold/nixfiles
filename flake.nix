@@ -9,15 +9,12 @@
   inputs = {
     # Repos
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-patch-rocm-kitchen = {
+      url = "https://github.com/NixOS/nixpkgs/pull/562637.diff";
+      flake = false;
+    };
     nix-cachyos-kernel = {
       url = "github:xddxdd/nix-cachyos-kernel/release";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-parts.follows = "flake-parts";
-      };
-    };
-    nixified-ai = {
-      url = "github:nixified-ai/flake";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-parts.follows = "flake-parts";
