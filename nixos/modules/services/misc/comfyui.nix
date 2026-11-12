@@ -18,8 +18,8 @@ in
     comfyui = {
       enable = true;
       extraArgs = [
-        "--highvram"
-        "--use-pytorch-cross-attention"
+        # "--highvram"
+        # "--use-pytorch-cross-attention"
         "--enable-triton-backend"
         "--enable-manager"
       ];
@@ -28,9 +28,12 @@ in
         with pkgs;
         with comfyPkgs;
         [
-          comfyui-anima-booster
           comfyui-manager
-          # comfyui-res4lyf
+          matplotlib # RES4LYF
+          numpy # RES4LYF
+          opencv-python # RES4LYF
+          pywavelets # RES4LYF
+          scikit-image # RES4LYF
         ]
         # Install dependencies for plugins managed by ComfyUI-Manager
         ++ (comfyui-lora-manager.override { python3 = python; }).propagatedBuildInputs;
