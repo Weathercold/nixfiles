@@ -41,7 +41,8 @@ let
     modules = singleton {
       config.programs.helix.languages.language-server.ai.config.models = {
         "qwen3.8-flash-next".chat_endpoint = "http://nixos-fwdesktop.ts.net:11434/v1/chat/completions";
-        "qwen3.8-flash-next-instruct".chat_endpoint = "http://nixos-fwdesktop.ts.net:11434/v1/chat/completions";
+        "qwen3.8-flash-next-instruct".chat_endpoint =
+          "http://nixos-fwdesktop.ts.net:11434/v1/chat/completions";
       };
     };
   };
